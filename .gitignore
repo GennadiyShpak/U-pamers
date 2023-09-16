@@ -1,5 +1,3 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
 # Compiled output
 /dist
 /tmp
@@ -10,15 +8,31 @@
 /node_modules
 npm-debug.log
 yarn-error.log
+yarn.lock
 
 # IDEs and editors
 .idea/
+*.ipr
+*.iws
+*.iml
 .project
 .classpath
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
 
 # Visual Studio Code
 .vscode/*
@@ -40,3 +54,27 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+# Python files to ignore
+venv/
+
+*.pyc
+__pycache__/
+
+instance/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+dist/
+build/
+artifacts/
+*.egg-info/
+
+# Coverage #
+/coverage/
+
+# Run programm files
+*.dot
