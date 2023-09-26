@@ -9,10 +9,10 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: APP_ROUTER_NAME.auth,
-    loadChildren: () => import('./auth/container/auth.routes').then(m => m.AUTH_ROUTES)
+    loadChildren: () => import('./auth/container/auth.routes')
   },
   {
     path: APP_ROUTER_NAME.main,
-    loadChildren: () => import('./main/container/main.routes').then(m => m.MAIN_ROUTES)
+    loadChildren: () => import('./main/container/main.routes')
   }
 ];
