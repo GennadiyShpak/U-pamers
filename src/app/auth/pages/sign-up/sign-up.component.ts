@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'epm-auth',
+  selector: 'epm-sign-up',
   standalone: true,
   imports: [CommonModule, RouterOutlet],
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss']
 })
-export class AuthComponent {}
+export class SignUpComponent {}

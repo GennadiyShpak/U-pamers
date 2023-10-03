@@ -1,0 +1,7 @@
+<p>Sign In</p>
+<form>
+  <button type="button" (click)="onSignIn()">Sign In</button>
+</form>
+<a [routerLink]="['/', appRoutes.Auth, appRoutes.ForgotPass]">Forgot password?</a>
+<p>New user</p>
+<button type="button" [routerLink]="['/', appRoutes.Auth, appRoutes.SignUp]">Sign Up</button>
