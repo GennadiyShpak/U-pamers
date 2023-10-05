@@ -14,5 +14,9 @@ export const APP_ROUTES: Routes = [
   {
     path: APP_ROUTER_NAME.main,
     loadChildren: () => import('./main/container/main.routes')
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./shared/components/not-found/not-found.component')
   }
 ];
