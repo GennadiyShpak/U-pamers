@@ -1,3 +1,5 @@
+import { Routes } from '@angular/router';
+
 import { AuthComponent } from './auth.component';
 import { APP_ROUTER_NAME } from '../../app.config';
 import { LogInComponent } from '../pages/log-in/log-in.component';
@@ -30,4 +32,4 @@ export default [
       }
     ]
   }
-];
+] as Routes;
