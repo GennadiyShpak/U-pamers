@@ -10,5 +10,5 @@ import { APP_ROUTER_NAME } from '../../../app.config';
   styleUrls: ['./not-found.component.scss']
 })
 export default class NotFoundComponent {
-  readonly linkTo: string[] = ['/', APP_ROUTER_NAME.main];
+  readonly linkTo: string[] = ['/', APP_ROUTER_NAME.Main];
 }

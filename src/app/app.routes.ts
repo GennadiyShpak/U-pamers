@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { APP_ROUTER_NAME } from './app.config';
 
 export const APP_ROUTES: Routes = [

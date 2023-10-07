@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'epm-main',
+  selector: 'epm-profile-settings',
   standalone: true,
   imports: [CommonModule, RouterOutlet],
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  templateUrl: './profile-settings.component.html',
+  styleUrls: ['./profile-settings.component.scss']
 })
-export class MainComponent {}
+export class ProfileSettingsComponent {}

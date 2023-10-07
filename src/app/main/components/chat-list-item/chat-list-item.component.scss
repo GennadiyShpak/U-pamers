@@ -1,0 +1,63 @@
+@import 'variables';
+
+:host {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+}
+
+.avatar {
+  margin-right: 8px;
+
+  &-wrapper {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    & img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  padding: 0 0 12px 8px;
+  border-bottom: 1px solid $color-message-border;
+
+  &-head {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-name {
+    display: inline-block;
+    padding-right: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &-time {
+    flex-shrink: 1;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &-preview {
+    margin-top: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+  }
+}
