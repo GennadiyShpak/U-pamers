@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
-import { HeaderComponent } from '../components/header/header.component';
-
 @Component({
   selector: 'epm-main',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })

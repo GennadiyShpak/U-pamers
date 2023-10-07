@@ -21,9 +21,7 @@ export class ContactListComponent {
   constructor(private router: Router) {}
 
   onOpenUser(userId: string) {
-    if (userId) {
-      this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Contact}/${userId}`);
-    }
+    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Contact}/${userId}`);
   }
 
   trackByUserId(_index: number, user: UserDetailed): string {

@@ -20,9 +20,7 @@ export class ChatListComponent {
   constructor(private router: Router) {}
 
   onOpenChat(userId: string) {
-    if (userId) {
-      this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${userId}`);
-    }
+    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${userId}`);
   }
 
   trackByUserId(_index: number, chat: ChatLastMessage): string {

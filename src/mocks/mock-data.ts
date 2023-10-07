@@ -5,7 +5,7 @@ export const CHATS: ChatLastMessage[] = [
     name: 'Lola',
     surname: 'Smith',
     userId: '1',
-    avatarUrl: '/mocks/img/user_1.jpg',
+    avatarUrl: '/mocks/img/cat.jpg',
     lastMessageDateTime: '10:00 AM',
     lastMessage: 'Halo! Good Morning, whats up man?'
   },
@@ -13,7 +13,7 @@ export const CHATS: ChatLastMessage[] = [
     name: 'Ali',
     surname: 'Connors',
     userId: '2',
-    avatarUrl: '/mocks/img/user_2.jpg',
+    avatarUrl: '/mocks/img/woman.jpg',
     lastMessageDateTime: '11:30 AM',
     lastMessage: 'So yes, the alcohol (ethanol) in hand sanitizers can be absorbed through the skin, but no, it would '
   },
