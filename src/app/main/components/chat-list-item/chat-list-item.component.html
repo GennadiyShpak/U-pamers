@@ -1,0 +1,14 @@
+<div class="avatar">
+  <div class="avatar-wrapper">
+    <img width="50" height="50" [ngSrc]="chat.avatarUrl" alt="user avatar" />
+  </div>
+</div>
+<div class="message">
+  <div class="message-head">
+    <b class="message-name">{{ chat.name }} {{ chat.surname }}</b>
+    <span class="message-time">{{ chat.lastMessageDateTime }}</span>
+  </div>
+  <div class="message-preview-wrapper">
+    <p class="message-preview">{{ chat.lastMessage }}</p>
+  </div>
+</div>

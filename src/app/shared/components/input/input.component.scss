@@ -1,0 +1,63 @@
+@import 'variables';
+
+:host {
+  position: relative;
+}
+
+.epm-input__wrapper {
+  height: 100%;
+  color: $text-secondary;
+
+  .input {
+    width: 100%;
+    height: 100%;
+    padding: 24px 16px 8px;
+    font-size: $font-size-regular;
+    font-weight: $font-weight-medium;
+    color: $text-dark-grey;
+    border: 1px solid $color-light-grey;
+    border-radius: 8px;
+
+    &:focus {
+      outline: none;
+      border-color: $input-border-focused;
+      box-shadow: 0 0 0 1px $input-border-focused;
+    }
+  }
+
+  .placeholder {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    transition: 0.2s ease all;
+    pointer-events: none;
+  }
+
+  .input:focus ~ .placeholder,
+  .filled {
+    top: 8px;
+    font-size: $font-size-label;
+    font-weight: $font-weight-regular;
+  }
+}
+
+.socials {
+  &::before {
+    content: var(--before-content);
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 24px;
+    height: 24px;
+  }
+
+  &.epm-input__wrapper {
+    .input {
+      padding-left: 48px;
+    }
+
+    .placeholder {
+      left: 48px;
+    }
+  }
+}

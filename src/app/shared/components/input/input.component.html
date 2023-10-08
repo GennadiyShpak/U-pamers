@@ -1,0 +1,6 @@
+<div #socials class="epm-input__wrapper" [ngClass]="{ socials: icon }">
+  <input #input class="input" [name]="placeholder" [type]="type" (input)="onValueChange()" />
+  <label [for]="placeholder" class="placeholder" [ngClass]="{ filled: input.value }">
+    {{ placeholder }}
+  </label>
+</div>
