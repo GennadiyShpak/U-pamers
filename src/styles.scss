@@ -1,4 +1,9 @@
-@import 'styles/reset';
+@import 'fonts';
 @import 'styles/variables';
+@import 'styles/reset';
 @import 'styles/mixins';
 @import 'styles/styles';
+
+body {
+  font-family: $font-family-inter500;
+}
