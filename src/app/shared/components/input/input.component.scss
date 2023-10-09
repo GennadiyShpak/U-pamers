@@ -1,19 +1,38 @@
 @import 'variables';
-
-:host {
-  position: relative;
-}
+@import 'mixins';
 
 .epm-input__wrapper {
+  width: 100%;
   height: 100%;
   color: $text-secondary;
+  background-color: transparent;
+  position: absolute;
+  transition: 0.2s ease all;
 
-  .input {
+  &::after {
+    content: attr(data-placeholder);
+    position: absolute;
+    display: inline-block;
+    top: 16px;
+    left: 16px;
+    width: 50px;
+    height: 15px;
+    transition: 0.2s ease all;
+  }
+
+  &:has(.epm-input:focus)::after,
+  &.filled::after {
+    @include font-regular;
+    top: 8px;
+    font-size: $font-size-label;
+  }
+
+  .epm-input {
+    @include font-medium;
     width: 100%;
     height: 100%;
     padding: 24px 16px 8px;
     font-size: $font-size-regular;
-    font-weight: $font-weight-medium;
     color: $text-dark-grey;
     border: 1px solid $color-light-grey;
     border-radius: 8px;
@@ -25,39 +44,22 @@
     }
   }
 
-  .placeholder {
-    position: absolute;
-    top: 14px;
-    left: 18px;
-    transition: 0.2s ease all;
-    pointer-events: none;
-  }
-
-  .input:focus ~ .placeholder,
-  .filled {
-    top: 8px;
-    font-size: $font-size-label;
-    font-weight: $font-weight-regular;
-  }
-}
-
-.socials {
-  &::before {
-    content: var(--before-content);
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    width: 24px;
-    height: 24px;
-  }
-
-  &.epm-input__wrapper {
-    .input {
-      padding-left: 48px;
+  &.nested-icon-input {
+    &::before {
+      content: var(--before-content);
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 24px;
+      height: 24px;
     }
 
-    .placeholder {
+    &::after {
       left: 48px;
+    }
+
+    .epm-input {
+      padding-left: 48px;
     }
   }
 }

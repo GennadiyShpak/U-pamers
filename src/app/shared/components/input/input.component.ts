@@ -17,12 +17,12 @@ export class InputComponent implements AfterViewInit {
 
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
-  @ViewChild('socials', { static: false }) socialsRef!: ElementRef;
+  @ViewChild('wrapper', { static: false }) wrapperRef!: ElementRef;
 
   ngAfterViewInit(): void {
     if (this.icon) {
-      const url = `url('../../../../assets/icons/${this.icon}_24x24.png')`;
-      this.socialsRef.nativeElement.style.setProperty('--before-content', url);
+      const iconUrl = `url('../../../../${this.icon}'`;
+      this.wrapperRef.nativeElement.style.setProperty('--before-content', iconUrl);
     }
   }
 
