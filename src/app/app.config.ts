@@ -23,3 +23,11 @@ export enum SOCIAL_ICONS {
   Telegram = 'assets/icons/telegram_24x24.png',
   none = ''
 }
+
+export enum BUTTON_THEMES {
+  primary = 'primary',
+  inverted = 'inverted',
+  transparent = 'transparent',
+  rounded = 'rounded',
+  roundedInverted = 'rounded_inverted'
+}
