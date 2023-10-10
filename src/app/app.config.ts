@@ -20,5 +20,6 @@ export enum SOCIAL_ICONS {
   Facebook = 'assets/icons/facebook_24x24.png',
   Skype = 'assets/icons/skype_24x24.png',
   LinkedIn = 'assets/icons/linkedin_24x24.png',
-  Telegram = 'assets/icons/telegram_24x24.png'
+  Telegram = 'assets/icons/telegram_24x24.png',
+  none = ''
 }
