@@ -1,0 +1,48 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  &.primary > .button,
+  &.rounded > .button {
+    color: $color-white;
+    background-color: $color-button-rested;
+  }
+
+  &.inverted > .button,
+  &.rounded_inverted > .button {
+    color: $color-button-rested;
+    background-color: $color-button-rested-halftone;
+  }
+
+  &.rounded > .button,
+  &.rounded_inverted > .button {
+    width: auto;
+    padding: 12px 48px;
+    border-radius: 33px;
+  }
+
+  &.rounded_inverted > .button {
+    @include font-medium;
+  }
+
+  &.transparent > .button {
+    padding: 12px 48px;
+    color: $color-button-rested;
+    background-color: transparent;
+    border: 1px solid $color-button-rested;
+  }
+}
+
+.button {
+  @include font-semibold;
+  width: 100%;
+  padding: 16px 48px;
+  text-align: center;
+  line-height: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
