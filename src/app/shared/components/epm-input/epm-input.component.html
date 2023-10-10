@@ -1,0 +1,8 @@
+<label
+  #wrapper
+  class="epm-input__wrapper"
+  [attr.data-placeholder]="placeholder"
+  [ngClass]="{ 'nested-icon-input': icon, filled: epmInput.value }"
+>
+  <input #epmInput class="epm-input" [type]="type" (input)="onValueChange(epmInput.value)" />
+</label>
