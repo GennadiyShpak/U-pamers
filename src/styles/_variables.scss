@@ -1,17 +1,43 @@
-// ***COLORS***
-$color-white: #fff;
+// ***MAIN COLORS***
+$color-white: #ffffff;
+$color-lightest-grey: #f2f3f7;
 $color-message-border: #e8e8e8;
 $color-light-grey: #e5e5e8;
+$color-light-blue: #eef5fc;
+$color-chat-input: #ecf0f0;
+$color-sky: #cdcfd0;
+$color-blue: #c0cddf;
+$color-grey: #a5a8ba;
+$color-dark-grey: #25272d;
+$color-input-focused: #315cad;
+$color-primary-base: #6b4eff;
+$color-icon-default: #3e444c;
+$color-icon-negative: #e6674e;
 
-$text-dark-grey: #25272d;
-$text-secondary: #66666f;
+// ***SHADOWS COLORS***
+$color-shadow: rgba(20, 20, 20, 0.08);
+$color-shadow-filter: rgba(20, 20, 20, 0.04);
+$color-shadow-modal: rgba(44, 39, 39, 0.5);
+$color-shadow-chat: rgba(0, 0, 0, 0.08);
 
-$input-border-focused: #315cad;
-
-$color-button-rested: #335ead;
-$color-button-rested-halftone: #d2e9ff;
+// ***BUTTONS COLORS***
 $color-button-rested-lightest: #e7e7ff;
+$color-button-rested-halftone: #daecff;
+$color-button-rested: #335ead;
 
-//***FONT-SIZES***
+// ***TEXT COLORS***
+$text-disabled: #b3b5c0;
+$text-lighter: #72777a;
+$text-secondary: #66666f;
+$text-grey: #4d4c52;
+$text-black-grey: #3d4260;
+$text-darkest: #090a0a;
+$text-black: #000000;
+
+// ***FONT-SIZES***
 $font-size-label: 12px;
+$font-size-body: 14px;
 $font-size-regular: 16px;
+$font-size-h3: 18px;
+$font-size-h2: 24px;
+$font-size-h1: 32px;
