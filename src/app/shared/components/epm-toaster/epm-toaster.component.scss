@@ -3,24 +3,25 @@
 
 :host {
   display: block;
-  overflow: hidden;
   width: 375px;
+  max-height: 150px;
   margin: 0 auto;
   background-color: $color-lightest-grey;
-  border-top: 3px solid $color-button-rested;
+  border-bottom: 1px solid $color-link;
+  overflow: hidden;
 }
 
-.attention {
+.toaster {
   &__content {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 20px 12px;
+    padding: 20px 16px;
     line-height: 20px;
 
     &::before {
-      content: url('/assets/icons/info.png');
+      content: url('/assets/icons/info.svg');
       position: absolute;
       width: 24px;
       height: 24px;
@@ -41,12 +42,11 @@
     color: $text-secondary;
   }
 
-  &__icon {
+  &__close-btn {
     position: absolute;
     top: 20px;
     right: 14px;
     width: 24px;
     height: 24px;
-    background-image: url('/assets/icons/close.png');
   }
 }

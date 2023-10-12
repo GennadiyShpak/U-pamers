@@ -33,6 +33,14 @@ export enum BUTTON_THEMES {
 }
 
 export enum COMMON_ICONS {
-  Close = 'assets/icons/close.png',
-  Info = 'assets/icons/info.png'
+  Close = 'assets/icons/close.svg',
+  Info = 'assets/icons/info.svg'
+}
+
+export enum TOASTER_CONTENT {
+  LoginOfferTitle = 'Wanna connect with U-pamers?',
+  LoginOfferDescription = 'Start your journey with login.',
+  FillProfileOfferTitle = 'Wanna stand out?',
+  FillProfileOfferDescription = 'Help others connect with you faster you by ',
+  FillProfileOfferLink = 'adding more profile details'
 }

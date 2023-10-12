@@ -1,8 +1,7 @@
 <epm-header />
-<epm-attention
-  [title]="'Wanna connect with U-pamers? Wa nna connect with U-pamers?'"
-  [description]="'Start your journey with login.Start your journey with login.Start your journey with login.'"
-/>
+<epm-toaster [title]="TOASTER_CONTENT.LoginOfferTitle">
+  <span>{{ TOASTER_CONTENT.LoginOfferDescription }}</span>
+</epm-toaster>
 <div class="container">
   <router-outlet />
 </div>
