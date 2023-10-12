@@ -1,0 +1,52 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: block;
+  overflow: hidden;
+  width: 375px;
+  margin: 0 auto;
+  background-color: $color-lightest-grey;
+  border-top: 3px solid $color-button-rested;
+}
+
+.attention {
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 12px;
+    line-height: 20px;
+
+    &::before {
+      content: url('/assets/icons/info.png');
+      position: absolute;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__title {
+    @include font-semibold;
+    padding: 0 36px;
+    font-size: $font-size-regular;
+    color: $color-dark-grey;
+  }
+
+  &__description {
+    @include font-medium;
+    padding: 0 36px;
+    font-size: $font-size-body;
+    color: $text-secondary;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 20px;
+    right: 14px;
+    width: 24px;
+    height: 24px;
+    background-image: url('/assets/icons/close.png');
+  }
+}

@@ -31,3 +31,8 @@ export enum BUTTON_THEMES {
   rounded = 'rounded',
   roundedInverted = 'rounded_inverted'
 }
+
+export enum COMMON_ICONS {
+  Close = 'assets/icons/close.png',
+  Info = 'assets/icons/info.png'
+}
