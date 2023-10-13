@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { HeaderComponent } from './shared/components/header/header.component';
+import { EpmHeaderComponent } from './shared/components/epm-header/epm-header.component';
 
 @Component({
   selector: 'epm-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [RouterModule, HeaderComponent],
+  imports: [RouterModule, EpmHeaderComponent],
   standalone: true
 })
 export class AppComponent {}
