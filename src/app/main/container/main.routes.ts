@@ -11,47 +11,47 @@ export default [
   {
     path: '',
     component: MainComponent,
-    data: headerSettingsSet.mainRoot,
+    data: headerSettingsSet['mainRoot'],
     children: [
       {
         path: '',
         redirectTo: APP_ROUTER_NAME.Contact,
         pathMatch: 'full',
-        data: headerSettingsSet.mainRoot
+        data: headerSettingsSet['mainRoot']
       },
       {
         path: APP_ROUTER_NAME.Contact,
         component: ContactListComponent,
-        data: headerSettingsSet.mainRoot,
+        data: headerSettingsSet['mainRoot'],
         title: 'U-PAMERS'
       },
       {
         path: `${APP_ROUTER_NAME.Contact}/:userId`,
         component: ContactComponent,
-        data: headerSettingsSet.mainRoot
+        data: headerSettingsSet['contacts']
       },
       {
         path: APP_ROUTER_NAME.Chat,
         component: ChatListComponent,
         title: 'U-PAMERS | Chat',
-        data: headerSettingsSet.chats
+        data: headerSettingsSet['chats']
       },
       {
         path: `${APP_ROUTER_NAME.Chat}/:userId`,
         component: ChatComponent,
-        data: headerSettingsSet.chats
+        data: headerSettingsSet['chats']
       },
       {
         path: APP_ROUTER_NAME.MyProfile,
         loadComponent: () => import('../pages/profile/profile.component'),
         title: 'U-PAMERS | My Profile',
-        data: headerSettingsSet.myProfile
+        data: headerSettingsSet['myProfile']
       },
       {
         path: APP_ROUTER_NAME.ProfileSettings,
         loadChildren: () => import('../pages/profile-settings/profile-settings.routes'),
         title: 'U-PAMERS | Profile Settings',
-        data: headerSettingsSet.profileSettings
+        data: headerSettingsSet['profileSettings']
       }
     ]
   }

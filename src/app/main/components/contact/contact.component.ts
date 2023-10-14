@@ -24,6 +24,10 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setTitles();
+  }
+
+  private setTitles(): void {
     if (this.user) {
       this.title.setTitle(`U-PAMERS | ${this.user.name} ${this.user.surname} profile`);
       this.headerService.addTitle(`${this.user.name} ${this.user.surname}`);

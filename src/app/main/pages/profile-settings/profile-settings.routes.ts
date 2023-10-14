@@ -1,4 +1,4 @@
-import { APP_ROUTER_NAME, HEADER_ICON_KEY } from '../../../app.config';
+import { APP_ROUTER_NAME, headerSettingsSet } from '../../../app.config';
 import { ProfileSettingsComponent } from './profile-settings.component';
 
 export default [
@@ -8,10 +8,7 @@ export default [
       {
         path: '',
         component: ProfileSettingsComponent,
-        data: {
-          leftButton: HEADER_ICON_KEY.Arrow,
-          title: 'My Profile'
-        }
+        data: headerSettingsSet['myProfile']
       },
       {
         path: APP_ROUTER_NAME.Details,
