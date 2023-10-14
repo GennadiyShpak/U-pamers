@@ -1,7 +1,6 @@
 import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map, mergeMap, Observable, tap } from 'rxjs';
-import { Location } from '@angular/common';
 
 import { HeaderSettings } from '../app.model';
 import { headerSettingsSet } from '../app.config';
@@ -12,13 +11,13 @@ import { headerSettingsSet } from '../app.config';
 export class HeaderService {
   headerSettings$: WritableSignal<HeaderSettings> = signal(headerSettingsSet['mainRoot']);
   headerSettings: Signal<HeaderSettings> = computed(this.headerSettings$);
-  private lastRoute = '';
 
+  private lastRoute = '';
   private history: string[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private location: Location
   ) {}
 
   initSubscription(): void {

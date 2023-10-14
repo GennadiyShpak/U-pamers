@@ -1,4 +1,4 @@
-import { HeaderIcons, HeaderSettings, SVGIcon } from './app.model';
+import { HeaderSettings, headerSettingsType } from './app.model';
 
 export enum APP_ROUTER_NAME {
   Auth = 'auth',
@@ -46,7 +46,7 @@ export enum HEADER_ICON_TYPE {
   Arrow = 'arrow'
 }
 
-export const headerSettingsSet: { [key: string]: HeaderSettings } = {
+export const headerSettingsSet: { [key in headerSettingsType]: HeaderSettings } = {
   logIn: {
     leftButton: HEADER_ICON_TYPE.Close,
     title: 'Log in'
