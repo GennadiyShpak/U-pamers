@@ -1,0 +1,8 @@
+<button>
+  <ng-container *ngIf="iconType === headerIconType.Logo; else button">
+    <img ngSrc="/assets/images/header-icon/{{ iconType }}.svg" height="32" width="32" alt="logo" />
+  </ng-container>
+  <ng-template #button>
+    <img ngSrc="/assets/images/header-icon/{{ iconType }}.svg" height="24" width="24" alt="navigate to previous page" />
+  </ng-template>
+</button>

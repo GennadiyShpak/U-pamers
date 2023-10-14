@@ -17,22 +17,22 @@ export default [
       {
         path: APP_ROUTER_NAME.LogIn,
         component: LogInComponent,
-        data: headerSettingsSet.logIn
+        data: headerSettingsSet['logIn']
       },
       {
         path: APP_ROUTER_NAME.SignUp,
         loadComponent: () => import('../pages/sign-up/sign-up.component'),
-        data: headerSettingsSet.signUp
+        data: headerSettingsSet['signUp']
       },
       {
         path: APP_ROUTER_NAME.RestorePassword,
         loadComponent: () => import('../pages/restore-password/restore-password.component'),
-        data: headerSettingsSet.resetPassword
+        data: headerSettingsSet['resetPassword']
       },
       {
         path: APP_ROUTER_NAME.NewPassword,
         loadComponent: () => import('../pages/new-password/new-password.component'),
-        data: headerSettingsSet.newPassword
+        data: headerSettingsSet['newPassword']
       }
     ]
   }

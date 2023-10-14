@@ -1,4 +1,4 @@
-import { HEADER_ICON_KEY, HEADER_RIGHT_BLOCK } from './app.config';
+import { HEADER_ICON_TYPE, HEADER_RIGHT_BLOCK } from './app.config';
 
 export interface SVGIcon {
   src: string;
@@ -7,12 +7,19 @@ export interface SVGIcon {
   link?: string;
 }
 
-export interface HeaderIcons {
-  [key: string]: SVGIcon;
-}
-
 export interface HeaderSettings {
-  leftButton: HEADER_ICON_KEY;
+  leftButton: HEADER_ICON_TYPE;
   title?: string;
   right?: HEADER_RIGHT_BLOCK;
 }
+
+export type headerSettingsType =
+  'logIn'
+  | 'signUp'
+  | 'resetPassword'
+  | 'newPassword'
+  | 'mainRoot'
+  | 'contacts'
+  | 'chats'
+  | 'myProfile'
+  | 'profileSettings';

@@ -1,4 +1,4 @@
-import { HeaderIcons, HeaderSettings, SVGIcon } from './app.model';
+import { HeaderSettings, headerSettingsType } from './app.model';
 
 export enum APP_ROUTER_NAME {
   Auth = 'auth',
@@ -40,80 +40,51 @@ export enum HEADER_RIGHT_BLOCK {
   Skip = 'skip'
 }
 
-export enum HEADER_ICON_KEY {
-  Logo = 'logoIcon',
-  Close = 'closeIcon',
-  Arrow = 'arrowIcon'
+export enum HEADER_ICON_TYPE {
+  Logo = 'logo',
+  Close = 'close',
+  Arrow = 'arrow'
 }
 
-const logoIcon: SVGIcon = {
-  src: '/assets/images/header-icon/logo.svg',
-  alt: 'logo',
-  size: '32',
-  link: '/'
-};
-
-const arrowIcon: SVGIcon = {
-  src: '/assets/images/header-icon/arrow.svg',
-  alt: 'navigate to previous page',
-  size: '24',
-  link: '../'
-};
-
-const closeIcon: SVGIcon = {
-  src: '/assets/images/header-icon/close.svg',
-  alt: 'close',
-  size: '24',
-  link: '/'
-};
-
-const messageIcon: SVGIcon = {
-  src: '/assets/images/header-icon/message.svg',
-  alt: 'new message notification',
-  size: '24'
-};
-
-export const HEADER_ICONS: HeaderIcons = {
-  logoIcon,
-  arrowIcon,
-  closeIcon,
-  messageIcon
-};
-
-export const headerSettingsSet: { [key: string]: HeaderSettings } = {
+export const headerSettingsSet: { [key in headerSettingsType]: HeaderSettings } = {
   logIn: {
-    leftButton: HEADER_ICON_KEY.Close,
+    leftButton: HEADER_ICON_TYPE.Close,
     title: 'Log in'
   },
   signUp: {
-    leftButton: HEADER_ICON_KEY.Close,
+    leftButton: HEADER_ICON_TYPE.Close,
     title: 'Sign Up'
   },
   resetPassword: {
-    leftButton: HEADER_ICON_KEY.Arrow,
+    leftButton: HEADER_ICON_TYPE.Arrow,
     title: 'Reset password'
   },
   newPassword: {
-    leftButton: HEADER_ICON_KEY.Close,
+    leftButton: HEADER_ICON_TYPE.Close,
     title: 'Create new password'
   },
   mainRoot: {
-    leftButton: HEADER_ICON_KEY.Logo,
+    leftButton: HEADER_ICON_TYPE.Logo,
+    title: '',
+    right: HEADER_RIGHT_BLOCK.StatusBar
+  },
+  contacts: {
+    leftButton: HEADER_ICON_TYPE.Arrow,
     title: '',
     right: HEADER_RIGHT_BLOCK.StatusBar
   },
   chats: {
-    leftButton: HEADER_ICON_KEY.Arrow,
+    leftButton: HEADER_ICON_TYPE.Arrow,
     title: 'Chats',
     right: HEADER_RIGHT_BLOCK.StatusBar
   },
   myProfile: {
-    leftButton: HEADER_ICON_KEY.Arrow,
+    leftButton: HEADER_ICON_TYPE.Arrow,
     title: 'My Profile',
     right: HEADER_RIGHT_BLOCK.StatusBar
   },
   profileSettings: {
-    leftButton: HEADER_ICON_KEY.Arrow,
+    leftButton: HEADER_ICON_TYPE.Arrow,
     title: 'Profile Settings',
     right: HEADER_RIGHT_BLOCK.StatusBar
   }

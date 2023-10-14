@@ -24,6 +24,10 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setTitles();
+  }
+
+  private setTitles(): void {
     if (this.chat) {
       this.title.setTitle(`U-PAMERS | ${this.chat.name} ${this.chat.surname} chat`);
       this.headerService.addTitle(`${this.chat.name} ${this.chat.surname}`);

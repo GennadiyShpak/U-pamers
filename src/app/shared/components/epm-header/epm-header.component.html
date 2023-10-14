@@ -1,25 +1,19 @@
 <div class="container">
-  <a
-    *ngIf="headerSettings().leftButton"
-    class="left-icon"
-    [routerLink]="header_icons[headerSettings().leftButton].link"
-  >
-    <img
-      src="{{ header_icons[headerSettings().leftButton].src }}"
-      height="{{ header_icons[headerSettings().leftButton].size }}"
-      width="{{ header_icons[headerSettings().leftButton].size }}"
-      [alt]="header_icons[headerSettings().leftButton].alt"
-    />
-  </a>
+  <epm-navigation-icon [iconType]="headerSettings().leftButton" (click)="back()" />
   <h1 class="title">{{ headerSettings().title }}</h1>
-
-  <ng-container *ngIf="loggedId; then authorized; else unauthorized"></ng-container>
+  <ng-container *ngIf="isAuthorized; then authorized; else unauthorized"></ng-container>
 
   <ng-template #authorized [ngSwitch]="headerSettings().right">
     <ng-container *ngSwitchCase="header_right_block.StatusBar">
       <div class="statusBar">
         <div class="message" [ngClass]="{ new: newMessage() }" [routerLink]="chatLink">
-          <img class="message-icon" height="24" width="24" [ngSrc]="messageIcon.src" alt="message notification" />
+          <img
+            class="message-icon"
+            height="24"
+            width="24"
+            src="/assets/images/header-icon/message.svg"
+            alt="message notification"
+          />
         </div>
         <a class="avatar-wrapper" [routerLink]="myProfileLink">
           <img width="24" height="24" [ngSrc]="avatar.src" alt="user avatar" />
