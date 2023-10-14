@@ -20,20 +20,25 @@ export class HeaderService {
     private router: Router,
     private location: Location
   ) {}
-  // http://localhost:3355/main/chat  |   http://localhost:3355/main/chat/2   |    http://localhost:3355/main/chat
+
   initSubscription(): void {
     this.router.events
       .pipe(
         filter(event => event instanceof NavigationEnd),
         tap(event => {
-          console.log(
-            this.lastRoute !== (event as NavigationEnd).urlAfterRedirects,
-            this.lastRoute,
-            (event as NavigationEnd).urlAfterRedirects
-          );
-          console.log(this.history);
-          if (this.lastRoute !== (event as NavigationEnd).urlAfterRedirects) {
+          if (
+            this.history.length < 2 ||
+            this.history?.[1]?.split('/')?.length < (event as NavigationEnd).urlAfterRedirects.split('/')?.length
+          ) {
             this.history.push((event as NavigationEnd).urlAfterRedirects);
+          }
+
+          if ((event as NavigationEnd).urlAfterRedirects === '/main/contact') {
+            this.history = [];
+          }
+
+          if (this.history.length > 2) {
+            this.history.shift();
           }
         }),
         map(() => this.rootRoute(this.route)),
@@ -51,19 +56,14 @@ export class HeaderService {
   }
 
   back(): void {
-    const lastRoute = this.history.at(-1) || '';
-    const aaa = lastRoute.split('/').slice(0, lastRoute.length - 2);
-    console.log(aaa);
-    this.lastRoute = this.history.at(-2) || '';
-    console.log(this.lastRoute);
-    // console.log(this.history);
-    this.history.pop();
-    if (this.history.length > 0) {
-      this.router.navigate(aaa);
-      // this.location.back();
+    const previousRoutePage = this.history[0].split('/');
+    const currentPage = this.router.url.split('/');
+
+    if (previousRoutePage[2] !== currentPage[2]) {
+      this.router.navigate(previousRoutePage);
     } else {
-      console.log('main');
-      this.router.navigateByUrl('/');
+      const filteredRoute = currentPage.slice(0, -1).join('/');
+      this.router.navigateByUrl(filteredRoute);
     }
   }
 

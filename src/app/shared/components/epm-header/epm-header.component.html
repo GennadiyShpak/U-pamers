@@ -1,5 +1,5 @@
 <div class="container">
-  <epm-navigation-icon [iconType]="headerSettings().leftButton" (click)="back()" />
+  <epm-navigation-icon [iconType]="headerSettings().leftButton" (back)="back()" />
   <h1 class="title">{{ headerSettings().title }}</h1>
   <ng-container *ngIf="isAuthorized; then authorized; else unauthorized"></ng-container>
 
