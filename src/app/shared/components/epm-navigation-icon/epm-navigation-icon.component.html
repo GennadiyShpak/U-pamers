@@ -1,17 +1,27 @@
-<button>
-  <ng-container *ngIf="iconType === headerIconType.Logo; else button">
-    <img ngSrc="/assets/images/header-icon/{{ iconType }}.svg" height="32" width="32" alt="logo" />
-  </ng-container>
-  <ng-template #button>
+<ng-container [ngSwitch]="iconType">
+  <img
+    *ngSwitchCase="headerIconType.Logo"
+    ngSrc="/assets/images/header-icon/{{ iconType }}.svg"
+    height="32"
+    width="32"
+    alt="logo"
+  />
+  <button *ngSwitchCase="headerIconType.Arrow">
     <img
-      ngSrc="/assets/images/header-icon/{{ headerIconType.Arrow }}.svg"
+      ngSrc="/assets/images/header-icon/{{ iconType }}.svg"
       height="24"
       width="24"
       alt="navigate to previous page"
       (click)="onBack()"
     />
-  </ng-template>
-  <ng-template #button>
-    <img ngSrc="/assets/images/header-icon/{{ iconType }}.svg" height="24" width="24" alt="navigate to previous page" />
-  </ng-template>
-</button>
+  </button>
+  <button *ngSwitchCase="headerIconType.Close">
+    <img
+      routerLink="/"
+      ngSrc="/assets/images/header-icon/{{ iconType }}.svg"
+      height="24"
+      width="24"
+      alt="navigate to previous page"
+    />
+  </button>
+</ng-container>

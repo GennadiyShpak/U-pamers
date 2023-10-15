@@ -87,5 +87,20 @@ export const headerSettingsSet: { [key in headerSettingsType]: HeaderSettings } 
     leftButton: HEADER_ICON_TYPE.Arrow,
     title: 'Profile Settings',
     right: HEADER_RIGHT_BLOCK.StatusBar
+  },
+  accountDetails: {
+    leftButton: HEADER_ICON_TYPE.Arrow,
+    title: 'Account Details',
+    right: HEADER_RIGHT_BLOCK.StatusBar
+  },
+  profileInfo: {
+    leftButton: HEADER_ICON_TYPE.Arrow,
+    title: 'Profile Info',
+    right: HEADER_RIGHT_BLOCK.StatusBar
+  },
+  privacy: {
+    leftButton: HEADER_ICON_TYPE.Arrow,
+    title: 'Privacy',
+    right: HEADER_RIGHT_BLOCK.StatusBar
   }
 };

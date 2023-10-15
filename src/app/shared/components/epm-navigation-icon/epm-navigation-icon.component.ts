@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { HEADER_ICON_TYPE } from '../../../app.config';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'epm-navigation-icon',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, RouterLink],
   templateUrl: './epm-navigation-icon.component.html',
   styleUrls: ['./epm-navigation-icon.component.scss']
 })

@@ -8,22 +8,25 @@ export default [
       {
         path: '',
         component: ProfileSettingsComponent,
-        data: headerSettingsSet['myProfile']
+        data: headerSettingsSet['profileSettings']
       },
       {
         path: APP_ROUTER_NAME.Details,
         loadComponent: () => import('../details/details.component'),
+        data: headerSettingsSet['accountDetails'],
         title: 'U-PAMERS | Account Details'
       },
       {
         path: APP_ROUTER_NAME.Info,
         loadComponent: () => import('../info/info.component'),
+        data: headerSettingsSet['profileInfo'],
         title: 'U-PAMERS | Profile Info'
       },
       {
         path: APP_ROUTER_NAME.Privacy,
         loadComponent: () => import('../privacy/privacy.component'),
-        title: 'U-PAMERS | Profile privacy'
+        data: headerSettingsSet['privacy'],
+        title: 'U-PAMERS | Privacy'
       }
     ]
   }
