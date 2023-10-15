@@ -1,0 +1,11 @@
+<div class="toaster__wrapper">
+  <h4 class="toaster__title">{{ toasterMessage().title }}</h4>
+  <p class="toaster__description">
+    <span>{{ toasterMessage().description }}</span>
+    <a class="toaster__toaster-link" [routerLink]="toasterMessage().url">{{ toasterMessage().linkedText }}</a>
+    <span>.</span>
+  </p>
+  <button class="toaster__close-btn" type="button" (click)="onCloseClick()">
+    <img ngSrc="/assets/icons/toaster-icons/{{ closeIcon }}.svg" width="24" height="24" alt="close toaster icon" />
+  </button>
+</div>

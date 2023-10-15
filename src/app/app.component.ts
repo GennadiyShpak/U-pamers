@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 import { EpmHeaderComponent } from './shared/components/epm-header/epm-header.component';
+import { EpmToasterComponent } from './shared/components/epm-toaster/epm-toaster.component';
 
 @Component({
   selector: 'epm-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [RouterModule, EpmHeaderComponent],
+  imports: [RouterOutlet, EpmHeaderComponent, EpmToasterComponent],
   standalone: true
 })
 export class AppComponent {}

@@ -16,13 +16,15 @@ export enum APP_ROUTER_NAME {
   Privacy = 'privacy'
 }
 
+export const  MAIN_ROUTE = '/main/contact';
+
 export enum SOCIAL_ICONS {
-  Teams = 'assets/icons/teams_24x24.png',
-  Instagram = 'assets/icons/instagram_24x24.png',
-  Facebook = 'assets/icons/facebook_24x24.png',
-  Skype = 'assets/icons/skype_24x24.png',
-  LinkedIn = 'assets/icons/linkedin_24x24.png',
-  Telegram = 'assets/icons/telegram_24x24.png',
+  Teams = 'teams',
+  Instagram = 'instagram',
+  Facebook = 'facebook',
+  Skype = 'skype',
+  LinkedIn = 'linkedin',
+  Telegram = 'telegram',
   none = ''
 }
 
@@ -32,6 +34,11 @@ export enum BUTTON_THEMES {
   transparent = 'transparent',
   rounded = 'rounded',
   roundedInverted = 'rounded_inverted'
+}
+
+export enum TOASTER_ICONS {
+  Close = 'close',
+  Info = 'info'
 }
 
 export enum HEADER_RIGHT_BLOCK {
