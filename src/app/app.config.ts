@@ -1,4 +1,4 @@
-import { HeaderSettings, headerSettingsType } from './app.model';
+import { HeaderConfig } from './app.model';
 
 export enum APP_ROUTER_NAME {
   Auth = 'auth',
@@ -16,7 +16,7 @@ export enum APP_ROUTER_NAME {
   Privacy = 'privacy'
 }
 
-export const  MAIN_ROUTE = '/main/contact';
+export const MAIN_ROUTE = '/main/contact';
 
 export enum SOCIAL_ICONS {
   Teams = 'teams',
@@ -29,11 +29,12 @@ export enum SOCIAL_ICONS {
 }
 
 export enum BUTTON_THEMES {
-  primary = 'primary',
-  inverted = 'inverted',
-  transparent = 'transparent',
-  rounded = 'rounded',
-  roundedInverted = 'rounded_inverted'
+  Primary = 'primary',
+  Inverted = 'inverted',
+  Transparent = 'transparent',
+  Rounded = 'rounded',
+  RoundedInverted = 'rounded_inverted',
+  Link = 'link'
 }
 
 export enum TOASTER_ICONS {
@@ -53,7 +54,22 @@ export enum HEADER_ICON_TYPE {
   Arrow = 'arrow'
 }
 
-export const headerSettingsSet: { [key in headerSettingsType]: HeaderSettings } = {
+export const enum HEADER_CONFIG_NAME {
+  logIn = 'logIn',
+  signUp = 'signUp',
+  resetPassword = 'resetPassword',
+  newPassword = 'newPassword',
+  mainRoot = 'mainRoot',
+  contacts = 'contacts',
+  chats = 'chats',
+  myProfile = 'myProfile',
+  profileSettings = 'profileSettings',
+  accountDetails = 'accountDetails',
+  profileInfo = 'profileInfo',
+  privacy = 'privacy'
+}
+
+export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } = {
   logIn: {
     leftButton: HEADER_ICON_TYPE.Close,
     title: 'Log in'
@@ -73,7 +89,8 @@ export const headerSettingsSet: { [key in headerSettingsType]: HeaderSettings } 
   mainRoot: {
     leftButton: HEADER_ICON_TYPE.Logo,
     title: '',
-    right: HEADER_RIGHT_BLOCK.StatusBar
+    right: HEADER_RIGHT_BLOCK.StatusBar,
+    colored: true
   },
   contacts: {
     leftButton: HEADER_ICON_TYPE.Arrow,

@@ -13,15 +13,13 @@ import { HeaderService } from '../../../services/header.service';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-  private readonly chat!: ChatLastMessage;
+  readonly chat: ChatLastMessage = this.router.getCurrentNavigation()?.extras.state as ChatLastMessage;
 
   constructor(
     private title: Title,
     private router: Router,
     private headerService: HeaderService
-  ) {
-    this.chat = this.router.getCurrentNavigation()?.extras.state as ChatLastMessage;
-  }
+  ) {}
 
   ngOnInit() {
     this.setTitles();

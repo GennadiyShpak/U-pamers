@@ -1,27 +1,16 @@
 <ng-container [ngSwitch]="iconType">
   <img
+    class="logo"
     *ngSwitchCase="headerIconType.Logo"
-    ngSrc="/assets/images/header-icon/{{ iconType }}.svg"
-    height="32"
-    width="32"
+    src="/assets/icons/logo.svg"
+    height="24"
+    width="24"
     alt="logo"
   />
   <button *ngSwitchCase="headerIconType.Arrow">
-    <img
-      ngSrc="/assets/images/header-icon/{{ iconType }}.svg"
-      height="24"
-      width="24"
-      alt="navigate to previous page"
-      (click)="onBack()"
-    />
+    <img src="/assets/icons/arrow.svg" height="24" width="24" alt="navigate to previous page" (click)="onBack()" />
   </button>
-  <button *ngSwitchCase="headerIconType.Close">
-    <img
-      routerLink="/"
-      ngSrc="/assets/images/header-icon/{{ iconType }}.svg"
-      height="24"
-      width="24"
-      alt="navigate to previous page"
-    />
-  </button>
+  <a *ngSwitchCase="headerIconType.Close" routerLink="/">
+    <img src="/assets/icons/close.svg" height="24" width="24" alt="navigate to previous page" />
+  </a>
 </ng-container>

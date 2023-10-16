@@ -21,7 +21,8 @@
     border-radius: 33px;
   }
 
-  &.rounded_inverted > .button {
+  &.rounded_inverted > .button,
+  &.link > .button {
     @include font-medium;
   }
 
@@ -30,6 +31,11 @@
     color: $color-button-rested;
     background-color: transparent;
     border: 1px solid $color-button-rested;
+  }
+
+  &.link > .button {
+    padding: 10px 0;
+    color: $color-text-skip;
   }
 }
 

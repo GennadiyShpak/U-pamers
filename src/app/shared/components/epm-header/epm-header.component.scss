@@ -4,7 +4,6 @@
 :host {
   display: flex;
   height: 56px;
-  background-color: $color-white;
   position: relative;
 
   &.shadow {
@@ -16,6 +15,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  &.colored {
+    background-color: $color-header-background;
+  }
 }
 
 .title {
@@ -39,10 +42,11 @@
   &.new {
     &::before {
       position: absolute;
-      left: 15px;
+      right: -2px;
+      top: -1px;
       display: block;
-      width: 12px;
-      height: 12px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background-color: $color-icon-negative;
       content: '';
@@ -57,6 +61,7 @@
     border-radius: 50%;
     overflow: hidden;
     margin-left: 16px;
+    border: 1px solid $color-surface-lightest;
 
     & img {
       object-fit: cover;
@@ -68,6 +73,6 @@
 
 .skip {
   @include font-medium;
-  color: $text-skip;
+  color: $color-text-skip;
   cursor: pointer;
 }

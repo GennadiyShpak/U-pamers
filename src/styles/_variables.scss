@@ -14,6 +14,8 @@ $color-link: #0078ff;
 $color-primary-base: #6b4eff;
 $color-icon-default: #3e444c;
 $color-icon-negative: #e6674e;
+$color-header-background: #25286c;
+$color-surface-lightest: #f4f4ff;
 
 // ***SHADOWS COLORS***
 $color-shadow: rgba(20, 20, 20, 0.08);
@@ -27,14 +29,14 @@ $color-button-rested-halftone: #daecff;
 $color-button-rested: #6168e4;
 
 // ***TEXT COLORS***
-$text-disabled: #b3b5c0;
-$text-lighter: #72777a;
-$text-secondary: #696e84;
-$text-grey: #4d4c52;
-$text-black-grey: #3d4260;
-$text-darkest: #090a0a;
-$text-black: #000000;
-$text-skip: #0078ff;
+$color-text-disabled: #b3b5c0;
+$color-text-lighter: #72777a;
+$color-text-secondary: #696e84;
+$color-text-grey: #4d4c52;
+$color-text-black-grey: #3d4260;
+$color-text-darkest: #090a0a;
+$color-text-black: #000000;
+$color-text-skip: #0078ff;
 
 // ***FONT-SIZES***
 $font-size-label: 12px;

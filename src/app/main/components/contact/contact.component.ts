@@ -13,15 +13,13 @@ import { HeaderService } from '../../../services/header.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  private readonly user!: UserDetailed;
+  readonly user: UserDetailed = this.router.getCurrentNavigation()?.extras.state as UserDetailed;
 
   constructor(
     private title: Title,
     private router: Router,
     private headerService: HeaderService
-  ) {
-    this.user = this.router.getCurrentNavigation()?.extras.state as UserDetailed;
-  }
+  ) {}
 
   ngOnInit() {
     this.setTitles();

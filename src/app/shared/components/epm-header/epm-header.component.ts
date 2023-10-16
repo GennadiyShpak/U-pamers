@@ -3,8 +3,8 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 import { EpmButtonComponent } from '../epm-button/epm-button.component';
-import { APP_ROUTER_NAME, BUTTON_THEMES, HEADER_ICON_TYPE, HEADER_RIGHT_BLOCK } from '../../../app.config';
-import { HeaderSettings } from '../../../app.model';
+import { APP_ROUTER_NAME, BUTTON_THEMES, HEADER_RIGHT_BLOCK } from '../../../app.config';
+import { HeaderConfig } from '../../../app.model';
 import { HeaderService } from '../../../services/header.service';
 import { EpmNavigationIconComponent } from '../epm-navigation-icon/epm-navigation-icon.component';
 
@@ -20,13 +20,13 @@ export class EpmHeaderComponent implements OnInit {
   isAuthorized = true;
   avatar = { src: '/mocks/img/avatar.png' };
 
-  newMessage: Signal<boolean> = signal(true);
-  headerSettings: Signal<HeaderSettings> = this.headerService.headerSettings;
+  newMessage: Signal<boolean> = signal(false);
+  headerSettings: Signal<HeaderConfig> = this.headerService.headerSettings;
 
   readonly myProfileLink: string = `${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.MyProfile}`;
   readonly chatLink: string = `${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}`;
-  readonly button_themes = BUTTON_THEMES;
-  readonly header_right_block = HEADER_RIGHT_BLOCK;
+  readonly buttonThemes: typeof BUTTON_THEMES = BUTTON_THEMES;
+  readonly headerRightBlock: typeof HEADER_RIGHT_BLOCK = HEADER_RIGHT_BLOCK;
 
   constructor(private headerService: HeaderService) {}
 
@@ -41,6 +41,4 @@ export class EpmHeaderComponent implements OnInit {
   back(): void {
     this.headerService.back();
   }
-
-  protected readonly HEADER_ICON_TYPE = HEADER_ICON_TYPE;
 }

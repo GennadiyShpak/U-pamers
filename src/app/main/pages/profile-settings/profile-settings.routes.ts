@@ -1,4 +1,4 @@
-import { APP_ROUTER_NAME, headerSettingsSet } from '../../../app.config';
+import { APP_ROUTER_NAME, HEADER_CONFIG_LIST, HEADER_CONFIG_NAME } from '../../../app.config';
 import { ProfileSettingsComponent } from './profile-settings.component';
 
 export default [
@@ -8,24 +8,24 @@ export default [
       {
         path: '',
         component: ProfileSettingsComponent,
-        data: headerSettingsSet['profileSettings']
+        data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.profileSettings]
       },
       {
         path: APP_ROUTER_NAME.Details,
         loadComponent: () => import('../details/details.component'),
-        data: headerSettingsSet['accountDetails'],
+        data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.accountDetails],
         title: 'U-PAMERS | Account Details'
       },
       {
         path: APP_ROUTER_NAME.Info,
         loadComponent: () => import('../info/info.component'),
-        data: headerSettingsSet['profileInfo'],
+        data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.profileInfo],
         title: 'U-PAMERS | Profile Info'
       },
       {
         path: APP_ROUTER_NAME.Privacy,
         loadComponent: () => import('../privacy/privacy.component'),
-        data: headerSettingsSet['privacy'],
+        data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.privacy],
         title: 'U-PAMERS | Privacy'
       }
     ]
