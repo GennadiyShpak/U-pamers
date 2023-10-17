@@ -30,16 +30,38 @@ export enum SOCIAL_ICONS {
 
 export enum BUTTON_THEMES {
   Primary = 'primary',
-  Inverted = 'inverted',
-  Transparent = 'transparent',
-  Rounded = 'rounded',
-  RoundedInverted = 'rounded_inverted',
+  Secondary = 'secondary',
+  IconRight = 'icon-right',
+  IconOnly = 'icon-only',
+  Small = 'small',
   Link = 'link'
 }
 
 export enum TOASTER_ICONS {
   Close = 'close',
   Info = 'info'
+}
+
+export enum ICON_NAMES {
+  Arrow = 'arrow',
+  Close = 'close',
+  Chat = 'chat',
+  Search = 'search',
+  Filter = 'filter',
+  Edit = 'edit',
+  Checked = 'checked',
+  DoubleChecked = 'double-checked',
+  CircleCheck = 'circle-check',
+  Calendar = 'calendar',
+  Shown = 'shown',
+  Hidden = 'hidden',
+  Info = 'info',
+  Link = 'link',
+  Reload = 'reload',
+  SuccessFilled = 'success-filled',
+  WarningFilled = 'warning-filled',
+  ErrorFilled = 'error-filled',
+  InfoFilled = 'info-filled'
 }
 
 export enum HEADER_RIGHT_BLOCK {
