@@ -15,12 +15,12 @@ import { CHATS } from '../../../../mocks/mock-data';
   styleUrls: ['./chat-list.component.scss']
 })
 export class ChatListComponent {
-  public chats: ChatLastMessage[] = CHATS;
+  public chats: ChatLastMessage[] = CHATS; // Mock data
 
   constructor(private router: Router) {}
 
-  onOpenChat(userId: string) {
-    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${userId}`);
+  onOpenChat(chat: ChatLastMessage) {
+    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${chat.userId}`, { state: chat });
   }
 
   trackByUserId(_index: number, chat: ChatLastMessage): string {

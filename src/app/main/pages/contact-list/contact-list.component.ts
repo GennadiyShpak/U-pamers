@@ -20,8 +20,8 @@ export class ContactListComponent {
 
   constructor(private router: Router) {}
 
-  onOpenUser(userId: string) {
-    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Contact}/${userId}`);
+  onOpenUser(user: UserDetailed) {
+    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Contact}/${user.userId}`, { state: user });
   }
 
   trackByUserId(_index: number, user: UserDetailed): string {
