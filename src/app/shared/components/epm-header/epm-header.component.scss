@@ -18,6 +18,10 @@
 
   &.colored {
     background-color: $color-header-background;
+
+    & .icon {
+      stroke: $color-white;
+    }
   }
 }
 

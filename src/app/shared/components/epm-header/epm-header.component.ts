@@ -20,7 +20,7 @@ export class EpmHeaderComponent implements OnInit {
   isAuthorized = true;
   avatar = { src: '/mocks/img/avatar.png' };
 
-  newMessage: Signal<boolean> = signal(false);
+  newMessage: Signal<boolean> = signal(true);
   headerSettings: Signal<HeaderConfig> = this.headerService.headerSettings;
 
   readonly myProfileLink: string = `${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.MyProfile}`;

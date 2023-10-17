@@ -9,8 +9,9 @@ $color-sky: #cdcfd0;
 $color-blue: #c0cddf;
 $color-grey: #a5a8ba;
 $color-dark-grey: #171a26;
-$color-input-focused: #315cad;
+$color-input-focused: #6168e4;
 $color-link: #0078ff;
+$color-link-pressed: #0067db;
 $color-primary-base: #6b4eff;
 $color-icon-default: #3e444c;
 $color-icon-negative: #e6674e;
@@ -24,14 +25,15 @@ $color-shadow-modal: rgba(44, 39, 39, 0.5);
 $color-shadow-chat: rgba(0, 0, 0, 0.08);
 
 // ***BUTTONS COLORS***
-$color-button-rested-lightest: #e7e7ff;
-$color-button-rested-halftone: #daecff;
-$color-button-rested: #6168e4;
+$color-button-disabled-halftone: #f2f3f7;
+$color-button-primary: #6168e4;
+$color-button-primary-pressed: #5538ee;
 
 // ***TEXT COLORS***
 $color-text-disabled: #b3b5c0;
 $color-text-lighter: #72777a;
-$color-text-secondary: #696e84;
+$color-text-secondary: #65697e;
+$color-text-primary: #1f1f26;
 $color-text-grey: #4d4c52;
 $color-text-black-grey: #3d4260;
 $color-text-darkest: #090a0a;
@@ -45,3 +47,6 @@ $font-size-regular: 16px;
 $font-size-h3: 18px;
 $font-size-h2: 24px;
 $font-size-h1: 32px;
+
+$button-size: 52px;
+$button-size-small: 40px;

@@ -2,7 +2,16 @@
   #wrapper
   class="epm-input__wrapper"
   [attr.data-placeholder]="placeholder"
-  [ngClass]="{ 'nested-icon-input': icon, filled: epmInput.value }"
+  [ngClass]="{ 'nested-icon-input': iconName, filled: epmInput.value }"
 >
-  <input #epmInput class="epm-input" [type]="type" (input)="onValueChange(epmInput.value)" />
+  <input #epmInput class="epm-input" [type]="type" [formControl]="control" />
+  <span class="epm-input__error-message" *ngIf="control.touched && control.errors">{{ errorMessage }}</span>
+  <button *ngIf="isPasswordType" class="epm-input__toggle-visibility" (click)="onToggleClick()">
+    <img
+      ngSrc="/assets/icons/password-{{ epmInput.type === inputTypes.Password ? 'hidden' : 'visible' }}.svg"
+      width="24"
+      height="24"
+      alt="{{ epmInput.type === inputTypes.Password ? 'password hidden' : 'password visible' }}"
+    />
+  </button>
 </label>

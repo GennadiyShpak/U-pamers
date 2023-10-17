@@ -2,13 +2,13 @@
 @import 'mixins';
 
 .epm-input {
-  @include font-medium;
+  @include font-regular;
   width: 100%;
-  height: 100%;
   padding: 24px 16px 8px;
   font-size: $font-size-regular;
   line-height: 20px;
-  color: $text-dark-grey;
+  color: $color-text-primary;
+  background-color: $color-white;
   border: 1px solid $color-grey;
   border-radius: 8px;
 
@@ -18,31 +18,35 @@
     box-shadow: 0 0 0 1px $color-input-focused;
   }
 
+  &.ng-invalid {
+    &:is(.ng-dirty, .ng-touched) {
+      border-color: $color-icon-negative;
+      box-shadow: 0 0 0 1px $color-icon-negative;
+    }
+  }
+
   &__wrapper {
     position: relative;
     display: inline-block;
     width: 100%;
-    height: 100%;
     color: $color-text-secondary;
-    background-color: transparent;
     transition: 0.2s ease all;
 
     &.nested-icon-input {
-      & > .epm-input {
-        padding-left: 48px;
-      }
+      padding-left: 38px;
 
       &::before {
         content: var(--before-content);
         position: absolute;
-        top: 12px;
-        left: 12px;
+        top: 14px;
+        left: 0;
         width: 24px;
         height: 24px;
       }
 
       &::after {
-        left: 48px;
+        max-width: calc(100% - 32px);
+        padding-left: 38px;
       }
     }
 
@@ -50,7 +54,15 @@
     &:has(.epm-input:focus)::after {
       top: 8px;
       font-size: $font-size-label;
-      line-height: 15px;
+      line-height: 12px;
+    }
+
+    &:has(.epm-input__toggle-visibility)::after {
+      max-width: calc(100% - 64px);
+    }
+
+    &:has(.epm-input__toggle-visibility) > .epm-input {
+      padding-right: 48px;
     }
 
     &::after {
@@ -60,9 +72,34 @@
       display: inline-block;
       top: 16px;
       left: 16px;
-      width: 50px;
-      height: 15px;
+      max-width: calc(100% - 32px);
+      height: 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       transition: 0.2s ease all;
+    }
+  }
+
+  &__toggle-visibility {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__error-message {
+    @include font-regular;
+    display: flex;
+    gap: 4px;
+    font-size: $font-size-label;
+    line-height: 16px;
+    color: $color-icon-negative;
+    margin-top: 4px;
+
+    &::before {
+      content: url('/assets/icons/error-small.svg');
     }
   }
 }

@@ -1,6 +1,15 @@
+@import 'variables';
+
 .container {
   margin: 0 auto;
   padding: 0 16px;
   width: 375px;
   background-color: white;
+}
+
+svg {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  stroke: $color-dark-grey;
 }
