@@ -16,7 +16,7 @@ export enum APP_ROUTER_NAME {
   Privacy = 'privacy'
 }
 
-export const MAIN_ROUTE = '/main/contact';
+export const CONTACT_ROUTE = '/main/contact';
 
 export enum SOCIAL_ICONS {
   Teams = 'teams',

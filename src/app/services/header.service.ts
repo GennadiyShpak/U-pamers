@@ -3,7 +3,7 @@ import { ActivatedRoute, Event, NavigationEnd, Router } from '@angular/router';
 import { filter, map, mergeMap, Observable, tap } from 'rxjs';
 
 import { HeaderConfig } from '../app.model';
-import { HEADER_CONFIG_LIST, HEADER_CONFIG_NAME, HEADER_RIGHT_BLOCK, MAIN_ROUTE } from '../app.config';
+import { HEADER_CONFIG_LIST, HEADER_CONFIG_NAME, HEADER_RIGHT_BLOCK, CONTACT_ROUTE } from '../app.config';
 
 @Injectable({
   providedIn: 'root'
@@ -63,7 +63,7 @@ export class HeaderService {
     if (this.history.length > 3) {
       this.history.shift();
     }
-    if ((event as NavigationEnd).urlAfterRedirects === MAIN_ROUTE) {
+    if ((event as NavigationEnd).urlAfterRedirects === CONTACT_ROUTE) {
       this.history = [];
     }
     this.isBackByHistory = false;
