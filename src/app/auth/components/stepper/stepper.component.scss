@@ -19,6 +19,7 @@
   &__divider {
     flex-grow: 1;
     position: relative;
+    height: 40px;
 
     &::before {
       content: '';

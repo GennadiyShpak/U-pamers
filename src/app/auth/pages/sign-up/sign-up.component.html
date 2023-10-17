@@ -1,2 +1,19 @@
 <epm-stepper />
+<form class="signup__form" [formGroup]="registerForm">
+  <ng-container *ngIf="authService.stepperConfig().activeStep === stepperSteps.FirstStep">
+    <h2 class="signup__title">Fill in account details</h2>
+    <epm-input [labelPlaceholder]="'Login'" [type]="inputTypes.Email" [control]="email" />
+    <epm-input [labelPlaceholder]="'First name'" [control]="firstName" />
+    <epm-input [labelPlaceholder]="'Last name'" [control]="lastName" />
+    <epm-input [labelPlaceholder]="'Password'" [type]="inputTypes.Password" [control]="password" />
+    <div class="signup__footnote">
+      Create a strong password that is at least 8 characters long and includes upper-case letters.
+    </div>
+    <epm-input [labelPlaceholder]="'Confirm password'" [type]="inputTypes.Password" [control]="repeatPassword" />
+  </ng-container>
+</form>
 <epm-button class="primary" (click)="onNextStepClick()">{{ nextStepButtonValue }}</epm-button>
+<p class="signup__login-paragraph">
+  Already have an account?
+  <a class="signup__login-link" [routerLink]="['/', appRoutes.Auth, appRoutes.LogIn]">Login</a>
+</p>

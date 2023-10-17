@@ -9,7 +9,7 @@ import { APP_ROUTER_NAME } from '../app.config';
   providedIn: 'root'
 })
 export class AuthService {
-  stepperConfig: WritableSignal<StepperConfig> = signal({...STEPPER_CONFIG_DATA});
+  stepperConfig: WritableSignal<StepperConfig> = signal({ ...STEPPER_CONFIG_DATA });
 
   readonly appRoutes: typeof APP_ROUTER_NAME = APP_ROUTER_NAME;
 

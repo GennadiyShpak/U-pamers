@@ -18,7 +18,7 @@ export class StepperComponent implements OnInit {
   constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
-    this.authService.stepperConfig.set({...STEPPER_CONFIG_DATA});
+    this.authService.stepperConfig.set({ ...STEPPER_CONFIG_DATA });
   }
 
   onStepButtonClick(clickedStep: STEPPER_STEPS): void {

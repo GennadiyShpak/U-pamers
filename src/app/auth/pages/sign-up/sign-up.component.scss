@@ -1,0 +1,52 @@
+@import 'variables';
+@import 'mixins';
+
+.signup {
+  &__title {
+    @include font-bold;
+    margin-bottom: 24px;
+    font-size: $font-size-h2;
+    line-height: 34px;
+    text-align: center;
+    color: $color-dark-grey;
+  }
+
+  &__form {
+    & epm-input {
+      height: 52px;
+      margin-bottom: 16px;
+
+      &:has(+ .signup__footnote) {
+        margin-bottom: 4px;
+      }
+
+      &:last-child {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  &__footnote {
+    @include font-regular;
+    margin-bottom: 16px;
+    font-size: $font-size-label;
+    line-height: 18px;
+    color: $color-text-accent;
+  }
+
+  &__login-paragraph {
+    @include font-medium;
+    margin-top: 12px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  &__login-link {
+    @include font-semibold;
+    color: $color-link;
+
+    &:visited {
+      color: $color-primary-base;
+    }
+  }
+}
