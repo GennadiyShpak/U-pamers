@@ -11,6 +11,7 @@ $color-grey: #a5a8ba;
 $color-dark-grey: #171a26;
 $color-input-focused: #315cad;
 $color-link: #0078ff;
+$color-link-pressed: #0067db;
 $color-primary-base: #6b4eff;
 $color-icon-default: #3e444c;
 $color-icon-negative: #e6674e;
@@ -24,9 +25,9 @@ $color-shadow-modal: rgba(44, 39, 39, 0.5);
 $color-shadow-chat: rgba(0, 0, 0, 0.08);
 
 // ***BUTTONS COLORS***
-$color-button-rested-lightest: #e7e7ff;
-$color-button-rested-halftone: #daecff;
-$color-button-rested: #6168e4;
+$color-button-disabled-halftone: #f2f3f7;
+$color-button-primary: #6168e4;
+$color-button-primary-pressed: #5538ee;
 
 // ***TEXT COLORS***
 $color-text-disabled: #b3b5c0;

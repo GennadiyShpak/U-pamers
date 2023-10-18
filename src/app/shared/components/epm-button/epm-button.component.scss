@@ -2,53 +2,114 @@
 @import 'mixins';
 
 :host {
-  &.primary > .button,
-  &.rounded > .button {
+  &.icon-right > .button {
+    flex-direction: row-reverse;
+  }
+
+  &.primary > .button {
     color: $color-white;
-    background-color: $color-button-rested;
+    background-color: $color-button-primary;
+
+    svg {
+      stroke: $color-white;
+    }
+
+    &:enabled:active {
+      color: $color-white;
+      background-color: $color-button-primary-pressed;
+    }
+
+    &:disabled {
+      background-color: $color-button-disabled-halftone;
+    }
   }
 
-  &.inverted > .button,
-  &.rounded_inverted > .button {
-    color: $color-button-rested;
-    background-color: $color-button-rested-halftone;
+  &.secondary > .button {
+    color: $color-button-primary;
+    border: 1px solid $color-button-primary;
+
+    svg {
+      stroke: $color-button-primary;
+    }
+
+    &:enabled:active {
+      color: $color-button-primary-pressed;
+      border-color: $color-button-primary-pressed;
+
+      svg {
+        stroke: $color-button-primary-pressed;
+      }
+    }
+
+    &:disabled {
+      border-color: $color-grey;
+    }
   }
 
-  &.rounded > .button,
-  &.rounded_inverted > .button {
-    width: auto;
-    padding: 12px 48px;
-    border-radius: 33px;
-  }
-
-  &.rounded_inverted > .button,
   &.link > .button {
+    @include font-medium;
+    height: auto;
+    padding: 0;
+    color: $color-link;
+    line-height: normal;
+
+    svg {
+      stroke: $color-link;
+    }
+
+    &:enabled:active {
+      color: $color-link-pressed;
+
+      svg {
+        stroke: $color-link-pressed;
+      }
+    }
+  }
+
+  &.small > .button,
+  &.link > .button {
+    width: auto;
+  }
+
+  &.small > .button {
+    height: 40px;
+    padding: 10px 16px;
+  }
+
+  &.icon-only > .button {
+    width: 52px;
+    height: 52px;
+    padding: 8px;
+  }
+
+  &.rounded_inverted > .button {
     @include font-medium;
   }
 
-  &.transparent > .button {
-    padding: 12px 48px;
-    color: $color-button-rested;
-    background-color: transparent;
-    border: 1px solid $color-button-rested;
-  }
+  .button {
+    &:disabled {
+      color: $color-grey;
+      opacity: 0.7;
+      cursor: not-allowed;
 
-  &.link > .button {
-    padding: 10px 0;
-    color: $color-text-skip;
+      svg {
+        stroke: $color-grey;
+      }
+    }
   }
 }
 
 .button {
   @include font-semibold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
   width: 100%;
+  height: 52px;
   padding: 16px 48px;
   text-align: center;
-  line-height: 16px;
+  line-height: 20px;
   border-radius: 8px;
   cursor: pointer;
-
-  &:disabled {
-    cursor: not-allowed;
-  }
 }
