@@ -162,3 +162,13 @@ export enum INPUT_TYPES {
   Text = 'text',
   Url = 'url'
 }
+
+export enum INPUT_PLACEHOLDERS {
+  Teams = 'First and Last Name',
+  Linkedin = 'http://linkedin.com',
+  Instagram = 'http://instagram.com',
+  Telegram = 'http://telegram.com',
+  Facebook = 'http://facebook.com',
+  Skype = 'nickname',
+  None = ''
+}

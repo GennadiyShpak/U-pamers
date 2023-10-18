@@ -51,18 +51,10 @@
     }
 
     &.filled::after,
-    &:has(.epm-input:focus)::after {
+    &:focus-within::after {
       top: 8px;
       font-size: $font-size-label;
       line-height: 12px;
-    }
-
-    &:has(.epm-input__toggle-visibility)::after {
-      max-width: calc(100% - 64px);
-    }
-
-    &:has(.epm-input__toggle-visibility) > .epm-input {
-      padding-right: 48px;
     }
 
     &::after {
@@ -73,11 +65,23 @@
       top: 16px;
       left: 16px;
       max-width: calc(100% - 32px);
-      height: 20px;
+      font-size: $font-size-regular;
+      line-height: 20px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      pointer-events: none;
       transition: 0.2s ease all;
+    }
+
+    &.label-password {
+      &::after {
+        max-width: calc(100% - 64px);
+      }
+
+      & > .epm-input {
+        padding-right: 48px;
+      }
     }
   }
 
