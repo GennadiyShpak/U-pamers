@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { ChatLastMessage } from '../../main.model';
+import { User } from '../../main.model';
 import { HeaderService } from '../../../services/header.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { HeaderService } from '../../../services/header.service';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-  readonly chat: ChatLastMessage = this.router.getCurrentNavigation()?.extras.state as ChatLastMessage;
+  readonly chat: User = this.router.getCurrentNavigation()?.extras.state as User;
 
   constructor(
     private title: Title,

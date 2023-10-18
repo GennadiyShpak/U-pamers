@@ -7,9 +7,10 @@
   min-height: 100%;
 }
 
-.sticky {
+.header {
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 .hidden {

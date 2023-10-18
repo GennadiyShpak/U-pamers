@@ -19,7 +19,6 @@ export enum APP_ROUTER_NAME {
 export const CONTACT_ROUTE = '/main/contact';
 
 export enum SOCIAL_ICONS {
-  Teams = 'teams',
   Instagram = 'instagram',
   Facebook = 'facebook',
   Skype = 'skype',
