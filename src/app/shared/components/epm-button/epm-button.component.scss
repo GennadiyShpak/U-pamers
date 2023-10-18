@@ -72,18 +72,19 @@
   }
 
   &.small > .button {
-    height: 40px;
+    height: $button-size-small;
     padding: 10px 16px;
   }
 
   &.icon-only > .button {
-    width: 52px;
-    height: 52px;
+    width: $button-size;
+    height: $button-size;
     padding: 8px;
   }
 
-  &.rounded_inverted > .button {
-    @include font-medium;
+  &.small.icon-only > .button {
+    height: $button-size-small;
+    width: $button-size-small;
   }
 
   .button {
