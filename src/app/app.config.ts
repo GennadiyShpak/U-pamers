@@ -164,7 +164,6 @@ export enum INPUT_TYPES {
 }
 
 export enum INPUT_PLACEHOLDERS {
-  Teams = 'First and Last Name',
   Linkedin = 'http://linkedin.com',
   Instagram = 'http://instagram.com',
   Telegram = 'http://telegram.com',

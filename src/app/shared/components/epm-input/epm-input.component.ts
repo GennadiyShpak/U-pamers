@@ -16,10 +16,9 @@ export class EpmInputComponent implements AfterViewInit {
   @Input() inputPlaceholder: INPUT_PLACEHOLDERS = INPUT_PLACEHOLDERS.None;
   @Input() type!: INPUT_TYPES;
   @Input() iconName: SOCIAL_ICONS = SOCIAL_ICONS.none;
-  @Input() errorMessage = '';
 
-  @ViewChild('wrapper', { static: false }) wrapperRef!: ElementRef;
-  @ViewChild('epmInput', { static: false }) epmInputRef!: ElementRef;
+  @ViewChild('wrapper') wrapperRef!: ElementRef;
+  @ViewChild('epmInput') epmInputRef!: ElementRef;
 
   readonly inputTypes: typeof INPUT_TYPES = INPUT_TYPES;
 

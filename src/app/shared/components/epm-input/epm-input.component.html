@@ -9,7 +9,6 @@
   }"
 >
   <input #epmInput class="epm-input" [type]="type" [placeholder]="inputPlaceholder" [formControl]="control" />
-  <span *ngIf="control.errors" class="epm-input__error-message">{{ errorMessage }}</span>
   <button
     *ngIf="type === inputTypes.Password"
     class="epm-input__toggle-visibility"

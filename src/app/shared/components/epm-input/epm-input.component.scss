@@ -1,13 +1,17 @@
 @import 'variables';
 @import 'mixins';
 
+:host {
+  display: inline-block;
+}
+
 .epm-input {
   @include font-regular;
   width: 100%;
   padding: 24px 16px 8px;
   font-size: $font-size-regular;
   line-height: 20px;
-  color: $color-text-primary;
+  color: $color-dark-grey;
   background-color: $color-white;
   border: 1px solid $color-grey;
   border-radius: 8px;
@@ -91,19 +95,5 @@
     right: 14px;
     width: 24px;
     height: 24px;
-  }
-
-  &__error-message {
-    @include font-regular;
-    display: flex;
-    gap: 4px;
-    font-size: $font-size-label;
-    line-height: 16px;
-    color: $color-icon-negative;
-    margin-top: 4px;
-
-    &::before {
-      content: url('/assets/icons/error-small.svg');
-    }
   }
 }
