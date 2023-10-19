@@ -4,17 +4,18 @@
 :host {
   display: flex;
   height: 56px;
-  position: relative;
-
-  &.shadow {
-    box-shadow: 0 4px 4px 0 rgba(20, 20, 20, 0.04);
-  }
+  min-width: 375px;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: box-shadow $transition-duration ease-in-out;
+
+  &.shadow {
+    box-shadow: 0 4px 4px 0 rgba(20, 20, 20, 0.04);
+  }
 
   &.colored {
     background-color: $color-header-background;
