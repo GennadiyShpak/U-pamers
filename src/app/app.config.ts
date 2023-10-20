@@ -150,3 +150,13 @@ export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } =
     right: HEADER_RIGHT_BLOCK.StatusBar
   }
 };
+
+export enum STEPPER_ICONS {
+  FirstStepActive = 'first-step-active',
+  SecondStepDisabled = 'second-step-disabled',
+  SecondStepActive = 'second-step-active',
+  ThirdStepDisabled = 'third-step-disabled',
+  ThirdStepActive = 'third-step-active',
+  FilledStep = 'filled-step',
+  ErrorStep = 'error-step'
+}

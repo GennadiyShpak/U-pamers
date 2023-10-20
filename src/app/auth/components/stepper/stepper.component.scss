@@ -1,0 +1,67 @@
+@import 'variables';
+
+.stepper {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+  }
+
+  &__step {
+    width: 40px;
+    height: 40px;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__divider {
+    flex-grow: 1;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: calc(100% - 54px);
+      height: 1px;
+      top: 50%;
+      left: 44px;
+      background-color: $color-grey;
+    }
+  }
+}
+
+.first-step {
+  &.active-step {
+    background-image: url('/assets/icons/first-step-active.svg');
+  }
+
+  &.error-step {
+    background-image: url('/assets/icons/error-step.svg');
+  }
+}
+
+.second-step {
+  &.active-step {
+    background-image: url('/assets/icons/second-step-active.svg');
+  }
+
+  &:disabled {
+    background-image: url('/assets/icons/second-step-disabled.svg');
+  }
+}
+
+.third-step {
+  &.active-step {
+    background-image: url('/assets/icons/third-step-active.svg');
+  }
+
+  &:disabled {
+    background-image: url('/assets/icons/third-step-disabled.svg');
+  }
+}
+
+.passed-step {
+  background-image: url('/assets/icons/passed-step.svg');
+}

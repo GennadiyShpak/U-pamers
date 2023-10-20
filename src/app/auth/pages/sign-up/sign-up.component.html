@@ -1,1 +1,4 @@
-<p>sign-up works!</p>
+<epm-stepper />
+<epm-button class="primary" (click)="onNextStepClick()">
+  {{ authService.stepperConfig().activeStep === stepperSteps.ThirdStep ? 'Create account' : 'Continue' }}
+</epm-button>
