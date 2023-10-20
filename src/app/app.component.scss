@@ -1,5 +1,10 @@
 @import 'variables';
 
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
 .hidden {
   max-height: 0;
   border: none;

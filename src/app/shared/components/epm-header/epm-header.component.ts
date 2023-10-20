@@ -1,4 +1,4 @@
-import { Component, OnInit, Signal, signal } from '@angular/core';
+import { Component, HostListener, OnInit, Signal, signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -16,9 +16,15 @@ import { EpmNavigationIconComponent } from '../epm-navigation-icon/epm-navigatio
   styleUrls: ['./epm-header.component.scss']
 })
 export class EpmHeaderComponent implements OnInit {
+  @HostListener('window:scroll')
+  onScroll(): void {
+    this.shouldAddShadow = !this.headerSettings().colored && window.scrollY > 0;
+  }
+
   // TODO remove mock data when will be authentication service
   isAuthorized = true;
   avatar = { src: '/mocks/img/avatar.png' };
+  shouldAddShadow = false;
 
   newMessage: Signal<boolean> = signal(true);
   headerSettings: Signal<HeaderConfig> = this.headerService.headerSettings;
