@@ -13,3 +13,23 @@ svg {
   height: 24px;
   stroke: $color-dark-grey;
 }
+
+.button-link {
+  display: inline-block;
+  width: 100%;
+  padding: 16px 48px;
+  line-height: 20px;
+  text-align: center;
+  color: $color-white;
+  background-color: $color-button-primary;
+  border-radius: 8px;
+
+  &.small {
+    width: auto;
+    padding: 10px 16px;
+  }
+
+  &:active {
+    background-color: $color-button-primary-pressed;
+  }
+}

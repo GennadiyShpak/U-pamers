@@ -31,6 +31,7 @@ export class EpmHeaderComponent implements OnInit {
 
   readonly myProfileLink: string = `${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.MyProfile}`;
   readonly chatLink: string = `${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}`;
+  readonly loginLink: string = `${APP_ROUTER_NAME.Auth}/${APP_ROUTER_NAME.LogIn}`;
   readonly buttonThemes: typeof BUTTON_THEMES = BUTTON_THEMES;
   readonly headerRightBlock: typeof HEADER_RIGHT_BLOCK = HEADER_RIGHT_BLOCK;
 
@@ -38,10 +39,6 @@ export class EpmHeaderComponent implements OnInit {
 
   ngOnInit() {
     this.headerService.initSubscription();
-  }
-
-  handleLogIn(): void {
-    // do nothing
   }
 
   back(): void {
