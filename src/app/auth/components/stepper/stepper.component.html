@@ -1,0 +1,23 @@
+<div class="stepper__wrapper">
+  <span class="stepper__divider">
+    <button
+      class="stepper__step first-step passed-step"
+      [ngClass]="{ 'active-step': authService.stepperConfig().activeStep === stepperSteps.FirstStep }"
+      (click)="onStepButtonClick(stepperSteps.FirstStep)"
+    ></button>
+  </span>
+  <span class="stepper__divider">
+    <button
+      class="stepper__step second-step passed-step"
+      [ngClass]="{ 'active-step': authService.stepperConfig().activeStep === stepperSteps.SecondStep }"
+      [disabled]="authService.stepperConfig().isSecondStepDisabled"
+      (click)="onStepButtonClick(stepperSteps.SecondStep)"
+    ></button>
+  </span>
+  <button
+    class="stepper__step third-step passed-step"
+    [ngClass]="{ 'active-step': authService.stepperConfig().activeStep === stepperSteps.ThirdStep }"
+    [disabled]="authService.stepperConfig().isThirdStepDisabled"
+    (click)="onStepButtonClick(stepperSteps.ThirdStep)"
+  ></button>
+</div>
