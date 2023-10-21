@@ -15,7 +15,7 @@ import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-bu
 })
 export class LogInComponent {
   readonly appRoutes: typeof APP_ROUTER_NAME = APP_ROUTER_NAME;
-  readonly buttonThemes = BUTTON_THEMES;
+  readonly buttonThemes: typeof BUTTON_THEMES = BUTTON_THEMES;
 
   constructor(private router: Router) {}
 

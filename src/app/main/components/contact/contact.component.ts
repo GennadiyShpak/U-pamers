@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { UserDetailed } from '../../main.model';
+import { ExpandedUserDetailed } from '../../main.model';
 import { HeaderService } from '../../../services/header.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { HeaderService } from '../../../services/header.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  readonly user: UserDetailed = this.router.getCurrentNavigation()?.extras.state as UserDetailed;
+  readonly user: ExpandedUserDetailed = this.router.getCurrentNavigation()?.extras.state as ExpandedUserDetailed;
 
   constructor(
     private title: Title,
