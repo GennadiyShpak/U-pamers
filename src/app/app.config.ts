@@ -5,7 +5,7 @@ export enum APP_ROUTER_NAME {
   Main = 'main',
   LogIn = 'log-in',
   SignUp = 'sign-up',
-  RestorePassword = 'restore-password',
+  ResetPassword = 'reset-password',
   NewPassword = 'new-password',
   Contact = 'contact',
   Chat = 'chat',
