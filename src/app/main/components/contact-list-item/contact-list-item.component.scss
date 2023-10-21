@@ -1,0 +1,79 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  position: relative;
+  display: flex;
+  padding: 16px 16px 14px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 1px 24px 8px rgba(20, 20, 20, 0.08);
+  cursor: pointer;
+}
+
+.avatar {
+  &__wrapper {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    & img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.info {
+  margin-left: 12px;
+  max-width: 195px;
+
+  &__text {
+    .name {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 18px;
+      line-height: 1.25;
+      color: $color-dark-grey;
+
+      & span {
+        &:not(:last-child) {
+          margin-right: 5px;
+        }
+
+        &.no-space {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .location {
+      @include font-medium();
+      margin-top: 4px;
+      font-size: 14px;
+      color: $color-text-secondary;
+      line-height: 20px;
+      word-break: break-word;
+    }
+  }
+}
+
+.message-btn {
+  margin-left: auto;
+}
+
+.social-list {
+  display: flex;
+  margin-top: 6px;
+
+  &__item a {
+    display: inline-block;
+    padding: 6px;
+  }
+
+  &__item:first-of-type a {
+    padding-left: 0;
+  }
+}

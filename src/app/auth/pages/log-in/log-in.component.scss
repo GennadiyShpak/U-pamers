@@ -1,0 +1,59 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.title {
+  @include font-bold;
+  margin-top: 16px;
+  font-size: 32px;
+  line-height: 1.4;
+  color: $color-dark-grey;
+}
+
+.subtitle {
+  @include font-medium;
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: $color-text-secondary;
+}
+
+.form {
+  margin-top: 32px;
+  width: 100%;
+}
+
+.confirm {
+  margin-top: 16px;
+}
+
+.forgot-pass {
+  margin-top: 12px;
+  text-align: end;
+}
+
+.link {
+  @include font-medium;
+  font-size: 16px;
+  color: $color-link;
+}
+
+.submit-button {
+  display: block;
+  margin-top: 32px;
+}
+
+.sign-up {
+  margin-top: 12px;
+}
+
+.space-right {
+  margin-right: 5px;
+}

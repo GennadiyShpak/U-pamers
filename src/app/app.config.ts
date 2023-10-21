@@ -5,7 +5,7 @@ export enum APP_ROUTER_NAME {
   Main = 'main',
   LogIn = 'log-in',
   SignUp = 'sign-up',
-  RestorePassword = 'restore-password',
+  ResetPassword = 'reset-password',
   NewPassword = 'new-password',
   Contact = 'contact',
   Chat = 'chat',
@@ -19,7 +19,6 @@ export enum APP_ROUTER_NAME {
 export const CONTACT_ROUTE = '/main/contact';
 
 export enum SOCIAL_ICONS {
-  Teams = 'teams',
   Instagram = 'instagram',
   Facebook = 'facebook',
   Skype = 'skype',
@@ -150,6 +149,16 @@ export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } =
     right: HEADER_RIGHT_BLOCK.StatusBar
   }
 };
+
+export enum STEPPER_ICONS {
+  FirstStepActive = 'first-step-active',
+  SecondStepDisabled = 'second-step-disabled',
+  SecondStepActive = 'second-step-active',
+  ThirdStepDisabled = 'third-step-disabled',
+  ThirdStepActive = 'third-step-active',
+  FilledStep = 'filled-step',
+  ErrorStep = 'error-step'
+}
 
 export enum INPUT_TYPES {
   Checkbox = 'checkbox',

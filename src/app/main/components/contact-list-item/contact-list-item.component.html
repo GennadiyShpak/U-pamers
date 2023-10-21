@@ -1,5 +1,31 @@
-<div>
-  <b>{{ user.name }} {{ user.surname }}</b>
-  <p>{{ user.about }}</p>
-  <img width="48" height="48" [ngSrc]="user.avatarUrl" alt="user avatar" />
+<div class="avatar">
+  <div class="avatar__wrapper">
+    <img width="48" height="48" [ngSrc]="user.avatarUrl" alt="user avatar" />
+  </div>
 </div>
+<div class="info">
+  <div class="info__text">
+    <b class="name">
+      <span>{{ user.name }}</span>
+      <span class="no-space">{{ user.surname }}</span>
+      <span *ngIf="user.birthDate">,</span>
+      <span *ngIf="user.birthDate">{{ user.birthDate | age }}</span>
+    </b>
+    <p class="location">{{ user.location || 'Unknown location' }}</p>
+  </div>
+  <ul class="social-list">
+    <ng-container *ngFor="let social of user.socials; trackBy: trackByPriority">
+      <li *ngIf="social.link" class="social-list__item">
+        <a (click)="onSocialClick($event, social.link, social.type)">
+          <epm-svg-icon [svgIconName]="social.type" />
+        </a>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+<epm-button
+  class="message-btn"
+  [class]="[buttonThemes.Primary, buttonThemes.Small, buttonThemes.IconOnly]"
+  [iconName]="iconNames.Chat"
+  (click)="onChatClick($event)"
+/>

@@ -1,4 +1,4 @@
-<div class="container" [ngClass]="{ colored: headerSettings().colored }">
+<div class="container" [ngClass]="{ colored: headerSettings().colored, shadow: shouldAddShadow }">
   <epm-navigation-icon [iconType]="headerSettings().leftButton" (back)="back()" />
   <h1 class="title">{{ headerSettings().title }}</h1>
   <ng-container *ngIf="isAuthorized; then authorized; else unauthorized"></ng-container>
@@ -23,6 +23,6 @@
   </ng-template>
 
   <ng-template #unauthorized>
-    <epm-button [class]="[buttonThemes.Primary, buttonThemes.Small]" (click)="handleLogIn()">Log in</epm-button>
+    <a class="button-link small" [routerLink]="loginLink">Log in</a>
   </ng-template>
 </div>
