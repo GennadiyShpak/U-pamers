@@ -1,5 +1,16 @@
-<a [routerLink]="['/', appRoutes.Auth, appRoutes.RestorePassword]">Forgot password?</a>
-<form>
-  <button type="button" (click)="onLogIn()">Log In</button>
+<img class="logo" src="assets/icons/logo_dark.svg" width="76" height="84" alt="logo" />
+<h2 class="title">U-pamers</h2>
+<h3 class="subtitle">Log in to receive full experience and start your journey with us</h3>
+<form class="form">
+  <epm-input class="password" />
+  <epm-input class="confirm" />
+  <p class="forgot-pass">
+    <a class="link" [routerLink]="['/', appRoutes.Auth, appRoutes.RestorePassword]">Forgot password?</a>
+  </p>
+
+  <epm-button class="submit-button" [class]="buttonThemes.Primary" (click)="onLogIn()">Log In</epm-button>
 </form>
-<a [routerLink]="['/', appRoutes.Auth, appRoutes.SignUp]">Sign Up</a>
+<span class="sign-up"
+  ><span class="space-right">Don’t have an account?</span
+  ><a class="link" [routerLink]="['/', appRoutes.Auth, appRoutes.SignUp]">Sign Up</a></span
+>

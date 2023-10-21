@@ -13,3 +13,8 @@ export interface ActionHandlerList {
   secondStep: VoidCallback;
   thirdStep: VoidCallback;
 }
+
+export interface LoginData {
+  email: string;
+  password: string;
+}

@@ -1,30 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { USERS } from '../../../../mocks/mock-data';
 import { APP_ROUTER_NAME } from '../../../app.config';
-import { ChatListItemComponent } from '../../components/chat-list-item/chat-list-item.component';
 import { ContactListItemComponent } from '../../components/contact-list-item/contact-list-item.component';
-import { UserDetailed } from '../../main.model';
+import { ExpandedUserDetailed } from '../../main.model';
+import { MainApiService } from '../../service/main-api.service';
 
 @Component({
   selector: 'epm-contact-list',
   standalone: true,
-  imports: [CommonModule, ChatListItemComponent, ContactListItemComponent],
+  imports: [CommonModule, ContactListItemComponent],
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.scss']
 })
-export class ContactListComponent {
-  public users: UserDetailed[] = USERS;
+export class ContactListComponent implements OnInit, OnDestroy {
+  userList!: Signal<ExpandedUserDetailed[]>;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private mainApiService: MainApiService
+  ) {}
 
-  onOpenUser(user: UserDetailed) {
+  ngOnInit(): void {
+    this.userList = this.mainApiService.userList;
+    this.mainApiService.getUsers();
+  }
+
+  ngOnDestroy(): void {
+    this.mainApiService.clearUserList();
+  }
+
+  onOpenUser(user: ExpandedUserDetailed) {
     this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Contact}/${user.userId}`, { state: user });
   }
 
-  trackByUserId(_index: number, user: UserDetailed): string {
+  trackByUserId(_index: number, user: ExpandedUserDetailed): string {
     return user.userId;
   }
 }
