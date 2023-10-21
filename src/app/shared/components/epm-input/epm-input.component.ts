@@ -1,32 +1,36 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { SOCIAL_ICONS } from '../../../app.config';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { INPUT_PLACEHOLDERS, INPUT_TYPES, SOCIAL_ICONS } from '../../../app.config';
 
 @Component({
   selector: 'epm-input',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, NgOptimizedImage, ReactiveFormsModule],
   templateUrl: './epm-input.component.html',
   styleUrls: ['./epm-input.component.scss']
 })
 export class EpmInputComponent implements AfterViewInit {
-  @Input() placeholder = '';
-  @Input() type = 'text';
-  @Input() icon: SOCIAL_ICONS = SOCIAL_ICONS.none;
+  @Input() control!: FormControl;
+  @Input() labelPlaceholder = '';
+  @Input() inputPlaceholder: INPUT_PLACEHOLDERS = INPUT_PLACEHOLDERS.None;
+  @Input() type!: INPUT_TYPES;
+  @Input() iconName: SOCIAL_ICONS = SOCIAL_ICONS.none;
 
-  @Output() inputValue: EventEmitter<string> = new EventEmitter<string>();
+  @ViewChild('wrapper') wrapperRef!: ElementRef;
+  @ViewChild('epmInput') epmInputRef!: ElementRef;
 
-  @ViewChild('wrapper', { static: false }) wrapperRef!: ElementRef;
+  readonly inputTypes: typeof INPUT_TYPES = INPUT_TYPES;
+
+  constructor(private cdRef: ChangeDetectorRef) {}
 
   ngAfterViewInit(): void {
-    if (this.icon) {
-      const iconUrl = `url('../../../../${this.icon}'`;
-      this.wrapperRef.nativeElement.style.setProperty('--before-content', iconUrl);
-    }
+    this.wrapperRef.nativeElement.style.setProperty('--before-content', `url(assets/icons/${this.iconName}.svg)`);
+    this.cdRef.detectChanges();
   }
 
-  onValueChange(inputValue: string): void {
-    this.inputValue.emit(inputValue);
+  onToggleClick(type: string): void {
+    this.epmInputRef.nativeElement.type =
+      type === this.inputTypes.Password ? this.inputTypes.Text : this.inputTypes.Password;
   }
 }

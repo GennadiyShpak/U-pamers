@@ -159,3 +159,24 @@ export enum STEPPER_ICONS {
   FilledStep = 'filled-step',
   ErrorStep = 'error-step'
 }
+
+export enum INPUT_TYPES {
+  Checkbox = 'checkbox',
+  Date = 'date',
+  Email = 'email',
+  File = 'file',
+  Password = 'password',
+  Range = 'range',
+  Search = 'search',
+  Text = 'text',
+  Url = 'url'
+}
+
+export enum INPUT_PLACEHOLDERS {
+  Linkedin = 'http://linkedin.com',
+  Instagram = 'http://instagram.com',
+  Telegram = 'http://telegram.com',
+  Facebook = 'http://facebook.com',
+  Skype = 'nickname',
+  None = ''
+}

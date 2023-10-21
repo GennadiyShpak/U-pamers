@@ -1,8 +1,24 @@
 <label
   #wrapper
   class="epm-input__wrapper"
-  [attr.data-placeholder]="placeholder"
-  [ngClass]="{ 'nested-icon-input': icon, filled: epmInput.value }"
+  [attr.data-placeholder]="labelPlaceholder"
+  [ngClass]="{
+    'nested-icon-input': iconName,
+    filled: epmInput.value || epmInput.placeholder,
+    'label-password': type === inputTypes.Password
+  }"
 >
-  <input #epmInput class="epm-input" [type]="type" (input)="onValueChange(epmInput.value)" />
+  <input #epmInput class="epm-input" [type]="type" [placeholder]="inputPlaceholder" [formControl]="control" />
+  <button
+    *ngIf="type === inputTypes.Password"
+    class="epm-input__toggle-visibility"
+    (click)="onToggleClick(epmInput.type)"
+  >
+    <img
+      ngSrc="/assets/icons/password-{{ epmInput.type === inputTypes.Password ? 'hidden' : 'visible' }}.svg"
+      width="24"
+      height="24"
+      alt="Toggle password visibility icon"
+    />
+  </button>
 </label>
