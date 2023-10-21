@@ -25,8 +25,8 @@ export default [
         data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.signUp]
       },
       {
-        path: APP_ROUTER_NAME.RestorePassword,
-        loadComponent: () => import('../pages/restore-password/restore-password.component'),
+        path: APP_ROUTER_NAME.ResetPassword,
+        loadComponent: () => import('../pages/reset-password/reset-password.component'),
         data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.resetPassword]
       },
       {
