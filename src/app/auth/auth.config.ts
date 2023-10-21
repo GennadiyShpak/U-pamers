@@ -6,7 +6,7 @@ export enum STEPPER_STEPS {
   ThirdStep = 'thirdStep'
 }
 
-export const stepperConfigData: StepperConfig = {
+export const STEPPER_CONFIG_DATA: StepperConfig = {
   activeStep: STEPPER_STEPS.FirstStep,
   isSecondStepDisabled: true,
   isThirdStepDisabled: true
