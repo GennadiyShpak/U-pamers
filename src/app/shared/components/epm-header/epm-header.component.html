@@ -23,6 +23,6 @@
   </ng-template>
 
   <ng-template #unauthorized>
-    <epm-button [class]="[buttonThemes.Primary, buttonThemes.Small]" (click)="handleLogIn()">Log in</epm-button>
+    <a class="button-link small" [routerLink]="loginLink">Log in</a>
   </ng-template>
 </div>
