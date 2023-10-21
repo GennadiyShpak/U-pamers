@@ -1,3 +1,4 @@
+import { FormControl } from "@angular/forms";
 import { STEPPER_STEPS } from './auth.config';
 
 export interface StepperConfig {
@@ -14,7 +15,18 @@ export interface ActionHandlerList {
   thirdStep: VoidCallback;
 }
 
+type NestedFormInterface<T, N> = {
+  [K in keyof T]: FormControl<N>;
+};
+
 export interface LoginData {
   email: string;
   password: string;
 }
+
+export interface NewPasswordData {
+  newPassword: string;
+  confirmNewPassword: string;
+}
+
+export type NewPasswordForm = NestedFormInterface<NewPasswordData, string>

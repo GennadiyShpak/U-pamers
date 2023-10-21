@@ -18,3 +18,4 @@ export interface ToasterMessages {
   notLoggedIn: ToasterMessage;
   notFilledProfile: ToasterMessage;
 }
+

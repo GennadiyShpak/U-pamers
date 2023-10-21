@@ -95,5 +95,9 @@
     right: 14px;
     width: 24px;
     height: 24px;
+
+    &_icon {
+      pointer-events: none;
+    }
   }
 }

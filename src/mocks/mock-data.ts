@@ -117,7 +117,7 @@ export const USERS_MOCK: UserDetailed[] = [
     avatarUrl: '/mocks/img/user_2.jpg',
     socials: {
       instagram: 'epamsystems',
-      facebook: 'fb.com/link',
+      facebook: 'ponomaleks',
       linkedin: 'ponomalex',
       skype: '',
       telegram: ''
