@@ -38,7 +38,7 @@
   }
 
   &.error-step {
-    background-image: url('/assets/icons/error-step.svg');
+    background-image: url('/assets/icons/step-error.svg');
   }
 }
 
@@ -63,5 +63,5 @@
 }
 
 .passed-step {
-  background-image: url('/assets/icons/passed-step.svg');
+  background-image: url('/assets/icons/step-passed.svg');
 }

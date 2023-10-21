@@ -11,3 +11,8 @@ export const stepperConfigData: StepperConfig = {
   isSecondStepDisabled: true,
   isThirdStepDisabled: true
 };
+
+export enum NEXT_STEP_BUTTON_CONFIG {
+  Continue = 'Continue',
+  CreateAccount = 'Create account'
+}

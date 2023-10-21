@@ -1,4 +1,2 @@
 <epm-stepper />
-<epm-button class="primary" (click)="onNextStepClick()">
-  {{ authService.stepperConfig().activeStep === stepperSteps.ThirdStep ? 'Create account' : 'Continue' }}
-</epm-button>
+<epm-button class="primary" (click)="onNextStepClick()">{{ nextStepButtonValue }}</epm-button>
