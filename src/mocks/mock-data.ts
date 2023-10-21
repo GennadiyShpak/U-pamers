@@ -100,7 +100,7 @@ export const USERS_MOCK: UserDetailed[] = [
     avatarUrl: '/mocks/img/user_1.jpg',
     socials: {
       instagram: 'epam_ukraine',
-      linkedin: 'ponomalex',
+      linkedin: '../company/epam-systems',
       facebook: '',
       skype: '',
       telegram: ''
@@ -117,8 +117,8 @@ export const USERS_MOCK: UserDetailed[] = [
     avatarUrl: '/mocks/img/user_2.jpg',
     socials: {
       instagram: 'epamsystems',
-      facebook: 'fb.com/link',
-      linkedin: 'ponomalex',
+      facebook: 'EPAM.Ukraine',
+      linkedin: '../company/epam-systems',
       skype: '',
       telegram: ''
     }
@@ -135,7 +135,7 @@ export const USERS_MOCK: UserDetailed[] = [
     socials: {
       instagram: 'johndoe_adventures',
       facebook: 'johndoe123',
-      linkedin: 'ponomalex',
+      linkedin: '../company/epam-systems',
       skype: '',
       telegram: ''
     }
@@ -152,7 +152,7 @@ export const USERS_MOCK: UserDetailed[] = [
     socials: {
       instagram: 'sarah_nature_fit',
       facebook: '',
-      linkedin: 'ponomalex',
+      linkedin: '../company/epam-systems',
       skype: '',
       telegram: ''
     }
@@ -169,7 +169,7 @@ export const USERS_MOCK: UserDetailed[] = [
     socials: {
       instagram: 'sophia_art_coffee',
       facebook: 'sophia.brown',
-      linkedin: 'ponomalex',
+      linkedin: '../company/epam-systems',
       skype: 'sophia_brown789',
       telegram: 'sophia_coffee_lover'
     }
@@ -186,7 +186,7 @@ export const USERS_MOCK: UserDetailed[] = [
     socials: {
       instagram: 'daniel_hiker_tech',
       facebook: 'daniel.martinez',
-      linkedin: 'ponomalex',
+      linkedin: '../company/epam-systems',
       skype: 'daniel_martinez123',
       telegram: 'daniel_tech_geek'
     }
@@ -203,7 +203,7 @@ export const USERS_MOCK: UserDetailed[] = [
     socials: {
       instagram: 'olivia_animal_fashion',
       facebook: 'olivia.anderson',
-      linkedin: 'ponomalex',
+      linkedin: '../company/epam-systems',
       skype: 'olivia_anderson456',
       telegram: 'olivia_dance_queen'
     }
@@ -220,7 +220,7 @@ export const USERS_MOCK: UserDetailed[] = [
     socials: {
       instagram: 'william_history_star',
       facebook: 'william.taylor',
-      linkedin: 'ponomalex',
+      linkedin: '../company/epam-systems',
       skype: 'william_taylor789',
       telegram: 'william_astronomy_lover'
     }
@@ -237,7 +237,7 @@ export const USERS_MOCK: UserDetailed[] = [
     socials: {
       instagram: 'ava_gamer_anime',
       facebook: 'ava.miller',
-      linkedin: 'ponomalex',
+      linkedin: '../company/epam-systems',
       skype: 'ava_miller123',
       telegram: 'ava_anime_fan'
     }

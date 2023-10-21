@@ -1,0 +1,27 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: inline-block;
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  &:before {
+    flex-shrink: 0;
+    content: '';
+    background: url('../../../../assets/icons/error-small.svg') no-repeat;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+  }
+
+  &__message {
+    @include font-regular;
+    font-size: 12px;
+    line-height: 1.5;
+    color: $color-icon-negative;
+  }
+}

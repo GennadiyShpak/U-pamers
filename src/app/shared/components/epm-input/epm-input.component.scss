@@ -95,5 +95,13 @@
     right: 14px;
     width: 24px;
     height: 24px;
+
+    &--icon {
+      pointer-events: none;
+    }
   }
+}
+
+img {
+  pointer-events: none;
 }

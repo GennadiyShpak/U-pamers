@@ -95,7 +95,7 @@ export const enum HEADER_CONFIG_NAME {
 export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } = {
   logIn: {
     leftButton: HEADER_ICON_TYPE.Close,
-    title: 'Log in'
+    title: 'Login'
   },
   signUp: {
     leftButton: HEADER_ICON_TYPE.Close,
@@ -107,7 +107,7 @@ export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } =
   },
   newPassword: {
     leftButton: HEADER_ICON_TYPE.Close,
-    title: 'Create new password'
+    title: 'Change password'
   },
   mainRoot: {
     leftButton: HEADER_ICON_TYPE.Logo,
@@ -186,3 +186,26 @@ export enum INPUT_PLACEHOLDERS {
   Skype = 'nickname',
   None = ''
 }
+
+export enum ERROR_MESSAGES {
+  required = 'This field cannot be empty',
+  minlength = 'Short passwords are easy to guess. Try the one with at least 8 characters.',
+  passwordLength = 'Short passwords are easy to guess. Try the one with at least 8 characters.',
+  passwordHasUpperCase = 'Make sure to use both upper-case and lower-case letters.',
+  passwordHasLowerCase = 'Make sure to use both upper-case and lower-case letters.',
+  passwordHasNumeric = 'Make sure to use at least 1 digit for your password.',
+  passwordHasNonAlphaNumeric = 'Make sure to use at least 1 special character for your password.',
+  samePasswordsValue = 'Passwords don’t match.',
+  // TODO ask for appropriate messages
+  passwordWithoutSpace = 'Spaces are not allowed',
+  passwordAllowedCharacters = 'Passwords contains not allowed characters'
+}
+
+export const REGEXP_PATTERNS = {
+  passwordAllowedCharacters: /^([A-Za-z0-9!"§$%&/\\(){}[\]=?+*#'^°,;.:<>|@~\-_´`])*$/,
+  hasUpperCase: /[A-Z]+/,
+  hasLowerCase: /[a-z]+/,
+  hasNumeric: /\d+/,
+  hasNonAlphaNumeric: /[!"§$%&/\\(){}[\]=?+*#'^°,;.:<>|@~\-_´`]+/,
+  hasSpace: /\s/
+};

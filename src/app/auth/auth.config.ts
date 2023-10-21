@@ -16,3 +16,8 @@ export enum NEXT_STEP_BUTTON_CONFIG {
   Continue = 'Continue',
   CreateAccount = 'Create account'
 }
+
+export enum PASSWORDS_TO_COMPARE {
+  NewPassword = 'newPassword',
+  ConfirmNewPassword = 'confirmNewPassword'
+}
