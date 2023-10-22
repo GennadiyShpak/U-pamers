@@ -1,7 +1,7 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { STEPPER_STEPS, stepperConfigData } from '../auth/auth.config';
+import { STEPPER_CONFIG_DATA, STEPPER_STEPS } from '../auth/auth.config';
 import { ActionHandlerList, StepperConfig, VoidCallback } from '../auth/auth.model';
 import { APP_ROUTER_NAME } from '../app.config';
 
@@ -9,7 +9,7 @@ import { APP_ROUTER_NAME } from '../app.config';
   providedIn: 'root'
 })
 export class AuthService {
-  stepperConfig: WritableSignal<StepperConfig> = signal(stepperConfigData);
+  stepperConfig: WritableSignal<StepperConfig> = signal({...STEPPER_CONFIG_DATA});
 
   readonly appRoutes: typeof APP_ROUTER_NAME = APP_ROUTER_NAME;
 
