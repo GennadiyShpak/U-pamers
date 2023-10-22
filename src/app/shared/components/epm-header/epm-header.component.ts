@@ -1,4 +1,14 @@
-import { Component, HostListener, OnInit, Signal, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  effect,
+  HostListener,
+  Injector,
+  OnInit,
+  Signal,
+  signal
+} from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -13,7 +23,8 @@ import { EpmNavigationIconComponent } from '../epm-navigation-icon/epm-navigatio
   standalone: true,
   imports: [CommonModule, EpmButtonComponent, NgOptimizedImage, RouterLink, EpmNavigationIconComponent],
   templateUrl: './epm-header.component.html',
-  styleUrls: ['./epm-header.component.scss']
+  styleUrls: ['./epm-header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EpmHeaderComponent implements OnInit {
   @HostListener('window:scroll')
@@ -35,10 +46,23 @@ export class EpmHeaderComponent implements OnInit {
   readonly buttonThemes: typeof BUTTON_THEMES = BUTTON_THEMES;
   readonly headerRightBlock: typeof HEADER_RIGHT_BLOCK = HEADER_RIGHT_BLOCK;
 
-  constructor(private headerService: HeaderService) {}
+  constructor(
+    private headerService: HeaderService,
+    private cdr: ChangeDetectorRef,
+    private injector: Injector
+  ) {}
 
   ngOnInit() {
     this.headerService.initSubscription();
+    this.initChangeDetectionEffect()
+  }
+
+  private initChangeDetectionEffect(): void {
+    effect(() => {
+        this.headerSettings();
+        this.cdr.detectChanges()
+      },
+      { injector: this.injector })
   }
 
   back(): void {
