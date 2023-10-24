@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, effect, Injector, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -6,9 +6,9 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angul
 import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
 import { APP_ROUTER_NAME, INPUT_TYPES } from '../../../app.config';
 import { StepperComponent } from '../../components/stepper/stepper.component';
-import { AuthService } from '../../../services/auth.service';
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
 import { NEXT_STEP_BUTTON_CONFIG, STEPPER_STEPS } from '../../auth.config';
+import { StepperService } from '../../services/stepper.service';
 
 @Component({
   selector: 'epm-sign-up',
@@ -18,7 +18,7 @@ import { NEXT_STEP_BUTTON_CONFIG, STEPPER_STEPS } from '../../auth.config';
   styleUrls: ['./sign-up.component.scss']
 })
 export default class SignUpComponent implements OnInit {
-  nextStepButtonValue!: NEXT_STEP_BUTTON_CONFIG;
+  nextStepButtonValue: NEXT_STEP_BUTTON_CONFIG = NEXT_STEP_BUTTON_CONFIG.Continue;
   registerForm!: FormGroup;
 
   readonly stepperSteps: typeof STEPPER_STEPS = STEPPER_STEPS;
@@ -27,7 +27,9 @@ export default class SignUpComponent implements OnInit {
   readonly inputTypes: typeof INPUT_TYPES = INPUT_TYPES;
 
   constructor(
-    public authService: AuthService,
+    public stepperService: StepperService,
+    private injector: Injector,
+    private cdr: ChangeDetectorRef,
     private fb: FormBuilder
   ) {}
 
@@ -53,16 +55,27 @@ export default class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.buildRegisterForm();
-
-    this.nextStepButtonValue =
-      this.authService.stepperConfig().activeStep === this.stepperSteps.ThirdStep
-        ? this.nextButtonConfig.CreateAccount
-        : this.nextButtonConfig.Continue;
+    this.getNextStepButtonValue();
   }
 
   onNextStepClick(): void {
-    this.authService.onNextStepClick(this.authService.stepperConfig().activeStep);
+    this.stepperService.onNextStepClick(this.stepperService.stepperConfig().activeStep);
   }
+
+  private getNextStepButtonValue(): void {
+    effect(
+      () => {
+        this.nextStepButtonValue =
+          this.stepperService.stepperConfig().activeStep === this.stepperSteps.ThirdStep
+            ? this.nextButtonConfig.CreateAccount
+            : this.nextButtonConfig.Continue;
+      },
+      { injector: this.injector }
+    );
+
+    this.cdr.detectChanges();
+  }
+
   private buildRegisterForm(): FormGroup {
     return (this.registerForm = this.fb.group({
       email: [''],

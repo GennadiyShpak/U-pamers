@@ -1,6 +1,6 @@
 <epm-stepper />
 <form class="signup__form" [formGroup]="registerForm">
-  <ng-container *ngIf="authService.stepperConfig().activeStep === stepperSteps.FirstStep">
+  <ng-container *ngIf="stepperService.stepperConfig().activeStep === stepperSteps.FirstStep">
     <h2 class="signup__title">Fill in account details</h2>
     <epm-input [labelPlaceholder]="'Login'" [type]="inputTypes.Email" [control]="email" />
     <epm-input [labelPlaceholder]="'First name'" [control]="firstName" />

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AuthService } from '../../../services/auth.service';
 import { StepperConfig } from '../../auth.model';
 import { STEPPER_CONFIG_DATA, STEPPER_STEPS } from '../../auth.config';
+import { StepperService } from '../../services/stepper.service';
 
 @Component({
   selector: 'epm-stepper',
@@ -15,13 +15,16 @@ import { STEPPER_CONFIG_DATA, STEPPER_STEPS } from '../../auth.config';
 export class StepperComponent implements OnInit {
   readonly stepperSteps: typeof STEPPER_STEPS = STEPPER_STEPS;
 
-  constructor(public authService: AuthService) {}
+  constructor(public stepperService: StepperService) {}
 
   ngOnInit(): void {
-    this.authService.stepperConfig.set({ ...STEPPER_CONFIG_DATA });
+    this.stepperService.stepperConfig.set(STEPPER_CONFIG_DATA);
   }
 
   onStepButtonClick(clickedStep: STEPPER_STEPS): void {
-    this.authService.stepperConfig.mutate((value: StepperConfig) => (value.activeStep = clickedStep));
+    this.stepperService.stepperConfig.update((config: StepperConfig) => ({
+      ...config,
+      activeStep: clickedStep
+    }));
   }
 }
