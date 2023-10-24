@@ -1,1 +1,16 @@
-<p>avatar-edit works!</p>
+<image-cropper
+  format="png"
+  [imageChangedEvent]="imageChangedEvent()"
+  [maintainAspectRatio]="true"
+  [aspectRatio]="1"
+  [roundCropper]="true"
+  [cropperMaxWidth]="320"
+  [cropperMaxHeight]="210"
+  [hideResizeSquares]="true"
+  [(transform)]="transform"
+  [allowMoveImage]="true"
+  (imageCropped)="imageCropped($event)"
+/>
+<epm-button class="primary" (click)="onSavePhoto()">Save</epm-button>
+<input #fileInput type="file" accept=".png, .jpg, .jpeg" (change)="fileChangeEvent($event)" />
+<epm-button class="secondary" (click)="onChangePhoto()">Change photo</epm-button>

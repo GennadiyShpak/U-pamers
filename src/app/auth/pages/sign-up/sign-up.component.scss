@@ -4,11 +4,20 @@
 .signup {
   &__title {
     @include font-bold;
-    margin-bottom: 24px;
+    margin-bottom: 4px;
     font-size: $font-size-h2;
     line-height: 34px;
     text-align: center;
     color: $color-dark-grey;
+  }
+
+  &__informer {
+    @include font-informer;
+    margin-bottom: 24px;
+    font-size: $font-size-body;
+    line-height: 20px;
+    text-align: center;
+    color: $color-text-secondary;
   }
 
   &__form {
@@ -36,7 +45,7 @@
 
   &__login-paragraph {
     @include font-medium;
-    margin-top: 12px;
+    margin: 12px 0;
     line-height: 24px;
     text-align: center;
   }
@@ -48,5 +57,38 @@
     &:visited {
       color: $color-primary-base;
     }
+  }
+
+  &__avatar-container {
+    position: relative;
+    display: flex;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 32px;
+    cursor: pointer;
+    background-image: url('../../../../assets/images/avatar-upload.svg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+
+    input[type='file'] {
+      display: none;
+    }
+
+    &::ng-deep {
+      .button {
+        position: absolute;
+        width: auto;
+        height: $button-size-small;
+        padding: 10px 8px;
+        bottom: 4px;
+        right: 4px;
+      }
+    }
+  }
+
+  &__avatar-image {
+    color: transparent;
+    border-radius: 50%;
   }
 }

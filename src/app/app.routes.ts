@@ -25,4 +25,4 @@ export const APP_ROUTES: Routes = [
     path: '**',
     loadComponent: () => import('./shared/components/not-found/not-found.component')
   }
-] as Routes;
+];

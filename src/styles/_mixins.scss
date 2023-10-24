@@ -1,11 +1,11 @@
+@mixin font-informer {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
 @mixin font-regular {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-}
-
-@mixin font-bold {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
 }
 
 @mixin font-medium {
@@ -16,4 +16,9 @@
 @mixin font-semibold {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
+}
+
+@mixin font-bold {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
 }

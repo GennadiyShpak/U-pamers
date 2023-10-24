@@ -8,7 +8,14 @@
     'label-password': type === inputTypes.Password
   }"
 >
-  <input #epmInput class="epm-input" [type]="type" [placeholder]="inputPlaceholder" [formControl]="control" />
+  <input
+    #epmInput
+    class="epm-input"
+    [type]="type"
+    [name]="control"
+    [placeholder]="inputPlaceholder"
+    [formControl]="control"
+  />
   <button
     *ngIf="type === inputTypes.Password"
     class="epm-input__toggle-visibility"
