@@ -5,5 +5,7 @@ import { APP_ROUTES } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(RouterModule.forRoot(APP_ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules}))]
+  providers: [
+    importProvidersFrom(RouterModule.forRoot(APP_ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }))
+  ]
 });
