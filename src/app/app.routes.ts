@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { APP_ROUTER_NAME } from './app.config';
+import { APP_ROUTER_NAME, HEADER_CONFIG_LIST, HEADER_CONFIG_NAME } from './app.config';
 
 export const APP_ROUTES: Routes = [
   {
@@ -17,7 +17,12 @@ export const APP_ROUTES: Routes = [
     loadChildren: () => import('./main/container/main.routes')
   },
   {
+    path: APP_ROUTER_NAME.AvatarEdit,
+    loadComponent: () => import('./shared/components/avatar-edit/avatar-edit.component'),
+    data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.avatarEdit]
+  },
+  {
     path: '**',
     loadComponent: () => import('./shared/components/not-found/not-found.component')
   }
-];
+] as Routes;
