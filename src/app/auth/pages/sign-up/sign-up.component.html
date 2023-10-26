@@ -27,6 +27,31 @@
       <epm-button *ngIf="userAvatarDraft()" class="primary" [iconName]="iconNames.Edit" (click)="handleAvatarEdit()" />
     </label>
   </ng-container>
+  <ng-container *ngIf="currentStep().activeStep === stepperSteps.ThirdStep">
+    <h2 class="signup__title">Connect social medias</h2>
+    <p class="signup__informer">(Optional)</p>
+    <epm-input
+      [labelPlaceholder]="socialPlaceholders.linkedin"
+      [iconName]="socialIcons.LinkedIn"
+      [control]="linkedin"
+    />
+    <epm-input
+      [labelPlaceholder]="socialPlaceholders.instagram"
+      [iconName]="socialIcons.Instagram"
+      [control]="instagram"
+    />
+    <epm-input
+      [labelPlaceholder]="socialPlaceholders.telegram"
+      [iconName]="socialIcons.Telegram"
+      [control]="telegram"
+    />
+    <epm-input
+      [labelPlaceholder]="socialPlaceholders.facebook"
+      [iconName]="socialIcons.Facebook"
+      [control]="facebook"
+    />
+    <epm-input [labelPlaceholder]="socialPlaceholders.skype" [iconName]="socialIcons.Skype" [control]="skype" />
+  </ng-container>
 </form>
 <epm-button class="primary" (click)="onNextStepClick()">{{ nextStepButtonValue }}</epm-button>
 <p *ngIf="currentStep().activeStep === stepperSteps.FirstStep" class="signup__login-paragraph">

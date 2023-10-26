@@ -5,10 +5,15 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angul
 import { SafeUrl } from '@angular/platform-browser';
 
 import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
-import { APP_ROUTER_NAME, ICON_NAMES, INPUT_TYPES } from '../../../app.config';
+import { APP_ROUTER_NAME, ICON_NAMES, INPUT_TYPES, SOCIAL_ICONS } from '../../../app.config';
 import { StepperComponent } from '../../components/stepper/stepper.component';
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
-import { INITIAL_STEPPER_CONFIG, NEXT_STEP_BUTTON_CONFIG, STEPPER_STEPS } from '../../auth.config';
+import {
+  SOCIAL_PLACEHOLDERS_CONFIG,
+  INITIAL_STEPPER_CONFIG,
+  NEXT_STEP_BUTTON_CONFIG,
+  STEPPER_STEPS
+} from '../../auth.config';
 import { StepperService } from '../../services/stepper.service';
 import { ActionHandlerList, StepperConfig, VoidCallback } from '../../auth.model';
 import { AuthService } from '../../../services/auth.service';
@@ -41,6 +46,8 @@ export default class SignUpComponent implements OnInit {
   readonly iconNames: typeof ICON_NAMES = ICON_NAMES;
   readonly userAvatarDraft: Signal<SafeUrl> = this.authService.userAvatarDraft;
   readonly currentStep: Signal<StepperConfig> = this.stepperService.stepperConfig;
+  readonly socialIcons: typeof SOCIAL_ICONS = SOCIAL_ICONS;
+  readonly socialPlaceholders: typeof SOCIAL_PLACEHOLDERS_CONFIG = SOCIAL_PLACEHOLDERS_CONFIG;
 
   constructor(
     private stepperService: StepperService,
@@ -73,6 +80,26 @@ export default class SignUpComponent implements OnInit {
 
   get userAvatar(): FormControl {
     return this.registerForm.get('userAvatar') as FormControl;
+  }
+
+  get linkedin(): FormControl {
+    return this.registerForm.get('socialMedias.linkedin') as FormControl;
+  }
+
+  get instagram(): FormControl {
+    return this.registerForm.get('socialMedias.instagram') as FormControl;
+  }
+
+  get telegram(): FormControl {
+    return this.registerForm.get('socialMedias.telegram') as FormControl;
+  }
+
+  get facebook(): FormControl {
+    return this.registerForm.get('socialMedias.facebook') as FormControl;
+  }
+
+  get skype(): FormControl {
+    return this.registerForm.get('socialMedias.skype') as FormControl;
   }
 
   ngOnInit(): void {
@@ -113,7 +140,14 @@ export default class SignUpComponent implements OnInit {
       lastName: [''],
       password: [''],
       repeatPassword: [''],
-      userAvatar: ['']
+      userAvatar: [''],
+      socialMedias: this.fb.group({
+        linkedin: [''],
+        instagram: [''],
+        telegram: [''],
+        facebook: [''],
+        skype: ['']
+      })
     }));
   }
 
