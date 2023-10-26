@@ -1,4 +1,4 @@
-<button type="button" class="button" [ngStyle]="additionalStyles" [disabled]="isDisabled">
+<button [type]="type" class="button" [ngStyle]="additionalStyles" [disabled]="isDisabled">
   <svg *ngIf="iconName" class="icon">
     <use [attr.xlink:href]="'/assets/icons/sprite.svg#' + iconName"></use>
   </svg>

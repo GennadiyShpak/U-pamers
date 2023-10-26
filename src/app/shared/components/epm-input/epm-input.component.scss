@@ -87,6 +87,13 @@
         padding-right: 48px;
       }
     }
+
+    &.chat-input {
+      & > .epm-input {
+        padding: 8px 12px;
+        height: 40px;
+      }
+    }
   }
 
   &__toggle-visibility {

@@ -13,4 +13,5 @@ export class EpmButtonComponent {
   @Input() additionalStyles?: Partial<CSSStyleDeclaration>;
   @Input() isDisabled = false;
   @Input() iconName?: ICON_NAMES;
+  @Input() type = 'button';
 }

@@ -1,1 +1,33 @@
-<p>chat works!</p>
+<div class="chat__wrapper">
+  <ul class="chat__list">
+    <ng-container *ngFor="let msg of messages; index as i; trackBy: trackByMessageId">
+      <li
+        class="chat__list__element"
+        [ngClass]="{ time__hidden: (msg | toggleDisplayMessageTime: messages : i), own: msg.sender !== userId }"
+      >
+        <div class="message__wrapper">
+          <div class="avatar__wrapper">
+            <a class="avatar__link" (click)="onOpenUser(chat)">
+              <img width="24" height="24" [src]="interlocutor.avatarUrl" alt="avatar of the interlocutor" />
+            </a>
+          </div>
+          <epm-chat-message [ngClass]="{ own: msg.sender !== userId }" [message]="msg" />
+        </div>
+        <span class="time">{{ msg.time | date: 'h:mm' }}</span>
+      </li>
+      <span *ngIf="msg | toggleDisplayChatStartDay: messages : i" class="chat__start-day">
+        {{ msg.time | chatStartDay: 'LLLL d' }}
+      </span>
+    </ng-container>
+  </ul>
+  <form class="chat__form" [formGroup]="chatForm">
+    <epm-input #messageInput class="chat__form_input" [inputPlaceholder]="inputPlaceholders.Chat" [control]="message" />
+    <epm-button
+      type="submit"
+      class="chat__form_button"
+      [class]="[buttonThemes.IconOnly, buttonThemes.Small]"
+      [iconName]="iconNames.SendMessage"
+      (click)="onSend()"
+    />
+  </form>
+</div>
