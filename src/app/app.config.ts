@@ -13,7 +13,8 @@ export enum APP_ROUTER_NAME {
   ProfileSettings = 'profile-settings',
   Details = 'details',
   Info = 'info',
-  Privacy = 'privacy'
+  Privacy = 'privacy',
+  AvatarEdit = 'avatar-edit'
 }
 
 export const CONTACT_ROUTE = '/main/contact';
@@ -87,7 +88,8 @@ export const enum HEADER_CONFIG_NAME {
   profileSettings = 'profileSettings',
   accountDetails = 'accountDetails',
   profileInfo = 'profileInfo',
-  privacy = 'privacy'
+  privacy = 'privacy',
+  avatarEdit = 'avatarEdit'
 }
 
 export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } = {
@@ -147,6 +149,10 @@ export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } =
     leftButton: HEADER_ICON_TYPE.Arrow,
     title: 'Privacy',
     right: HEADER_RIGHT_BLOCK.StatusBar
+  },
+  avatarEdit: {
+    leftButton: HEADER_ICON_TYPE.Arrow,
+    title: 'Edit Photo'
   }
 };
 
