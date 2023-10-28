@@ -1,6 +1,7 @@
+<router-outlet />
 <epm-stepper />
 <form class="signup__form" [formGroup]="registerForm">
-  <ng-container *ngIf="stepperService.stepperConfig().activeStep === stepperSteps.FirstStep">
+  <ng-container *ngIf="currentStep().activeStep === stepperSteps.FirstStep">
     <h2 class="signup__title">Fill in account details</h2>
     <epm-input [labelPlaceholder]="'Login'" [type]="inputTypes.Email" [control]="email" />
     <epm-input [labelPlaceholder]="'First name'" [control]="firstName" />
@@ -11,9 +12,24 @@
     </div>
     <epm-input [labelPlaceholder]="'Confirm password'" [type]="inputTypes.Password" [control]="repeatPassword" />
   </ng-container>
+  <ng-container *ngIf="currentStep().activeStep === stepperSteps.SecondStep">
+    <h2 class="signup__title">Upload profile picture</h2>
+    <p class="signup__informer">(Optional)</p>
+    <label class="signup__avatar-container">
+      <img class="signup__avatar-image" [src]="userAvatarDraft()" alt="user avatar" />
+      <input
+        #avatarInput
+        [type]="inputTypes.File"
+        accept=".png, .jpg, .jpeg"
+        [formControl]="userAvatar"
+        (change)="handleAvatarEdit($event)"
+      />
+      <epm-button *ngIf="userAvatarDraft()" class="primary" [iconName]="iconNames.Edit" (click)="handleAvatarEdit()" />
+    </label>
+  </ng-container>
 </form>
 <epm-button class="primary" (click)="onNextStepClick()">{{ nextStepButtonValue }}</epm-button>
-<p class="signup__login-paragraph">
+<p *ngIf="currentStep().activeStep === stepperSteps.FirstStep" class="signup__login-paragraph">
   Already have an account?
   <a class="signup__login-link" [routerLink]="['/', appRoutes.Auth, appRoutes.LogIn]">Login</a>
 </p>

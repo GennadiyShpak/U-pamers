@@ -1,0 +1,16 @@
+:host {
+  ::ng-deep {
+    .button {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+image-cropper {
+  --cropper-outline-color: rgba(77, 82, 103, 0.6);
+  margin-bottom: 20px;
+}
+
+input[type='file'] {
+  display: none;
+}
