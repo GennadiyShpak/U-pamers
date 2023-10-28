@@ -32,3 +32,11 @@ export interface NewPasswordData {
 }
 
 export type NewPasswordForm = NestedFormInterface<NewPasswordData, string>;
+
+export interface SocialURLsList {
+  linkedin: string;
+  instagram: string;
+  facebook: string;
+  skype: string;
+  telegram: string;
+}
