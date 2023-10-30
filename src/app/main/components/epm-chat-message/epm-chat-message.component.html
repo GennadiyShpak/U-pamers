@@ -1,0 +1,9 @@
+<p class="message">
+  {{ message.text }}
+  <svg class="send-icon">
+    <use *ngIf="message.read; else checked" [attr.xlink:href]="'/assets/icons/sprite.svg#double-checked'"></use>
+    <ng-template #checked>
+      <use [attr.xlink:href]="'/assets/icons/sprite.svg#checked'"></use>
+    </ng-template>
+  </svg>
+</p>

@@ -1,4 +1,4 @@
-import { ChatLastMessage, UserDetailed } from '../app/main/main.model';
+import { ChatLastMessage, Message, UserDetailed } from '../app/main/main.model';
 
 export const CHATS_MOCK: ChatLastMessage[] = [
   {
@@ -258,5 +258,144 @@ export const USERS_MOCK: UserDetailed[] = [
       skype: '',
       telegram: ''
     }
+  }
+];
+
+export const CHAT_MOCK: Message[] = [
+  {
+    id: '17',
+    chatId: 'chat-1',
+    sender: '1',
+    time: '2023-10-30:15:00',
+    text: 'See you later!',
+    read: false
+  },
+  {
+    id: '16',
+    chatId: 'chat-1',
+    sender: '2',
+    time: '2023-10-30:15:00',
+    text: 'Thank you! Talk to you later.',
+    read: true
+  },
+  {
+    id: '15',
+    chatId: 'chat-1',
+    sender: '2',
+    time: '2023-10-29T08:10:00',
+    text: 'Well, I will let you get ready for the gym. Have a great workout!',
+    read: true
+  },
+  {
+    id: '14',
+    chatId: 'chat-1',
+    sender: '1',
+    time: '2023-10-29T08:05:00',
+    text: 'You are absolutely right.',
+    read: true
+  },
+  {
+    id: '13',
+    chatId: 'chat-1',
+    sender: '1',
+    time: '2023-10-27T08:00:00',
+    text: 'It is important to take care of your health.',
+    read: true
+  },
+  {
+    id: '12',
+    chatId: 'chat-1',
+    sender: '2',
+    time: '2023-10-25T08:08:00',
+    text: 'I try to stay active.',
+    read: true
+  },
+  {
+    id: '11',
+    chatId: 'chat-1',
+    sender: '2',
+    time: '2023-10-25T08:12:00',
+    text: 'Thats a healthy choice!',
+    read: true
+  },
+  {
+    id: '10',
+    chatId: 'chat-1',
+    sender: '1',
+    time: '2023-10-25T08:14:00',
+    text: 'Im going to the gym later.',
+    read: true
+  },
+  {
+    id: '9',
+    chatId: 'chat-1',
+    sender: '1',
+    time: '2023-10-25T08:40:00',
+    text: 'How about you? Any plans?',
+    read: true
+  },
+  {
+    id: '8',
+    chatId: 'chat-1',
+    sender: '1',
+    time: '2023-10-25T08:35:00',
+    text: 'Sounds like a good plan.',
+    read: true
+  },
+  {
+    id: '7',
+    chatId: 'chat-1',
+    sender: '2',
+    time: '2023-10-25T08:30:00',
+    text: 'Not really, just relaxing at home.',
+    read: true
+  },
+  {
+    id: '6',
+    chatId: 'chat-1',
+    sender: '2',
+    time: '2023-10-24T08:25:00',
+    text: 'I understand. Any exciting plans for the evening?',
+    read: true
+  },
+  {
+    id: '5',
+    chatId: 'chat-1',
+    sender: '1',
+    time: '2023-10-24T08:20:00',
+    text: "It's been a busy day at work.",
+    read: true
+  },
+  {
+    id: '4',
+    chatId: 'chat-1',
+    sender: '1',
+    time: '2023-10-24T08:15:00',
+    text: 'How has your day been?',
+    read: true
+  },
+  {
+    id: '3',
+    chatId: 'chat-1',
+    sender: '1',
+    time: '2023-10-24T08:10:00',
+    text: "That's great to hear!",
+    read: true
+  },
+  {
+    id: '2',
+    chatId: 'chat-1',
+    sender: '2',
+    time: '2023-10-24T08:05:00',
+    text: 'I am doing well, thanks!',
+    read: true
+  },
+  {
+    id: '1',
+    chatId: 'chat-1',
+    sender: '1',
+    time: '2023-10-24T08:00:00',
+    text: 'Hello, how are you?',
+    read: true
   }
 ];

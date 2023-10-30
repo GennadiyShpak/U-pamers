@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: flex;
+
+  .message {
+    @include font-medium;
+    display: flex;
+    align-items: center;
+    width: 261px;
+    min-height: 48px;
+    padding: 4px 56px 4px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: $color-dark-grey;
+    background-color: $color-white;
+    border-radius: 12px 12px 12px 2px;
+
+    & .send-icon {
+      display: none;
+    }
+  }
+
+  &.own {
+    justify-content: end;
+
+    .message {
+      position: relative;
+      min-height: 44px;
+      color: $color-white;
+      background-color: $color-primary-highlight;
+      border-radius: 12px 12px 2px 12px;
+
+      & .send-icon {
+        position: absolute;
+        right: 8px;
+        bottom: 4px;
+        display: inline-block;
+        stroke: $color-white;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

@@ -61,7 +61,8 @@ export enum ICON_NAMES {
   SuccessFilled = 'success-filled',
   WarningFilled = 'warning-filled',
   ErrorFilled = 'error-filled',
-  InfoFilled = 'info-filled'
+  InfoFilled = 'info-filled',
+  SendMessage = 'send-message'
 }
 
 export enum HEADER_RIGHT_BLOCK {
@@ -184,7 +185,8 @@ export enum INPUT_PLACEHOLDERS {
   Telegram = 'http://telegram.com',
   Facebook = 'http://facebook.com',
   Skype = 'nickname',
-  None = ''
+  None = '',
+  Chat = 'Start typing...'
 }
 
 export enum ERROR_MESSAGES {

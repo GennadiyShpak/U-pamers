@@ -5,12 +5,14 @@
   [ngClass]="{
     'nested-icon-input': iconName,
     filled: epmInput.value || epmInput.placeholder,
-    'label-password': type === inputTypes.Password
+    'label-password': type === inputTypes.Password,
+    'chat-input': epmInput.placeholder === inputPlaceholders.Chat
   }"
 >
   <input
     #epmInput
     class="epm-input"
+    autocomplete="off"
     [type]="type"
     [name]="control"
     [placeholder]="inputPlaceholder"

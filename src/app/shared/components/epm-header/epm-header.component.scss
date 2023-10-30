@@ -3,7 +3,7 @@
 
 :host {
   display: flex;
-  height: 56px;
+  height: $header-height;
   min-width: 375px;
 }
 
@@ -14,7 +14,7 @@
   transition: box-shadow $transition-duration ease-in-out;
 
   &.shadow {
-    box-shadow: 0 4px 4px 0 rgba(20, 20, 20, 0.04);
+    box-shadow: 0 6px 8px 4px rgba(20, 20, 20, 0.06);
   }
 
   &.colored {

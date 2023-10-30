@@ -1,4 +1,5 @@
 import { SOCIAL_ICONS } from '../app.config';
+import { FormControl } from '@angular/forms';
 
 export interface User {
   name: string;
@@ -37,3 +38,16 @@ export interface ExpandedUserDetailed extends Omit<UserDetailed, 'socials'> {
 }
 
 export type GetLink = (userName: string) => string;
+
+export interface ChatForm {
+  message: FormControl<string>;
+}
+
+export interface Message {
+  id: string;
+  chatId: string;
+  sender: string;
+  time: string;
+  text: string;
+  read: boolean;
+}

@@ -21,6 +21,7 @@ export class EpmInputComponent implements AfterViewInit {
   @ViewChild('epmInput') epmInputRef!: ElementRef;
 
   readonly inputTypes: typeof INPUT_TYPES = INPUT_TYPES;
+  readonly inputPlaceholders: typeof INPUT_PLACEHOLDERS = INPUT_PLACEHOLDERS;
 
   constructor(private cdRef: ChangeDetectorRef) {}
 
