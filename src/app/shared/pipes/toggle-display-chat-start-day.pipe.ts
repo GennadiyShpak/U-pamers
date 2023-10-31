@@ -11,6 +11,8 @@ export class ToggleDisplayChatStartDayPipe implements PipeTransform {
     const datePipe: DatePipe = new DatePipe('en-US');
     const previousMessage: Message | undefined = messages[i + 1];
 
-    return previousMessage ? datePipe.transform(message.time, 'shortDate') !== datePipe.transform(previousMessage.time, 'shortDate') : true;
+    return previousMessage
+      ? datePipe.transform(message.time, 'shortDate') !== datePipe.transform(previousMessage.time, 'shortDate')
+      : true;
   }
 }

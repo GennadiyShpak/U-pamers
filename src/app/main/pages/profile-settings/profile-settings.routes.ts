@@ -17,6 +17,12 @@ export default [
         title: 'U-PAMERS | Account Details'
       },
       {
+        path: APP_ROUTER_NAME.ChangePassword,
+        loadComponent: () => import('../change-password/change-password.component'),
+        data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.changePassword],
+        title: 'U-PAMERS | Account Details'
+      },
+      {
         path: APP_ROUTER_NAME.Info,
         loadComponent: () => import('../info/info.component'),
         data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.profileInfo],
