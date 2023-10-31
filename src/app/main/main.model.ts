@@ -51,3 +51,15 @@ export interface Message {
   text: string;
   read: boolean;
 }
+
+type SimpleFormType<T, U> = {
+  [key in keyof T]: FormControl<U>;
+};
+
+export interface AccountDetailsData {
+  email: string;
+  firstName: string;
+  lastName: string;
+}
+
+export type AccountDetailsForm = SimpleFormType<AccountDetailsData, string>;
