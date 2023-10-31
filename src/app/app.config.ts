@@ -12,6 +12,7 @@ export enum APP_ROUTER_NAME {
   MyProfile = 'my-profile',
   ProfileSettings = 'profile-settings',
   Details = 'details',
+  ChangePassword = 'change-password',
   Info = 'info',
   Privacy = 'privacy',
   AvatarEdit = 'avatar-edit'
@@ -88,6 +89,7 @@ export const enum HEADER_CONFIG_NAME {
   myProfile = 'myProfile',
   profileSettings = 'profileSettings',
   accountDetails = 'accountDetails',
+  changePassword = 'changePassword',
   profileInfo = 'profileInfo',
   privacy = 'privacy',
   avatarEdit = 'avatarEdit'
@@ -139,6 +141,11 @@ export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } =
   accountDetails: {
     leftButton: HEADER_ICON_TYPE.Arrow,
     title: 'Account Details',
+    right: HEADER_RIGHT_BLOCK.StatusBar
+  },
+  changePassword: {
+    leftButton: HEADER_ICON_TYPE.Arrow,
+    title: 'Change Password',
     right: HEADER_RIGHT_BLOCK.StatusBar
   },
   profileInfo: {

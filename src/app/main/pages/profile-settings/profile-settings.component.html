@@ -1,1 +1,21 @@
-<p>profile-settings works!</p>
+<a class="catalogue" routerLink="/">
+  <img src="/assets/icons/chevron-blue.svg" width="16" height="16" alt="navigate to previous page" />
+  <span>Catalogue</span>
+</a>
+<h2 class="settings__title">Settings</h2>
+<a class="settings__card" [routerLink]="[appRoutes.Details]">
+  <h4 class="settings__card-title">Account details</h4>
+  <img src="/assets/icons/arrow-right.svg" width="24" height="24" alt="navigate to menu item" />
+</a>
+<a class="settings__card" [routerLink]="[appRoutes.ChangePassword]">
+  <h4 class="settings__card-title">Change password</h4>
+  <img src="/assets/icons/arrow-right.svg" width="24" height="24" alt="navigate to menu item" />
+</a>
+<a class="settings__card" [routerLink]="[appRoutes.Info]">
+  <h4 class="settings__card-title">Profile details</h4>
+  <img src="/assets/icons/arrow-right.svg" width="24" height="24" alt="navigate to menu item" />
+</a>
+<a class="settings__card" [routerLink]="[appRoutes.Privacy]">
+  <h4 class="settings__card-title">Privacy</h4>
+  <img src="/assets/icons/arrow-right.svg" width="24" height="24" alt="navigate to menu item" />
+</a>
