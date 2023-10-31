@@ -1,2 +1,25 @@
-<p>profile works!</p>
-<epm-contact></epm-contact>
+<epm-contact>
+  <epm-contact-head [user]="user" [editableAvatar]="true" />
+
+  <epm-button
+    class="action-button"
+    [class]="[buttonThemes.Secondary, buttonThemes.Small]"
+    [additionalStyles]="{ width: '100%' }"
+    (click)="onOpenEdit()"
+    >Edit Profile</epm-button
+  >
+
+  <ng-container *ngIf="user.about || user.interests.length; else noDetails">
+    <epm-contact-about class="about" [about]="user.about" />
+    <epm-contact-interests [interests]="user.interests" />
+  </ng-container>
+
+  <ng-template #noDetails>
+    <epm-contact-no-details>
+      <span class="empty__text">
+        <a class="empty__link" [routerLink]="editProfileLink">Edit profile</a>
+        <span> to fill this section.</span>
+      </span>
+    </epm-contact-no-details>
+  </ng-template>
+</epm-contact>

@@ -1,5 +1,5 @@
 import { computed, Injectable, signal, Signal, WritableSignal } from '@angular/core';
-import { map, of, take, tap } from 'rxjs';
+import { map, Observable, of, take, tap } from 'rxjs';
 
 import { DetailedSocialLink, ExpandedUserDetailed, UserDetailed } from '../main.model';
 import { SOCIAL_ICONS } from '../../app.config';
@@ -27,6 +27,34 @@ export class MainApiService {
         take(1)
       )
       .subscribe();
+  }
+
+  getUserData(id: string): Observable<ExpandedUserDetailed> {
+    return of(USERS_MOCK.find(user => user.userId === id)!).pipe(
+      map(user => {
+        const userSocials = Object.entries(user.socials);
+        const socials: DetailedSocialLink[] = userSocials
+          .map(this.getDetailedSocials)
+          .sort((a, b) => a.priority - b.priority);
+
+        return <ExpandedUserDetailed>{ ...user, socials };
+      }),
+      take(1)
+    );
+  }
+
+  getPersonalData(): Observable<ExpandedUserDetailed> {
+    return of(USERS_MOCK.find(user => user.userId === '100')!).pipe(
+      map(user => {
+        const userSocials = Object.entries(user.socials);
+        const socials: DetailedSocialLink[] = userSocials
+          .map(this.getDetailedSocials)
+          .sort((a, b) => a.priority - b.priority);
+
+        return <ExpandedUserDetailed>{ ...user, socials };
+      }),
+      take(1)
+    );
   }
 
   private expandSocials(users: UserDetailed[]): ExpandedUserDetailed[] {

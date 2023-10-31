@@ -88,14 +88,32 @@ export const CHATS_MOCK: ChatLastMessage[] = [
   }
 ];
 
+export const PERSONAL_DATA_MOCK: UserDetailed = {
+  name: 'User',
+  surname: 'Userov',
+  userId: '100',
+  birthDate: '1975-09-12',
+  about: 'Angular lover',
+  interests: ['Travel', 'Family'],
+  location: 'Ukraine, Dnipro',
+  avatarUrl: '/mocks/img/avatar.png',
+  socials: {
+    instagram: 'insta',
+    facebook: 'fb',
+    linkedin: '../company/epam-systems',
+    skype: 'call_me',
+    telegram: 'upamer'
+  }
+};
+
 export const USERS_MOCK: UserDetailed[] = [
   {
     name: 'Lola',
     surname: 'Smith',
     userId: '1',
     birthDate: '',
-    about: "I'm a pretty man",
-    interests: ['health', 'travel'],
+    about: '',
+    interests: ['Health', 'Travel'],
     location: 'Lviv',
     avatarUrl: '/mocks/img/user_1.jpg',
     socials: {
@@ -112,7 +130,7 @@ export const USERS_MOCK: UserDetailed[] = [
     userId: '2',
     birthDate: '2000-06-15',
     about: 'Lorem ipsum dolor sit',
-    interests: ['health', 'travel'],
+    interests: ['Health', 'Travel'],
     location: 'New York',
     avatarUrl: '/mocks/img/user_2.jpg',
     socials: {
@@ -129,7 +147,7 @@ export const USERS_MOCK: UserDetailed[] = [
     userId: '3',
     birthDate: '',
     about: 'Tech enthusiast and travel lover',
-    interests: ['technology', 'travel', 'photography'],
+    interests: ['Attractions', 'Travel', 'Sports'],
     location: 'New York',
     avatarUrl: '/mocks/img/user_3.jpg',
     socials: {
@@ -146,7 +164,7 @@ export const USERS_MOCK: UserDetailed[] = [
     userId: '4',
     birthDate: '',
     about: 'Nature lover, fitness enthusiast, and bookworm',
-    interests: ['nature', 'fitness', 'reading'],
+    interests: ['Dining', 'Sports', 'Family', 'Travel', 'Education'],
     location: 'San Francisco',
     avatarUrl: '/mocks/img/user_4.jpg',
     socials: {
@@ -163,7 +181,7 @@ export const USERS_MOCK: UserDetailed[] = [
     userId: '5',
     birthDate: '1995-02-28',
     about: 'Art lover and coffee addict',
-    interests: ['art', 'coffee', 'gardening'],
+    interests: ['Travel', 'Family', 'Health', 'Promotions', 'Sports', 'Education', 'Dining', 'Office'],
     location: 'Seattle',
     avatarUrl: '/mocks/img/user_5.png',
     socials: {
@@ -180,7 +198,7 @@ export const USERS_MOCK: UserDetailed[] = [
     userId: '6',
     birthDate: '1993-09-12',
     about: 'Hiking enthusiast and tech geek',
-    interests: ['hiking', 'technology', 'travel'],
+    interests: ['Travel', 'Family', 'Sports', 'Education', 'Dining', 'Office'],
     location: 'Denver',
     avatarUrl: '/mocks/img/user_6.png',
     socials: {
@@ -196,8 +214,8 @@ export const USERS_MOCK: UserDetailed[] = [
     surname: 'LongSurname',
     userId: '7',
     birthDate: '1987-06-03',
-    about: 'Animal lover and fashionista',
-    interests: ['animals', 'fashion', 'dancing'],
+    about: '',
+    interests: ['Travel'],
     location: 'Netherlands, Hoofddorp, Mercuruissplein 1',
     avatarUrl: '/mocks/img/user_7.jpg',
     socials: {
@@ -214,7 +232,7 @@ export const USERS_MOCK: UserDetailed[] = [
     userId: '8',
     birthDate: '1980-11-18',
     about: 'History buff and astronomy enthusiast',
-    interests: ['history', 'astronomy', 'cooking'],
+    interests: [],
     location: '',
     avatarUrl: '/mocks/img/user_8.jpg',
     socials: {
@@ -231,7 +249,7 @@ export const USERS_MOCK: UserDetailed[] = [
     userId: '9',
     birthDate: '1998-04-05',
     about: 'Gaming enthusiast and anime lover',
-    interests: ['gaming', 'anime', 'reading'],
+    interests: [],
     location: 'Austin',
     avatarUrl: '/mocks/img/user_9.png',
     socials: {
@@ -247,8 +265,8 @@ export const USERS_MOCK: UserDetailed[] = [
     surname: 'Harris',
     userId: '10',
     birthDate: '1986-08-22',
-    about: 'Cooking aficionado and travel junkie',
-    interests: ['cooking', 'travel', 'music'],
+    about: '',
+    interests: [],
     location: 'San Diego',
     avatarUrl: '/mocks/img/user_10.jpg',
     socials: {
@@ -258,7 +276,8 @@ export const USERS_MOCK: UserDetailed[] = [
       skype: '',
       telegram: ''
     }
-  }
+  },
+  PERSONAL_DATA_MOCK
 ];
 
 export const CHAT_MOCK: Message[] = [

@@ -1,0 +1,16 @@
+<epm-contact>
+  <epm-contact-head [user]="user" />
+
+  <epm-button [class]="buttonThemes.Primary" (click)="onOpenChat(user)" class="action-button">Message</epm-button>
+
+  <ng-container *ngIf="user.about || user.interests.length; else noDetails">
+    <epm-contact-about class="details" *ngIf="user.about" [about]="user.about" />
+    <epm-contact-interests class="details" *ngIf="user.interests.length" [interests]="user.interests" />
+  </ng-container>
+
+  <ng-template #noDetails>
+    <epm-contact-no-details>
+      <span class="empty__text">This user has not provided details</span>
+    </epm-contact-no-details>
+  </ng-template>
+</epm-contact>

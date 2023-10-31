@@ -1,0 +1,11 @@
+@import 'variables';
+@import 'mixins';
+
+.action-button {
+  width: 100%;
+  margin: 24px 0 32px;
+}
+
+.details:not(:last-child) {
+  margin-bottom: 32px;
+}
