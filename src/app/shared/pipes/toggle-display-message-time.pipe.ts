@@ -7,7 +7,6 @@ import { DatePipe } from '@angular/common';
   standalone: true
 })
 export class ToggleDisplayMessageTimePipe implements PipeTransform {
-
   transform(message: Message, messages: Message[], i: number): boolean {
     const datePipe: DatePipe = new DatePipe('en-US');
     const nextMessage = messages[i - 1];
