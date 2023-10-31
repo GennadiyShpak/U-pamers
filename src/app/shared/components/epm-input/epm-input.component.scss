@@ -34,7 +34,7 @@
     display: inline-block;
     width: 100%;
     color: $color-text-secondary;
-    transition: 0.2s ease all;
+    transition: all $transition-duration;
 
     &.nested-icon-input {
       padding-left: 38px;
@@ -75,7 +75,7 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       pointer-events: none;
-      transition: 0.2s ease all;
+      transition: $transition-duration ease all;
     }
 
     &.label-password {

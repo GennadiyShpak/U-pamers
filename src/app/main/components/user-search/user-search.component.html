@@ -1,0 +1,16 @@
+<div class="container wrapper" [ngClass]="{ bottom: !chipsList.length, scrolled: isScrolled }">
+  <div class="controls">
+    <label class="controls__search-label" for="search">
+      <input class="controls__search-input" placeholder="Search by name" id="search" [type]="inputType.Text" />
+    </label>
+    <epm-button
+      class="icon-only secondary small"
+      [ngClass]="{ 'chips-counter': chipsList.length }"
+      [attr.data-chips-quantity]="chipsList.length"
+      [iconName]="iconName.Filter"
+    />
+  </div>
+  <div *ngIf="chipsList.length" class="chips" [ngClass]="{ scrolled: isScrolled }">
+    <epm-chips *ngFor="let chips of chipsList" [chips]="chips" />
+  </div>
+</div>

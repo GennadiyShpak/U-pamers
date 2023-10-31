@@ -1,0 +1,125 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: block;
+  min-width: 375px;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.wrapper {
+  position: relative;
+  padding: 24px 16px 84px 16px;
+  background-color: $color-white;
+  box-shadow: 0 4px 6px 0 $color-shadow-filter;
+  transition: all $transition-duration;
+
+  &.bottom {
+    padding-bottom: 24px;
+  }
+
+  &.scrolled {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+
+  &__search-label {
+    position: relative;
+    width: 100%;
+
+    &:before {
+      content: url('/assets/icons/magnifying-glass.svg');
+      position: absolute;
+      top: 8px;
+      left: 12px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__search-input {
+    @include font-regular;
+    width: 100%;
+    height: 100%;
+    padding-left: 48px;
+    font-size: 16px;
+    line-height: 20px;
+    color: $color-dark-grey;
+    border: solid 1px $color-grey;
+    border-radius: 8px;
+
+    &::placeholder {
+      color: $color-text-secondary;
+    }
+
+    &:focus {
+      border-color: $color-input-focused;
+      box-shadow: 0 0 0 1px $color-input-focused;
+      outline: none;
+    }
+  }
+}
+
+epm-button {
+  position: relative;
+
+  &.chips-counter:before {
+    @include font-bold;
+    content: attr(data-chips-quantity);
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    display: block;
+    width: 14px;
+    height: 14px;
+    padding: 2px 0;
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
+    color: $color-white;
+    background-color: $color-icon-negative;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px $color-shadow-indicator;
+  }
+}
+
+.chips {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  transition: all $transition-duration-fast;
+  transition-delay: 0.2s;
+
+  &.scrolled {
+    opacity: 0;
+    transition: all $transition-duration-fast;
+  }
+
+  & epm-chips {
+    margin-left: 8px;
+
+    &:first-child {
+      margin-left: 16px;
+    }
+
+    &:last-child {
+      margin-right: 16px;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

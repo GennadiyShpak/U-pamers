@@ -3,11 +3,8 @@
 
 :host {
   display: block;
-  width: 375px;
-  max-height: 150px;
-  margin: 0 auto;
-  background-color: $color-white;
-  border-bottom: 1px solid $color-link;
+  min-width: 375px;
+  max-height: 200px;
   overflow: hidden;
 }
 
@@ -16,12 +13,12 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 20px 16px;
     line-height: 20px;
+    border-bottom: 1px solid $color-link;
 
     &::before {
-      content: url('/assets/icons/toaster-icons/info.svg');
+      content: url('/assets/icons/info.svg');
       position: absolute;
       width: 24px;
       height: 24px;
