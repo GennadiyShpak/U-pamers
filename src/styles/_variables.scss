@@ -20,13 +20,15 @@ $color-header-background: #25286c;
 $color-surface-lightest: #f4f4ff;
 $color-surface-background: #f1f1f1;
 $color-lighter-grey: #e8e9f0;
+$color-main-background: #f5f5f5;
 
 // ***SHADOWS COLORS***
 $color-shadow: rgba(20, 20, 20, 0.08);
 $color-shadow-settings: rgba(20, 20, 20, 0.04);
-$color-shadow-filter: rgba(20, 20, 20, 0.04);
+$color-shadow-filter: rgba(20, 20, 20, 0.06);
 $color-shadow-modal: rgba(44, 39, 39, 0.5);
 $color-shadow-chat: rgba(0, 0, 0, 0.08);
+$color-shadow-indicator: rgba(230, 103, 78, 0.3);
 
 // ***BUTTONS COLORS***
 $color-button-disabled-halftone: #f2f3f7;
@@ -52,10 +54,11 @@ $font-size-h3: 18px;
 $font-size-h2: 24px;
 $font-size-h1: 32px;
 
-// ***DIMENSIONS**
+// ***DIMENSIONS***
 $button-size: 52px;
 $button-size-small: 40px;
 $header-height: 56px;
 $chat-form-height: 64px;
 
 $transition-duration: 0.3s;
+$transition-duration-fast: 0.1s;

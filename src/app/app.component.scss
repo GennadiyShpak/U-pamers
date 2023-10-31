@@ -16,5 +16,5 @@
 .hidden {
   max-height: 0;
   border: none;
-  transition: max-height 0.2s;
+  transition: max-height $transition-duration;
 }

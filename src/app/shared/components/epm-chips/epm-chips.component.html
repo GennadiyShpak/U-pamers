@@ -1,0 +1,11 @@
+<div class="wrapper" [ngClass]="{ active: chips.isActive }">
+  <div *ngIf="interestChips?.description" class="interest-icon">
+    <img [ngSrc]="interestChips.iconName" width="32" height="32" alt="interest icon" />
+  </div>
+  <p class="description" [ngClass]="{ left: description, right: !chips.isEditable }">
+    {{ description || interestChips.description }}
+  </p>
+  <button *ngIf="chips.isEditable" class="button" type="button" (click)="onIsEditableClick()">
+    <img ngSrc="/assets/icons/{{ chips.isActive ? 'cross' : 'plus' }}.svg" width="32" height="32" alt="interest icon" />
+  </button>
+</div>

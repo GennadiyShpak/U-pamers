@@ -1,4 +1,4 @@
-import { HeaderConfig } from './app.model';
+import { HeaderConfig, InterestChips } from './app.model';
 
 export enum APP_ROUTER_NAME {
   Auth = 'auth',
@@ -217,4 +217,57 @@ export const REGEXP_PATTERNS = {
   hasNumeric: /\d+/,
   hasNonAlphaNumeric: /[!"§$%&/\\(){}[\]=?+*#'^°,;.:<>|@~\-_´`]+/,
   hasSpace: /\s/
+};
+
+export const enum INTEREST_CHIPS_NAME {
+  Attractions = 'attractions',
+  Dining = 'dining',
+  Education = 'education',
+  Family = 'family',
+  Health = 'health',
+  Office = 'office',
+  Promotions = 'promotions',
+  Sports = 'sports',
+  Travel = 'travel'
+}
+
+const getChipsIconURL = (iconName: string): string => `/assets/icons/${iconName}.svg`;
+
+export const INTEREST_CHIPS_LIST: { [key in INTEREST_CHIPS_NAME]: InterestChips } = {
+  attractions: {
+    description: 'Attractions',
+    iconName: getChipsIconURL('attractions')
+  },
+  dining: {
+    description: 'Dining',
+    iconName: getChipsIconURL('dining')
+  },
+  education: {
+    description: 'Education',
+    iconName: getChipsIconURL('education')
+  },
+  family: {
+    description: 'Family',
+    iconName: getChipsIconURL('family')
+  },
+  health: {
+    description: 'Health',
+    iconName: getChipsIconURL('health')
+  },
+  office: {
+    description: 'Office',
+    iconName: getChipsIconURL('office')
+  },
+  promotions: {
+    description: 'Promotions',
+    iconName: getChipsIconURL('promotions')
+  },
+  sports: {
+    description: 'Sports',
+    iconName: getChipsIconURL('sports')
+  },
+  travel: {
+    description: 'Travel',
+    iconName: getChipsIconURL('travel')
+  }
 };
