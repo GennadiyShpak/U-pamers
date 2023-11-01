@@ -63,3 +63,11 @@ export interface AccountDetailsData {
 }
 
 export type AccountDetailsForm = SimpleFormType<AccountDetailsData, string>;
+
+export interface ChangePasswordData {
+  currentPassword: string;
+  newPassword: string;
+  confirmNewPassword: string;
+}
+
+export type ChangePasswordForm = SimpleFormType<ChangePasswordData, string>;
