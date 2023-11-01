@@ -207,7 +207,9 @@ export enum ERROR_MESSAGES {
   samePasswordsValue = 'Passwords don’t match.',
   // TODO ask for appropriate messages
   passwordWithoutSpace = 'Spaces are not allowed',
-  passwordAllowedCharacters = 'Passwords contains not allowed characters'
+  passwordAllowedCharacters = 'Passwords contains not allowed characters',
+  userNameAllowedCharacters = 'Make sure to use only Cyrillic or Latin symbols, including apostrophe and dash',
+  email = 'Make sure to enter your email'
 }
 
 export const REGEXP_PATTERNS = {
@@ -216,7 +218,8 @@ export const REGEXP_PATTERNS = {
   hasLowerCase: /[a-z]+/,
   hasNumeric: /\d+/,
   hasNonAlphaNumeric: /[!"§$%&/\\(){}[\]=?+*#'^°,;.:<>|@~\-_´`]+/,
-  hasSpace: /\s/
+  hasSpace: /\s/,
+  userNameAllowedCharacters: /^[A-Za-zА-Яа-я'-]+$/
 };
 
 export const enum INTEREST_CHIPS_NAME {

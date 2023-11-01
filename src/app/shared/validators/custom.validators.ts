@@ -44,4 +44,13 @@ export class CustomValidators {
       return null;
     };
   }
+
+  static userName(): ValidatorFn {
+    return (control: AbstractControl): CustomError | null => {
+      const value = control.value;
+      const isValid: boolean = REGEXP_PATTERNS.userNameAllowedCharacters.test(value);
+
+      return isValid ? null : { userNameAllowedCharacters: true };
+    };
+  }
 }

@@ -24,7 +24,7 @@ export class EpmChipsComponent implements OnInit {
   }
 
   onIsEditableClick(): void {
-    this.chips = {...this.chips, isActive: !this.chips.isActive};
+    this.chips = { ...this.chips, isActive: !this.chips.isActive };
     this.toggleChipsStatus.emit(this.chips);
   }
 }
