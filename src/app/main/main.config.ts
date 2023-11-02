@@ -1,4 +1,4 @@
-import { GetLink } from './main.model';
+import { GetLink, PrivacyItemsControlsData } from './main.model';
 
 export const SOCIAL_PROFILE_LINKS_ROOT: { [key: string]: GetLink } = {
   linkedin: (userName: string) => (userName ? `https://www.linkedin.com/in/${userName}` : ''),
@@ -15,3 +15,9 @@ export enum PRIORITY_ORDER {
   facebook,
   skype
 }
+
+export const DISABLED_PRIVACY_ITEMS: PrivacyItemsControlsData = {
+  age: false,
+  location: false,
+  description: false
+};
