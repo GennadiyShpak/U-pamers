@@ -3,15 +3,25 @@
   <span>Settings</span>
 </a>
 <h2 class="details__title">Account details</h2>
-<div class="details__card">
-  <epm-input labelPlaceholder="Login" [control]="email" />
-  <epm-input labelPlaceholder="First Name" [control]="firstName" />
-  <epm-input labelPlaceholder="Second Name" [control]="lastName" />
+<form class="details__card" [formGroup]="accountDetailsForm">
+  <div class="details__field">
+    <epm-input labelPlaceholder="Login" [type]="inputTypes.Email" [control]="email" />
+    <epm-error-message [control]="email" />
+  </div>
+  <div class="details__field">
+    <epm-input labelPlaceholder="First Name" [control]="firstName" />
+    <epm-error-message [control]="firstName" />
+  </div>
+  <div class="details__field">
+    <epm-input labelPlaceholder="Second Name" [control]="lastName" />
+    <epm-error-message [control]="lastName" />
+  </div>
   <epm-button
     class="button"
     [class]="buttonThemes.Primary"
     [isDisabled]="accountDetailsForm.invalid"
     (click)="onSaveUpdates()"
-    >Save updates</epm-button
   >
-</div>
+    Save updates
+  </epm-button>
+</form>
