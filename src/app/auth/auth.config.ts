@@ -19,7 +19,9 @@ export enum NEXT_STEP_BUTTON_CONFIG {
 
 export enum PASSWORDS_TO_COMPARE {
   NewPassword = 'newPassword',
-  ConfirmNewPassword = 'confirmNewPassword'
+  ConfirmNewPassword = 'confirmNewPassword',
+  Password = 'password',
+  RepeatPassword = 'repeatPassword'
 }
 
 const getSocialPlaceholder = (socialName: string): string => `${socialName} URL (Optional)`;

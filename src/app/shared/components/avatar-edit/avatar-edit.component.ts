@@ -29,13 +29,11 @@ export default class AvatarEditComponent {
   ) {}
 
   imageCropped(event: ImageCroppedEvent): void {
-    if (event.objectUrl) {
-      this.authService.setCroppedImage(event.objectUrl);
-    }
+    this.authService.setCroppedImage(event);
   }
 
   onSavePhoto(): void {
-    this.authService.setUserAvatarDraft(this.authService.croppedImage());
+    this.setUserAvatarDraft();
     this.authService.setFileEventDraft(this.authService.imageChangedEvent());
     this.router.navigateByUrl(`/${this.appRoutes.Auth}/${this.appRoutes.SignUp}`);
   }
@@ -48,5 +46,12 @@ export default class AvatarEditComponent {
     if ((event.target as HTMLInputElement).value) {
       this.authService.setImageChangeEvent(event);
     }
+  }
+
+  private setUserAvatarDraft(): void {
+    const reader: FileReader = new FileReader();
+
+    reader.readAsDataURL(this.authService.croppedImage().blob!);
+    reader.onload = () => this.authService.setUserAvatarDraft(reader.result!);
   }
 }

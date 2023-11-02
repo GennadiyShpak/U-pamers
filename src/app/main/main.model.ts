@@ -1,5 +1,5 @@
 import { SOCIAL_ICONS } from '../app.config';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 export interface User {
   name: string;
@@ -71,3 +71,21 @@ export interface ChangePasswordData {
 }
 
 export type ChangePasswordForm = SimpleFormType<ChangePasswordData, string>;
+
+export interface SocialMedias {
+  linkedin: FormControl<string>;
+  instagram: FormControl<string>;
+  telegram: FormControl<string>;
+  facebook: FormControl<string>;
+  skype: FormControl<string>;
+}
+
+export interface RegisterForm {
+  email: FormControl<string>;
+  firstName: FormControl<string>;
+  lastName: FormControl<string>;
+  password: FormControl<string>;
+  repeatPassword: FormControl<string>;
+  userAvatar: FormControl<string>;
+  socialMedias: FormGroup<SocialMedias>;
+}

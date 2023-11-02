@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, effect, ElementRef, Injector, OnInit, Signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
 
 import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
@@ -12,11 +12,15 @@ import {
   SOCIAL_PLACEHOLDERS_CONFIG,
   INITIAL_STEPPER_CONFIG,
   NEXT_STEP_BUTTON_CONFIG,
-  STEPPER_STEPS
+  STEPPER_STEPS,
+  PASSWORDS_TO_COMPARE
 } from '../../auth.config';
 import { StepperService } from '../../services/stepper.service';
 import { ActionHandlerList, StepperConfig, VoidCallback } from '../../auth.model';
 import { AuthService } from '../../../services/auth.service';
+import { RegisterForm } from '../../../main/main.model';
+import { CustomValidators } from '../../../shared/validators/custom.validators';
+import { EpmErrorMessageComponent } from '../../../shared/components/epm-error-message/epm-error-message.component';
 
 @Component({
   selector: 'epm-sign-up',
@@ -28,7 +32,8 @@ import { AuthService } from '../../../services/auth.service';
     EpmInputComponent,
     RouterLink,
     ReactiveFormsModule,
-    RouterOutlet
+    RouterOutlet,
+    EpmErrorMessageComponent
   ],
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
@@ -37,7 +42,7 @@ export default class SignUpComponent implements OnInit {
   @ViewChild('avatarInput') avatarInput!: ElementRef;
 
   nextStepButtonValue: NEXT_STEP_BUTTON_CONFIG = NEXT_STEP_BUTTON_CONFIG.Continue;
-  registerForm!: FormGroup;
+  registerForm!: FormGroup<RegisterForm>;
 
   readonly stepperSteps: typeof STEPPER_STEPS = STEPPER_STEPS;
   readonly nextButtonConfig: typeof NEXT_STEP_BUTTON_CONFIG = NEXT_STEP_BUTTON_CONFIG;
@@ -54,7 +59,7 @@ export default class SignUpComponent implements OnInit {
     private authService: AuthService,
     private injector: Injector,
     private cdr: ChangeDetectorRef,
-    private fb: FormBuilder,
+    private fb: NonNullableFormBuilder,
     private router: Router
   ) {}
 
@@ -103,8 +108,9 @@ export default class SignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.registerForm = this.buildRegisterForm();
+    this.buildRegisterForm();
     this.getNextStepButtonValue();
+    this.handleUserAvatarControl();
   }
 
   onNextStepClick(): void {
@@ -133,22 +139,57 @@ export default class SignUpComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-  private buildRegisterForm(): FormGroup {
-    return (this.registerForm = this.fb.group({
-      email: [''],
-      firstName: [''],
-      lastName: [''],
-      password: [''],
-      repeatPassword: [''],
-      userAvatar: [''],
-      socialMedias: this.fb.group({
-        linkedin: [''],
-        instagram: [''],
-        telegram: [''],
-        facebook: [''],
-        skype: ['']
-      })
-    }));
+  private handleUserAvatarControl(): void {
+    effect(
+      () => {
+        this.userAvatar.setValue(this.authService.userAvatarDraft());
+      },
+      { injector: this.injector }
+    );
+  }
+
+  private buildRegisterForm(): void {
+    this.registerForm = this.fb.group<RegisterForm>(
+      {
+        email: new FormControl('', {
+          nonNullable: true,
+          validators: [Validators.required, Validators.email]
+        }),
+        firstName: new FormControl('', {
+          nonNullable: true,
+          validators: [Validators.required, CustomValidators.userName()]
+        }),
+        lastName: new FormControl('', {
+          nonNullable: true,
+          validators: [Validators.required, CustomValidators.userName()]
+        }),
+        password: new FormControl('', {
+          nonNullable: true,
+          validators: [Validators.required, Validators.minLength(8), CustomValidators.password()]
+        }),
+        repeatPassword: new FormControl('', {
+          nonNullable: true,
+          validators: [Validators.required]
+        }),
+        userAvatar: new FormControl('', { nonNullable: true }),
+        socialMedias: this.fb.group({
+          linkedin: new FormControl('', { nonNullable: true }),
+          instagram: new FormControl('', { nonNullable: true }),
+          telegram: new FormControl('', { nonNullable: true }),
+          facebook: new FormControl('', { nonNullable: true }),
+          skype: new FormControl('', { nonNullable: true })
+        })
+      },
+      {
+        validators: [
+          CustomValidators.matchControlsValue(
+            'samePasswordsValue',
+            PASSWORDS_TO_COMPARE.Password,
+            PASSWORDS_TO_COMPARE.RepeatPassword
+          )
+        ]
+      }
+    );
   }
 
   private getNextStepHandler(step: STEPPER_STEPS): VoidCallback {
