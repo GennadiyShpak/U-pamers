@@ -25,9 +25,7 @@ export class ContactListItemComponent {
 
   onChatClick(event: MouseEvent): void {
     event.stopPropagation();
-    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${this.user.userId}`, {
-      state: this.user
-    });
+    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${this.user.userId}`);
   }
 
   onSocialClick(event: MouseEvent, link: string, type: SOCIAL_ICONS): void {

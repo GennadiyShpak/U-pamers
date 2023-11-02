@@ -19,8 +19,8 @@ export class ChatListComponent {
 
   constructor(private router: Router) {}
 
-  onOpenChat(chat: ChatLastMessage) {
-    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${chat.userId}`, { state: chat });
+  onOpenChat(userId: string) {
+    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${userId}`);
   }
 
   trackByUserId(_index: number, chat: ChatLastMessage): string {

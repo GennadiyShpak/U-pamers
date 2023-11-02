@@ -41,7 +41,6 @@ export class ChatComponent implements OnInit, AfterViewInit {
   messages: Message[] = CHAT_MOCK;
   interlocutor: User = USERS_MOCK[1];
 
-  readonly chat: User = this.router.getCurrentNavigation()?.extras.state as User;
   readonly buttonThemes: typeof BUTTON_THEMES = BUTTON_THEMES;
   readonly iconNames: typeof ICON_NAMES = ICON_NAMES;
   readonly inputPlaceholders: typeof INPUT_PLACEHOLDERS = INPUT_PLACEHOLDERS;
@@ -75,8 +74,8 @@ export class ChatComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onOpenUser(user: User): void {
-    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Contact}/${user.userId}`, { state: user });
+  onOpenUser(senderId: string): void {
+    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Contact}/${senderId}`);
   }
 
   trackByMessageId(_index: number, message: Message): string {
@@ -84,10 +83,8 @@ export class ChatComponent implements OnInit, AfterViewInit {
   }
 
   private setTitles(): void {
-    if (this.chat) {
-      this.title.setTitle(`U-PAMERS | ${this.chat.name} ${this.chat.surname} chat`);
-      this.headerService.addTitle(`${this.chat.name} ${this.chat.surname}`);
-    }
+    this.title.setTitle(`U-PAMERS | ${this.interlocutor.name} ${this.interlocutor.surname} chat`);
+    this.headerService.addTitle(`${this.interlocutor.name} ${this.interlocutor.surname}`);
   }
 
   private initForm(): void {

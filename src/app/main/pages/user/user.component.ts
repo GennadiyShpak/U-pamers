@@ -31,7 +31,7 @@ import { ContactNoDetailsComponent } from '../../components/contact-no-details/c
   styleUrls: ['./user.component.scss']
 })
 export default class UserComponent implements OnInit {
-  user: ExpandedUserDetailed = this.router.getCurrentNavigation()?.extras.state as ExpandedUserDetailed;
+  user!: ExpandedUserDetailed;
 
   readonly buttonThemes: typeof BUTTON_THEMES = BUTTON_THEMES;
 
@@ -44,19 +44,11 @@ export default class UserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.checkUserData();
+    this.getUserData();
   }
 
-  onOpenChat(chat: ExpandedUserDetailed): void {
-    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${chat.userId}`, { state: chat });
-  }
-
-  private checkUserData(): void {
-    if (!this.user || this.user.about === undefined || this.user.interests === undefined) {
-      this.getUserData();
-    } else {
-      this.setPageTitle();
-    }
+  onOpenChat(userId: string): void {
+    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${userId}`);
   }
 
   private getUserData(): void {
@@ -67,7 +59,7 @@ export default class UserComponent implements OnInit {
       .pipe(
         tap(user => {
           this.user = user;
-          this.title.setTitle(`U-PAMERS | ${this.user.name} ${this.user.surname} profile`);
+          this.setPageTitle();
         }),
         takeUntilDestroyed(this.destroyRef)
       )

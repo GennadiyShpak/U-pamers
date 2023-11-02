@@ -1,7 +1,9 @@
 <epm-contact>
   <epm-contact-head [user]="user" />
 
-  <epm-button [class]="buttonThemes.Primary" (click)="onOpenChat(user)" class="action-button">Message</epm-button>
+  <epm-button [class]="buttonThemes.Primary" (click)="onOpenChat(user.userId)" class="action-button"
+    >Message</epm-button
+  >
 
   <ng-container *ngIf="user.about || user.interests.length; else noDetails">
     <epm-contact-about class="details" *ngIf="user.about" [about]="user.about" />

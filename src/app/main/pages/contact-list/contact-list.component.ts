@@ -31,8 +31,8 @@ export class ContactListComponent implements OnInit, OnDestroy {
     this.mainApiService.clearUserList();
   }
 
-  onOpenUser(user: ExpandedUserDetailed) {
-    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Contact}/${user.userId}`, { state: user });
+  onOpenUser(userId: string) {
+    this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Contact}/${userId}`);
   }
 
   trackByUserId(_index: number, user: ExpandedUserDetailed): string {
