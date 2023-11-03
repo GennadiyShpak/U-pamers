@@ -83,8 +83,9 @@ export class ChatComponent implements OnInit, AfterViewInit {
   }
 
   private setTitles(): void {
-    this.title.setTitle(`U-PAMERS | ${this.interlocutor.name} ${this.interlocutor.surname} chat`);
-    this.headerService.addTitle(`${this.interlocutor.name} ${this.interlocutor.surname}`);
+    const fullName = `${this.interlocutor.name} ${this.interlocutor.surname}`
+    this.title.setTitle(`U-PAMERS | ${fullName} chat`);
+    this.headerService.addTitle(fullName);
   }
 
   private initForm(): void {

@@ -26,11 +26,15 @@ export class ContactInterestsComponent implements OnInit {
     if (!this.interests.length) return;
 
     this.chipsArray = this.interests.map(interest => {
-      return {
-        chipsData: INTEREST_CHIPS_LIST[INTEREST_CHIPS_NAME[interest as keyof typeof INTEREST_CHIPS_NAME]],
-        isEditable: false,
-        isActive: true
-      };
-    });
+      const chipsName = INTEREST_CHIPS_NAME[interest as keyof typeof INTEREST_CHIPS_NAME]
+      const chipsData = INTEREST_CHIPS_LIST[chipsName];
+
+        return {
+          chipsData,
+          isEditable: false,
+          isActive: true
+        }
+      }
+    )
   }
 }
