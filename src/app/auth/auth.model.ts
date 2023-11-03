@@ -40,3 +40,20 @@ export interface SocialURLsList {
   skype: string;
   telegram: string;
 }
+
+export interface UserAuthFormData {
+  email: string;
+  password: string;
+  repeatPassword: string;
+  givenName: string;
+  familyName: string;
+  userAvatar: string;
+  socialMedias: SocialURLsList;
+}
+
+export type UserAuthData = Omit<UserAuthFormData, 'repeatPassword'>;
+
+export interface ConfirmPasswordData {
+  code: FormControl<string>;
+  email: FormControl<string>;
+}

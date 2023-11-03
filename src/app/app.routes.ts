@@ -22,6 +22,10 @@ export const APP_ROUTES: Routes = [
     data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.avatarEdit]
   },
   {
+    path: 'not-found',
+    loadComponent: () => import('./shared/components/not-found/not-found.component')
+  },
+  {
     path: '**',
     loadComponent: () => import('./shared/components/not-found/not-found.component')
   }

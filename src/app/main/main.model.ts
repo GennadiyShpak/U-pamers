@@ -82,8 +82,8 @@ export interface SocialMedias {
 
 export interface RegisterForm {
   email: FormControl<string>;
-  firstName: FormControl<string>;
-  lastName: FormControl<string>;
+  givenName: FormControl<string>;
+  familyName: FormControl<string>;
   password: FormControl<string>;
   repeatPassword: FormControl<string>;
   userAvatar: FormControl<string>;

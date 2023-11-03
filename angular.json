@@ -18,6 +18,19 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/social_network",
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "@aws-crypto/sha256-browser",
+              "isomorphic-unfetch",
+              "uuid",
+              "@aws-crypto/crc32",
+              "url",
+              "buffer",
+              "camelcase-keys",
+              "cookie",
+              "js-cookie",
+              "ulid"
+            ],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
