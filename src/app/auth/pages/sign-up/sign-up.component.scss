@@ -20,24 +20,21 @@
     color: $color-text-secondary;
   }
 
-  &__form {
-    & epm-input {
-      height: 52px;
-      margin-bottom: 16px;
+  &__form epm-input {
+    height: 52px;
+  }
 
-      &:has(+ .signup__footnote) {
-        margin-bottom: 4px;
-      }
+  &__field {
+    margin-bottom: 16px;
 
-      &:last-child {
-        margin-bottom: 32px;
-      }
+    epm-error-message {
+      padding: 4px 0;
     }
   }
 
   &__footnote {
     @include font-regular;
-    margin-bottom: 16px;
+    padding: 4px 0;
     font-size: $font-size-label;
     line-height: 18px;
     color: $color-text-accent;
@@ -64,7 +61,7 @@
     display: flex;
     width: 160px;
     height: 160px;
-    margin: 0 auto 32px;
+    margin: 0 auto;
     cursor: pointer;
     background-image: url('../../../../assets/images/avatar-upload.svg');
     background-position: center;
@@ -91,4 +88,12 @@
     color: transparent;
     border-radius: 50%;
   }
+}
+
+.last-field {
+  margin-bottom: 32px;
+}
+
+.last-social-field {
+  margin-bottom: 24px;
 }
