@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Chips, InterestChips } from '../../../app.model';
+
+import { INTEREST_CHIPS_NAMES } from '../../../app.config';
 
 @Component({
   selector: 'epm-chips',
@@ -10,21 +11,29 @@ import { Chips, InterestChips } from '../../../app.model';
   styleUrls: ['./epm-chips.component.scss']
 })
 export class EpmChipsComponent implements OnInit {
-  @Input() chips!: Chips;
+  @Input() chips!: string;
+  @Input() isEditable = false;
+  @Input() isActive = false;
 
-  @Output() toggleChipsStatus: EventEmitter<Chips> = new EventEmitter<Chips>();
+  @Output() editChipsStatus: EventEmitter<string> = new EventEmitter<string>();
 
-  description!: string;
-  interestChips!: InterestChips;
+  iconName!: string;
+  iconFileName!: string;
 
   ngOnInit(): void {
-    typeof this.chips.chipsData === 'string'
-      ? (this.description = this.chips.chipsData)
-      : (this.interestChips = this.chips.chipsData);
+    this.getChipsIconURL(this.chips);
+    this.getEditIconURL();
   }
 
-  onIsEditableClick(): void {
-    this.chips = { ...this.chips, isActive: !this.chips.isActive };
-    this.toggleChipsStatus.emit(this.chips);
+  onIsEditableClick(chipsName: string): void {
+    this.editChipsStatus.emit(chipsName);
+  }
+
+  private getChipsIconURL(iconName: string): void {
+    this.iconName = INTEREST_CHIPS_NAMES.includes(iconName) ? `/assets/icons/${iconName.toLowerCase()}.svg` : '';
+  }
+
+  private getEditIconURL(): void {
+    this.iconFileName = this.isActive ? '/assets/icons/cross.svg' : '/assets/icons/plus.svg';
   }
 }

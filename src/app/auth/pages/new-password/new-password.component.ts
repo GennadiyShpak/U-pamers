@@ -57,12 +57,18 @@ export default class NewPasswordComponent implements OnInit {
   private initCreateNewPasswordForm(): void {
     this.createNewPasswordForm = this.fb.group(
       {
-        newPassword: ['', {
-          validators: [Validators.required, Validators.minLength(8), CustomValidators.password()]
-        }],
-        confirmNewPassword: ['', {
-          validators: [Validators.required]
-        }]
+        newPassword: [
+          '',
+          {
+            validators: [Validators.required, Validators.minLength(8), CustomValidators.password()]
+          }
+        ],
+        confirmNewPassword: [
+          '',
+          {
+            validators: [Validators.required]
+          }
+        ]
       },
       {
         validators: [
