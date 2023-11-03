@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
@@ -30,13 +30,13 @@ export default class ConfirmPasswordComponent implements OnInit {
   constructor(
     private router: Router,
     private cognitoService: CognitoService,
-    private fb: FormBuilder
+    private fb: NonNullableFormBuilder
   ) {}
 
   ngOnInit(): void {
     this.confirmForm = this.fb.group({
-      code: new FormControl('', { nonNullable: true }),
-      email: new FormControl('', { nonNullable: true })
+      code: '',
+      email: ''
     });
   }
 
