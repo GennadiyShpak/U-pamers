@@ -1,4 +1,4 @@
-import { SocialURLsList, StepperConfig } from './auth.model';
+import { SocialURLsList, StepperConfig, UserAuthData } from './auth.model';
 
 export enum STEPPER_STEPS {
   FirstStep = 'firstStep',
@@ -32,4 +32,19 @@ export const SOCIAL_PLACEHOLDERS_CONFIG: SocialURLsList = {
   facebook: getSocialPlaceholder('Facebook'),
   skype: getSocialPlaceholder('Skype'),
   telegram: getSocialPlaceholder('Telegram')
+};
+
+export const DRAFT_FORM_INITIAL_VALUE: UserAuthData = {
+  email: '',
+  password: '',
+  givenName: '',
+  familyName: '',
+  userAvatar: '',
+  socialMedias: {
+    linkedin: '',
+    instagram: '',
+    facebook: '',
+    skype: '',
+    telegram: ''
+  }
 };

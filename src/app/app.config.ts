@@ -7,6 +7,7 @@ export enum APP_ROUTER_NAME {
   SignUp = 'sign-up',
   ResetPassword = 'reset-password',
   NewPassword = 'new-password',
+  ConfirmPassword = 'confirm-password',
   Contact = 'contact',
   Chat = 'chat',
   MyProfile = 'my-profile',
@@ -15,7 +16,8 @@ export enum APP_ROUTER_NAME {
   ChangePassword = 'change-password',
   Info = 'info',
   Privacy = 'privacy',
-  AvatarEdit = 'avatar-edit'
+  AvatarEdit = 'avatar-edit',
+  NotFound = 'not-found'
 }
 
 export const CONTACT_ROUTE = '/main/contact';
@@ -83,6 +85,7 @@ export const enum HEADER_CONFIG_NAME {
   signUp = 'signUp',
   resetPassword = 'resetPassword',
   newPassword = 'newPassword',
+  confirmPassword = 'confirmPassword',
   mainRoot = 'mainRoot',
   contacts = 'contacts',
   chats = 'chats',
@@ -161,18 +164,12 @@ export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } =
   avatarEdit: {
     leftButton: HEADER_ICON_TYPE.Arrow,
     title: 'Edit Photo'
+  },
+  [HEADER_CONFIG_NAME.confirmPassword]: {
+    leftButton: HEADER_ICON_TYPE.Arrow,
+    title: 'Confirm Password'
   }
 };
-
-export enum STEPPER_ICONS {
-  FirstStepActive = 'first-step-active',
-  SecondStepDisabled = 'second-step-disabled',
-  SecondStepActive = 'second-step-active',
-  ThirdStepDisabled = 'third-step-disabled',
-  ThirdStepActive = 'third-step-active',
-  FilledStep = 'filled-step',
-  ErrorStep = 'error-step'
-}
 
 export enum INPUT_TYPES {
   Checkbox = 'checkbox',

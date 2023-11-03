@@ -1,6 +1,16 @@
-import { ChangeDetectorRef, Component, effect, ElementRef, Injector, OnInit, Signal, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  effect,
+  ElementRef,
+  Injector,
+  OnDestroy,
+  OnInit,
+  Signal,
+  ViewChild
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
 
@@ -16,8 +26,9 @@ import {
   PASSWORDS_TO_COMPARE
 } from '../../auth.config';
 import { StepperService } from '../../services/stepper.service';
-import { ActionHandlerList, StepperConfig, VoidCallback } from '../../auth.model';
+import { ActionHandlerList, StepperConfig, UserAuthFormData, VoidCallback } from '../../auth.model';
 import { AuthService } from '../../../services/auth.service';
+import { CognitoService } from '../../../services/cognito.service';
 import { RegisterForm } from '../../../main/main.model';
 import { CustomValidators } from '../../../shared/validators/custom.validators';
 import { EpmErrorMessageComponent } from '../../../shared/components/epm-error-message/epm-error-message.component';
@@ -30,15 +41,14 @@ import { EpmErrorMessageComponent } from '../../../shared/components/epm-error-m
     StepperComponent,
     EpmButtonComponent,
     EpmInputComponent,
-    RouterLink,
     ReactiveFormsModule,
-    RouterOutlet,
+    RouterModule,
     EpmErrorMessageComponent
   ],
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export default class SignUpComponent implements OnInit {
+export default class SignUpComponent implements OnInit, OnDestroy {
   @ViewChild('avatarInput') avatarInput!: ElementRef;
 
   nextStepButtonValue: NEXT_STEP_BUTTON_CONFIG = NEXT_STEP_BUTTON_CONFIG.Continue;
@@ -60,19 +70,20 @@ export default class SignUpComponent implements OnInit {
     private injector: Injector,
     private cdr: ChangeDetectorRef,
     private fb: NonNullableFormBuilder,
-    private router: Router
+    private router: Router,
+    private cognitoService: CognitoService
   ) {}
 
   get email(): FormControl {
     return this.registerForm.get('email') as FormControl;
   }
 
-  get firstName(): FormControl {
-    return this.registerForm.get('firstName') as FormControl;
+  get givenName(): FormControl {
+    return this.registerForm.get('givenName') as FormControl;
   }
 
-  get lastName(): FormControl {
-    return this.registerForm.get('lastName') as FormControl;
+  get familyName(): FormControl {
+    return this.registerForm.get('familyName') as FormControl;
   }
 
   get password(): FormControl {
@@ -113,7 +124,12 @@ export default class SignUpComponent implements OnInit {
     this.handleUserAvatarControl();
   }
 
+  ngOnDestroy(): void {
+    this.resetAuthSettings();
+  }
+
   onNextStepClick(): void {
+    this.authService.saveFormValue(this.registerForm.value as UserAuthFormData);
     const handler: VoidCallback = this.getNextStepHandler(this.stepperService.stepperConfig().activeStep);
     handler();
   }
@@ -149,35 +165,20 @@ export default class SignUpComponent implements OnInit {
   }
 
   private buildRegisterForm(): void {
-    this.registerForm = this.fb.group<RegisterForm>(
+    this.registerForm = this.fb.group(
       {
-        email: new FormControl('', {
-          nonNullable: true,
-          validators: [Validators.required, Validators.email]
-        }),
-        firstName: new FormControl('', {
-          nonNullable: true,
-          validators: [Validators.required, CustomValidators.userName()]
-        }),
-        lastName: new FormControl('', {
-          nonNullable: true,
-          validators: [Validators.required, CustomValidators.userName()]
-        }),
-        password: new FormControl('', {
-          nonNullable: true,
-          validators: [Validators.required, Validators.minLength(8), CustomValidators.password()]
-        }),
-        repeatPassword: new FormControl('', {
-          nonNullable: true,
-          validators: [Validators.required]
-        }),
-        userAvatar: new FormControl('', { nonNullable: true }),
+        email: ['', { validators: [Validators.required, Validators.email] }],
+        givenName: ['', { validators: [Validators.required, CustomValidators.userName()] }],
+        familyName: ['', { validators: [Validators.required, CustomValidators.userName()] }],
+        password: ['', { validators: [Validators.required, Validators.minLength(8), CustomValidators.password()] }],
+        repeatPassword: ['', { validators: [Validators.required] }],
+        userAvatar: '',
         socialMedias: this.fb.group({
-          linkedin: new FormControl('', { nonNullable: true }),
-          instagram: new FormControl('', { nonNullable: true }),
-          telegram: new FormControl('', { nonNullable: true }),
-          facebook: new FormControl('', { nonNullable: true }),
-          skype: new FormControl('', { nonNullable: true })
+          linkedin: '',
+          instagram: '',
+          telegram: '',
+          facebook: '',
+          skype: ''
         })
       },
       {
@@ -219,8 +220,18 @@ export default class SignUpComponent implements OnInit {
   }
 
   private onCreateAccountClick(): void {
-    this.authService.onCreateAccountClick();
+    const formValue = this.authService.getDraftFormValue();
+    this.cognitoService
+      .signUp(formValue)
+      .then(() => {
+        this.authService.onCreateAccountClick();
+      })
+      .catch(() => this.router.navigateByUrl(`/${APP_ROUTER_NAME.NotFound}`));
+  }
+
+  private resetAuthSettings(): void {
     this.stepperService.stepperConfig.set(INITIAL_STEPPER_CONFIG);
+    this.authService.resetDraftFormValue();
     this.authService.setUserAvatarDraft('');
   }
 }

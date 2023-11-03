@@ -4,6 +4,8 @@ import { SafeUrl } from '@angular/platform-browser';
 
 import { APP_ROUTER_NAME } from '../app.config';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { UserAuthData, UserAuthFormData } from '../auth/auth.model';
+import { DRAFT_FORM_INITIAL_VALUE } from '../auth/auth.config';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +21,8 @@ export class AuthService {
   readonly userAvatarDraft: Signal<SafeUrl> = this.userAvatarDraft$.asReadonly();
   readonly fileEventDraft: Signal<Event> = this.fileEventDraft$.asReadonly();
   readonly appRoutes: typeof APP_ROUTER_NAME = APP_ROUTER_NAME;
+
+  private draftForm: UserAuthData = structuredClone(DRAFT_FORM_INITIAL_VALUE);
 
   constructor(private router: Router) {}
 
@@ -39,6 +43,37 @@ export class AuthService {
   }
 
   onCreateAccountClick(): void {
-    this.router.navigateByUrl(`/${this.appRoutes.Main}`);
+    this.router.navigateByUrl(`/auth/${this.appRoutes.ConfirmPassword}`);
+  }
+
+  saveFormValue(formValue: UserAuthFormData): void {
+    delete (formValue as Partial<UserAuthFormData>).repeatPassword;
+    this.draftForm = { ...this.draftForm, ...this.filterFormValue(formValue) };
+  }
+
+  getDraftFormValue(): UserAuthData {
+    return this.draftForm;
+  }
+
+  resetDraftFormValue(): void {
+    this.draftForm = structuredClone(DRAFT_FORM_INITIAL_VALUE);
+  }
+
+  private filterFormValue<T extends object>(formValue: T): T {
+    Object.entries(formValue).forEach(([key, value]) => {
+      if (!value) {
+        delete formValue[key as keyof T];
+      }
+
+      if (typeof value === 'object' && Object.entries(value).length) {
+        formValue[key as keyof T] = this.filterFormValue(value);
+      }
+
+      if (typeof value === 'object' && !Object.entries(value).length) {
+        delete formValue[key as keyof T];
+      }
+    });
+
+    return formValue;
   }
 }
