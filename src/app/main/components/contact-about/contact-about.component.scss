@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  align-self: flex-start;
+}
+
+.about__text {
+  @include font-medium;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $color-dark-grey;
+}
+
+.title {
+  @include font-bold;
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 1.25;
+  color: $color-dark-grey;
+}

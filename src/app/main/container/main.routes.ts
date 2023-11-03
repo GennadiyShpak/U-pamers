@@ -5,7 +5,7 @@ import { MainComponent } from './main.component';
 import { ContactListComponent } from '../pages/contact-list/contact-list.component';
 import { ChatListComponent } from '../pages/chat-list/chat-list.component';
 import { ChatComponent } from '../components/chat/chat.component';
-import { ContactComponent } from '../components/contact/contact.component';
+import UserComponent from '../pages/user/user.component';
 
 export default [
   {
@@ -27,7 +27,7 @@ export default [
       },
       {
         path: `${APP_ROUTER_NAME.Contact}/:userId`,
-        component: ContactComponent,
+        component: UserComponent,
         data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.contacts]
       },
       {

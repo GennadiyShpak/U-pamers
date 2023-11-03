@@ -1,0 +1,23 @@
+<div class="avatar__container">
+  <div class="avatar__wrapper">
+    <img width="48" height="48" [ngSrc]="user.avatarUrl" alt="user avatar" />
+  </div>
+  <epm-button
+    *ngIf="editableAvatar"
+    class="avatar__edit"
+    [class]="[buttonThemes.Primary, buttonThemes.IconOnly, buttonThemes.Small]"
+    [iconName]="iconNames.Edit"
+    (click)="onAvatarEdit()"
+  />
+</div>
+<h1 class="name">{{ user.name }} {{ user.surname }}</h1>
+<p class="location">{{ user.location }}</p>
+<ul class="social-list">
+  <ng-container *ngFor="let social of user.socials; trackBy: trackByPriority">
+    <li *ngIf="social.link" class="social-list__item">
+      <a (click)="onSocialClick($event, social.link, social.type)">
+        <epm-svg-icon [svgIconName]="social.type" />
+      </a>
+    </li>
+  </ng-container>
+</ul>

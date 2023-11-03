@@ -1,5 +1,5 @@
 <ul class="contact-list">
   <li *ngFor="let user of userList(); trackBy: trackByUserId" class="contact-list__item">
-    <epm-contact-list-item [user]="user" (click)="onOpenUser(user)" />
+    <epm-contact-list-item [user]="user" (click)="onOpenUser(user.userId)" />
   </li>
 </ul>

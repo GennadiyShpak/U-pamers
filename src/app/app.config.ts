@@ -222,7 +222,7 @@ export const REGEXP_PATTERNS = {
   userNameAllowedCharacters: /^[A-Za-zА-Яа-я'-]+$/
 };
 
-export const enum INTEREST_CHIPS_NAME {
+export enum INTEREST_CHIPS_NAME {
   Attractions = 'attractions',
   Dining = 'dining',
   Education = 'education',

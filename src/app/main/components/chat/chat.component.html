@@ -7,7 +7,7 @@
       >
         <div class="message__wrapper">
           <div class="avatar__wrapper">
-            <a class="avatar__link" (click)="onOpenUser(chat)">
+            <a class="avatar__link" (click)="onOpenUser(msg.sender)">
               <img width="24" height="24" [src]="interlocutor.avatarUrl" alt="avatar of the interlocutor" />
             </a>
           </div>

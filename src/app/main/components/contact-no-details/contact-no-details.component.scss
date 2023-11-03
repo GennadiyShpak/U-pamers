@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 227px;
+  padding: 156px 0 20px;
+  background-image: url('/assets/images/box.svg');
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.title {
+  @include font-bold;
+  margin-bottom: 4px;
+  font-size: 18px;
+  line-height: 1.25;
+  color: $color-dark-grey;
+}
