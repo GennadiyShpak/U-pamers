@@ -40,8 +40,6 @@ export class CustomValidators {
       } else {
         removeErrors(primaryControl, [errorName]);
         removeErrors(controlToCompare, [errorName]);
-        primaryControl.updateValueAndValidity({ onlySelf: true });
-        controlToCompare.updateValueAndValidity({ onlySelf: true });
       }
       return null;
     };

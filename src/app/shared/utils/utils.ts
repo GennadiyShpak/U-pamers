@@ -12,7 +12,7 @@ export function addErrors(control: AbstractControl, errors: CustomError): void {
 }
 
 export function removeErrors(control: AbstractControl, keys: string[]): void {
-  if (!control || !keys || keys.length) {
+  if (!control || !keys || !keys.length) {
     return;
   }
 

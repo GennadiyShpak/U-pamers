@@ -24,6 +24,7 @@
               "isomorphic-unfetch",
               "uuid",
               "@aws-crypto/crc32",
+              "@aws-amplify/core",
               "url",
               "buffer",
               "camelcase-keys",
