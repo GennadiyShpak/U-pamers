@@ -55,16 +55,14 @@ export default class NewPasswordComponent implements OnInit {
   }
 
   private initCreateNewPasswordForm(): void {
-    this.createNewPasswordForm = this.fb.group<NewPasswordForm>(
+    this.createNewPasswordForm = this.fb.group(
       {
-        newPassword: new FormControl<string>('', {
-          nonNullable: true,
+        newPassword: ['', {
           validators: [Validators.required, Validators.minLength(8), CustomValidators.password()]
-        }),
-        confirmNewPassword: new FormControl<string>('', {
-          nonNullable: true,
+        }],
+        confirmNewPassword: ['', {
           validators: [Validators.required]
-        })
+        }]
       },
       {
         validators: [
