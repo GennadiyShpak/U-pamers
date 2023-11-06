@@ -109,7 +109,7 @@ export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } =
   },
   resetPassword: {
     leftButton: HEADER_ICON_TYPE.Arrow,
-    title: 'Reset password'
+    title: 'Password reset'
   },
   newPassword: {
     leftButton: HEADER_ICON_TYPE.Close,

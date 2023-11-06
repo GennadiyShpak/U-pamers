@@ -35,7 +35,7 @@ export default [
       {
         path: APP_ROUTER_NAME.ResetPassword,
         loadComponent: () => import('../pages/reset-password/reset-password.component'),
-        title: 'U-PAMERS | Reset password',
+        title: 'U-PAMERS | Password reset',
         data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.resetPassword]
       },
       {
