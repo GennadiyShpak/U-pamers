@@ -1,0 +1,8 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include host-container;
+  background-color: $color-white;
+  min-height: calc(100vh - $header-height);
+}

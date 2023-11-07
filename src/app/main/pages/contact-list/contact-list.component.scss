@@ -1,3 +1,9 @@
+@import 'mixins';
+
+:host {
+  @include host-container;
+}
+
 .contact-list {
   padding: 25px 0;
 

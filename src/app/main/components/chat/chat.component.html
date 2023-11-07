@@ -20,14 +20,14 @@
       </span>
     </ng-container>
   </ul>
-  <form class="chat__form" [formGroup]="chatForm">
-    <epm-input #messageInput class="chat__form_input" [inputPlaceholder]="inputPlaceholders.Chat" [control]="message" />
-    <epm-button
-      type="submit"
-      class="chat__form_button"
-      [class]="[buttonThemes.IconOnly, buttonThemes.Small]"
-      [iconName]="iconNames.SendMessage"
-      (click)="onSend()"
-    />
-  </form>
 </div>
+<form class="chat__form" [formGroup]="chatForm">
+  <epm-input #messageInput class="chat__form_input" [inputPlaceholder]="inputPlaceholders.Chat" [control]="message" />
+  <epm-button
+    type="submit"
+    class="chat__form_button"
+    [class]="[buttonThemes.IconOnly, buttonThemes.Small]"
+    [iconName]="iconNames.SendMessage"
+    (click)="onSend()"
+  />
+</form>

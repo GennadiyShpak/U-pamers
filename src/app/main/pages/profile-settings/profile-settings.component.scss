@@ -1,6 +1,10 @@
 @import 'variables';
 @import 'mixins';
 
+:host {
+  @include host-container;
+}
+
 .catalogue {
   @include font-medium;
   display: inline-flex;

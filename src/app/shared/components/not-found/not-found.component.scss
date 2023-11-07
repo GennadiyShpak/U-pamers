@@ -4,8 +4,10 @@
 :host {
   display: flex;
   flex-direction: column;
-  padding: 120px 0;
   align-items: center;
+  padding: 120px 16px;
+  min-height: calc(100vh - $header-height);
+  background-color: $color-white;
 }
 
 .title {

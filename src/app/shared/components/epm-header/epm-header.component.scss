@@ -4,13 +4,14 @@
 :host {
   display: flex;
   height: $header-height;
-  min-width: 375px;
+  background-color: $color-white;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   transition: box-shadow $transition-duration ease-in-out;
 
   &.shadow {

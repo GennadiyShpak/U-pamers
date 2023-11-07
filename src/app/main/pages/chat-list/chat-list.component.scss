@@ -1,3 +1,11 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  @include host-container;
+  background-color: $color-white;
+}
+
 .chat-list {
   padding: 25px 0;
 
