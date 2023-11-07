@@ -1,0 +1,95 @@
+@import 'variables';
+@import 'mixins';
+
+.catalogue {
+  @include font-medium;
+  display: inline-flex;
+  gap: 4px;
+  padding: 16px 0;
+  font-size: 16px;
+  line-height: 20px;
+  color: $color-link;
+}
+
+.privacy {
+  &__title {
+    @include font-bold;
+    margin-bottom: 16px;
+    font-size: $font-size-h2;
+    line-height: 34px;
+    color: $color-text-accent;
+  }
+
+  &__card {
+    padding: 24px 16px 32px 16px;
+    background-color: $color-white;
+    border-radius: 12px;
+    box-shadow: 0 4px 4px 0 $color-shadow-settings;
+  }
+
+  &__field {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    &:has(input:disabled) .privacy__description {
+      color: $color-grey;
+    }
+  }
+
+  &__description {
+    @include font-semibold;
+    font-size: $font-size-regular;
+    line-height: 20px;
+    color: $color-text-darkest;
+    transition: all $transition-duration;
+  }
+
+  &__informer {
+    @include font-informer;
+    width: 255px;
+    padding-top: 8px;
+    font-size: $font-size-body;
+    line-height: 20px;
+    color: $color-text-accent;
+  }
+
+  &__switcher {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    background-color: $color-grey;
+    border-radius: 12px;
+    transition: all $transition-duration;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 6px;
+      width: 12px;
+      height: 12px;
+      background-color: $color-white;
+      border-radius: 100%;
+      transition: all $transition-duration;
+    }
+
+    & input {
+      display: none;
+    }
+
+    &:has(input:checked) {
+      background-color: $color-primary-highlight;
+    }
+
+    &:has(input:checked):before {
+      transform: translateX(24px);
+    }
+
+    &:has(input:disabled) {
+      background-color: $color-lighter-grey;
+    }
+  }
+}

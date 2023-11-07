@@ -1,1 +1,34 @@
-<p>privacy works!</p>
+<a class="catalogue" routerLink="../">
+  <img src="/assets/icons/chevron-blue.svg" width="16" height="16" alt="navigate to previous page" />
+  <span>Settings</span>
+</a>
+<h2 class="privacy__title">Account details</h2>
+<form class="privacy__card" [formGroup]="privacyStatusForm">
+  <div class="privacy__field">
+    <div class="privacy__support-text">
+      <h4 class="privacy__description">Private Account</h4>
+      <p class="privacy__informer">The private account is not viewable to users who are not logged in</p>
+    </div>
+    <label class="privacy__switcher">
+      <input type="checkbox" name="account" [formControl]="account" />
+    </label>
+  </div>
+  <div class="privacy__field">
+    <h4 class="privacy__description">Age</h4>
+    <label class="privacy__switcher">
+      <input type="checkbox" name="age" [formControl]="age" />
+    </label>
+  </div>
+  <div class="privacy__field">
+    <h4 class="privacy__description">Location</h4>
+    <label class="privacy__switcher">
+      <input type="checkbox" name="location" [formControl]="location" />
+    </label>
+  </div>
+  <div class="privacy__field">
+    <h4 class="privacy__description">Description</h4>
+    <label class="privacy__switcher">
+      <input type="checkbox" name="description" [formControl]="description" />
+    </label>
+  </div>
+</form>

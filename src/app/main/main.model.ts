@@ -89,3 +89,20 @@ export interface RegisterForm {
   userAvatar: FormControl<string>;
   socialMedias: FormGroup<SocialMedias>;
 }
+
+export interface PrivacyItemsControlsData {
+  age: boolean;
+  location: boolean;
+  description: boolean;
+}
+
+export interface PrivacyItemsControls {
+  age: FormControl<boolean>;
+  location: FormControl<boolean>;
+  description: FormControl<boolean>;
+}
+
+export interface PrivacyStatusForm {
+  account: FormControl<boolean>;
+  privacyItems: FormGroup<PrivacyItemsControls>;
+}
