@@ -1,4 +1,4 @@
-import { SocialURLsList, StepperConfig, UserAuthData } from './auth.model';
+import { StepperConfig, UserAuthData } from './auth.model';
 
 export enum STEPPER_STEPS {
   FirstStep = 'firstStep',
@@ -23,16 +23,6 @@ export enum PASSWORDS_TO_COMPARE {
   Password = 'password',
   RepeatPassword = 'repeatPassword'
 }
-
-const getSocialPlaceholder = (socialName: string): string => `${socialName} URL (Optional)`;
-
-export const SOCIAL_PLACEHOLDERS_CONFIG: SocialURLsList = {
-  linkedin: getSocialPlaceholder('LinkedIn'),
-  instagram: getSocialPlaceholder('Instagram'),
-  facebook: getSocialPlaceholder('Facebook'),
-  skype: getSocialPlaceholder('Skype'),
-  telegram: getSocialPlaceholder('Telegram')
-};
 
 export const DRAFT_FORM_INITIAL_VALUE: UserAuthData = {
   email: '',

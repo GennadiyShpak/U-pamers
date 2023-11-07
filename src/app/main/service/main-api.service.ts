@@ -43,8 +43,12 @@ export class MainApiService {
     );
   }
 
-  getPersonalData(): Observable<ExpandedUserDetailed> {
-    return of(USERS_MOCK.find(user => user.userId === '100')!).pipe(
+  getPersonalData(): Observable<UserDetailed> {
+    return of(USERS_MOCK.find(user => user.userId === '100')!).pipe(take(1));
+  }
+
+  getExpandedPersonalData(): Observable<ExpandedUserDetailed> {
+    return this.getPersonalData().pipe(
       map(user => {
         const userSocials = Object.entries(user.socials);
         const socials: DetailedSocialLink[] = userSocials

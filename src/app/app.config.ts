@@ -1,4 +1,5 @@
 import { HeaderConfig } from './app.model';
+import { SocialURLsList } from './auth/auth.model';
 
 export enum APP_ROUTER_NAME {
   Auth = 'auth',
@@ -93,7 +94,7 @@ export const enum HEADER_CONFIG_NAME {
   profileSettings = 'profileSettings',
   accountDetails = 'accountDetails',
   changePassword = 'changePassword',
-  profileInfo = 'profileInfo',
+  profileDetails = 'profileDetails',
   privacy = 'privacy',
   avatarEdit = 'avatarEdit'
 }
@@ -151,9 +152,9 @@ export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } =
     title: 'Change Password',
     right: HEADER_RIGHT_BLOCK.StatusBar
   },
-  profileInfo: {
+  profileDetails: {
     leftButton: HEADER_ICON_TYPE.Arrow,
-    title: 'Profile Info',
+    title: 'Profile Details',
     right: HEADER_RIGHT_BLOCK.StatusBar
   },
   privacy: {
@@ -220,13 +221,31 @@ export const REGEXP_PATTERNS = {
 };
 
 export const INTEREST_CHIPS_NAMES: string[] = [
-  'Attractions',
-  'Dining',
   'Education',
+  'Dining',
+  'Promotions',
+  'Office',
+  'Attractions',
   'Family',
   'Health',
-  'Office',
-  'Promotions',
   'Sports',
   'Travel'
 ];
+
+const getSocialPlaceholder = (socialName: string, suffix = ''): string => `${socialName} URL${suffix}`;
+
+export const SOCIAL_PLACEHOLDERS_CONFIG_OPTIONAL: SocialURLsList = {
+  linkedin: getSocialPlaceholder('LinkedIn', ' (Optional)'),
+  instagram: getSocialPlaceholder('Instagram', ' (Optional)'),
+  facebook: getSocialPlaceholder('Facebook', ' (Optional)'),
+  skype: getSocialPlaceholder('Skype', ' (Optional)'),
+  telegram: getSocialPlaceholder('Telegram', ' (Optional)')
+};
+
+export const SOCIAL_PLACEHOLDERS_CONFIG: SocialURLsList = {
+  linkedin: getSocialPlaceholder('LinkedIn'),
+  instagram: getSocialPlaceholder('Instagram'),
+  facebook: getSocialPlaceholder('Facebook'),
+  skype: getSocialPlaceholder('Skype'),
+  telegram: getSocialPlaceholder('Telegram')
+};

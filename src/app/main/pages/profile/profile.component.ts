@@ -52,7 +52,7 @@ export default class ProfileComponent implements OnInit {
 
   private getPersonalData(): void {
     this.mainApiService
-      .getPersonalData()
+      .getExpandedPersonalData()
       .pipe(
         tap(user => {
           this.user = user;

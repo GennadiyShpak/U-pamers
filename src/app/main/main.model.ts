@@ -106,3 +106,10 @@ export interface PrivacyStatusForm {
   account: FormControl<boolean>;
   privacyItems: FormGroup<PrivacyItemsControls>;
 }
+
+export interface ProfileDetailsForm {
+  birthDate: FormControl<string>;
+  location: FormControl<string>;
+  about: FormControl<string>;
+  socials: FormGroup<SocialMedias>;
+}
