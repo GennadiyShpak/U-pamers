@@ -3,15 +3,14 @@
 
 .chat {
   &__wrapper {
-    margin: 0 -16px;
-    background-color: $color-surface-background;
+    @include host-container;
   }
 
   &__list {
     display: flex;
     flex-direction: column-reverse;
     min-height: calc(100vh - $header-height - $chat-form-height);
-    padding: 24px 16px;
+    padding: 24px 0;
 
     &__element {
       display: flex;

@@ -1,10 +1,13 @@
 @import 'variables';
 
-.container {
+.main-container {
   margin: 0 auto;
-  padding: 0 16px;
   width: 375px;
-  background-color: white;
+  background-color: $color-surface-background;
+}
+
+.container {
+  padding: 0 16px;
 }
 
 svg {
