@@ -418,3 +418,5 @@ export const CHAT_MOCK: Message[] = [
     read: true
   }
 ];
+
+export const FILTERS_MOCKS: string[] = ['Travel', '20-40 years', 'Dnipro, Ukraine', 'Dining'];

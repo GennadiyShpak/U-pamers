@@ -1,8 +1,8 @@
 <h2 class="title">Interests</h2>
 <ng-container *ngIf="interests.length; else editProfile">
   <ul class="interests-list">
-    <li *ngFor="let chips of chipsArray">
-      <epm-chips [chips]="chips" />
+    <li *ngFor="let chips of interests">
+      <epm-chips [chips]="chips" [isActive]="true" />
     </li>
   </ul>
 </ng-container>
