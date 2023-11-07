@@ -7,14 +7,17 @@
       <epm-input [labelPlaceholder]="'Login'" [type]="inputTypes.Email" [control]="email" />
       <epm-error-message [control]="email" />
     </div>
+
     <div class="signup__field">
       <epm-input [labelPlaceholder]="'First name'" [control]="givenName" />
       <epm-error-message [control]="givenName" />
     </div>
+
     <div class="signup__field">
       <epm-input [labelPlaceholder]="'Last name'" [control]="familyName" />
       <epm-error-message [control]="familyName" />
     </div>
+
     <div class="signup__field">
       <epm-input [labelPlaceholder]="'Password'" [type]="inputTypes.Password" [control]="password" />
       <epm-error-message [control]="password" />
@@ -22,11 +25,13 @@
         Create a strong password that is at least 8 characters long and includes upper-case letters.
       </p>
     </div>
+
     <div class="signup__field last-field">
       <epm-input [labelPlaceholder]="'Confirm password'" [type]="inputTypes.Password" [control]="repeatPassword" />
       <epm-error-message [control]="repeatPassword" />
     </div>
   </ng-container>
+
   <ng-container *ngIf="currentStep().activeStep === stepperSteps.SecondStep">
     <h2 class="signup__title">Upload profile picture</h2>
     <p class="signup__informer">(Optional)</p>
@@ -36,33 +41,39 @@
       <epm-button *ngIf="userAvatarDraft()" class="primary" [iconName]="iconNames.Edit" (click)="handleAvatarEdit()" />
     </label>
   </ng-container>
+
   <ng-container *ngIf="currentStep().activeStep === stepperSteps.ThirdStep">
     <h2 class="signup__title">Connect social medias</h2>
     <p class="signup__informer">(Optional)</p>
+
     <epm-input
       class="signup__field"
       [labelPlaceholder]="socialPlaceholders.linkedin"
       [iconName]="socialIcons.LinkedIn"
       [control]="linkedin"
     />
+
     <epm-input
       class="signup__field"
       [labelPlaceholder]="socialPlaceholders.instagram"
       [iconName]="socialIcons.Instagram"
       [control]="instagram"
     />
+
     <epm-input
       class="signup__field"
       [labelPlaceholder]="socialPlaceholders.telegram"
       [iconName]="socialIcons.Telegram"
       [control]="telegram"
     />
+
     <epm-input
       class="signup__field"
       [labelPlaceholder]="socialPlaceholders.facebook"
       [iconName]="socialIcons.Facebook"
       [control]="facebook"
     />
+
     <epm-input
       class="signup__field last-social-field"
       [labelPlaceholder]="socialPlaceholders.skype"
@@ -71,7 +82,11 @@
     />
   </ng-container>
 </form>
-<epm-button class="primary" (click)="onNextStepClick()">{{ nextStepButtonValue }}</epm-button>
+
+<epm-button class="primary" [isDisabled]="!isFormValid" (click)="onNextStepClick()">
+  {{ nextStepButtonValue }}
+</epm-button>
+
 <p *ngIf="currentStep().activeStep === stepperSteps.FirstStep" class="signup__login-paragraph">
   Already have an account?
   <a class="signup__login-link" [routerLink]="['/', appRoutes.Auth, appRoutes.LogIn]">Login</a>

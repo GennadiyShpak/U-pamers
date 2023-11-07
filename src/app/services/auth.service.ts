@@ -42,10 +42,6 @@ export class AuthService {
     this.userAvatarDraft$.set(event);
   }
 
-  onCreateAccountClick(): void {
-    this.router.navigateByUrl(`/auth/${this.appRoutes.ConfirmPassword}`);
-  }
-
   saveFormValue(formValue: UserAuthFormData): void {
     delete (formValue as Partial<UserAuthFormData>).repeatPassword;
     this.draftForm = { ...this.draftForm, ...this.filterFormValue(formValue) };
