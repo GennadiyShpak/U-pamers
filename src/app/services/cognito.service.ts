@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Amplify, Auth } from 'aws-amplify';
-import { from, Observable } from 'rxjs';
+import { take, from, Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { LoginData, UserAuthData } from '../auth/auth.model';
@@ -41,5 +41,13 @@ export class CognitoService {
         userPoolWebClientId: environment.cognito.clientId
       });
     });
+  }
+
+  public forgotPassword(email: string): Observable<any> {
+    return from(Auth.forgotPassword(email)).pipe(take(1));
+  }
+
+  public forgotPasswordSubmit(email: string, code: string, newPassword: string): Observable<any> {
+    return from(Auth.forgotPasswordSubmit(email, code, newPassword)).pipe(take(1));
   }
 }
