@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { catchError, take } from 'rxjs';
 
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
 import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
@@ -47,11 +48,10 @@ export default class ConfirmPasswordComponent implements OnInit {
     };
     this.cognitoService
       .confirmAuth(confirmFormValue)
-      .then(() => {
-        this.router.navigateByUrl(`/auth/${APP_ROUTER_NAME.LogIn}`);
-      })
-      .catch(() => {
-        this.router.navigateByUrl(`/${APP_ROUTER_NAME.NotFound}`);
-      });
+      .pipe(
+        take(1),
+        catchError(() => this.router.navigateByUrl(`/${APP_ROUTER_NAME.NotFound}`))
+      )
+      .subscribe(() => this.router.navigateByUrl(`/auth/${APP_ROUTER_NAME.LogIn}`));
   }
 }

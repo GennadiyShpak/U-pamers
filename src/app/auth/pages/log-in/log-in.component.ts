@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { APP_ROUTER_NAME, BUTTON_THEMES, INPUT_TYPES } from '../../../app.config';
 import { Router, RouterLink } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { catchError, tap } from 'rxjs';
 
 import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
-import { LoginForm } from '../../auth.model';
+import { LoginData, LoginForm } from '../../auth.model';
+import { CognitoService } from '../../../services/cognito.service';
 
 @Component({
   selector: 'epm-log-in',
@@ -29,9 +31,14 @@ export class LogInComponent implements OnInit {
     return this.loginForm.controls.password;
   }
 
+  get isFormValid(): boolean {
+    return this.loginForm.valid;
+  }
+
   constructor(
     private router: Router,
-    private fb: FormBuilder
+    private fb: NonNullableFormBuilder,
+    private cognitoService: CognitoService
   ) {}
 
   ngOnInit(): void {
@@ -39,19 +46,20 @@ export class LogInComponent implements OnInit {
   }
 
   onLogIn(): void {
-    this.router.navigateByUrl(`/${this.appRoutes.Main}`);
+    const userCredentials = this.loginForm.value as LoginData;
+    this.cognitoService
+      .signIn(userCredentials)
+      .pipe(
+        tap(() => this.router.navigateByUrl(`/${this.appRoutes.Main}`)),
+        catchError(() => this.router.navigateByUrl(`/${APP_ROUTER_NAME.NotFound}`))
+      )
+      .subscribe();
   }
 
   private initLoginForm(): void {
-    this.loginForm = this.fb.group<LoginForm>({
-      email: new FormControl('', {
-        nonNullable: true,
-        validators: [Validators.required]
-      }),
-      password: new FormControl('', {
-        nonNullable: true,
-        validators: [Validators.required]
-      })
+    this.loginForm = this.fb.group({
+      email: ['', { validators: [Validators.required] }],
+      password: ['', { validators: [Validators.required] }]
     });
   }
 }

@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
+import { catchError, take, tap } from 'rxjs';
 
 import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
 import { APP_ROUTER_NAME, ICON_NAMES, INPUT_TYPES, SOCIAL_ICONS } from '../../../app.config';
@@ -116,6 +117,10 @@ export default class SignUpComponent implements OnInit, OnDestroy {
 
   get skype(): FormControl {
     return this.registerForm.get('socialMedias.skype') as FormControl;
+  }
+
+  get isFormValid(): boolean {
+    return this.currentStep().activeStep === this.stepperSteps.FirstStep ? this.registerForm.valid : true;
   }
 
   ngOnInit(): void {
@@ -223,10 +228,12 @@ export default class SignUpComponent implements OnInit, OnDestroy {
     const formValue = this.authService.getDraftFormValue();
     this.cognitoService
       .signUp(formValue)
-      .then(() => {
-        this.authService.onCreateAccountClick();
-      })
-      .catch(() => this.router.navigateByUrl(`/${APP_ROUTER_NAME.NotFound}`));
+      .pipe(
+        tap(() => this.router.navigateByUrl(`/auth/${this.appRoutes.ConfirmPassword}`)),
+        take(1),
+        catchError(() => this.router.navigateByUrl(`/${APP_ROUTER_NAME.NotFound}`))
+      )
+      .subscribe();
   }
 
   private resetAuthSettings(): void {
