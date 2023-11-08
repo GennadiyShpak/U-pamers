@@ -36,11 +36,7 @@ export class HeaderService {
   }
 
   addTitle(title: string): void {
-    this.headerSettings$.mutate(settings => (settings.title = title));
-  }
-
-  showSkipButton(): void {
-    this.headerSettings$.mutate(settings => (settings.right = HEADER_RIGHT_BLOCK.Skip));
+    this.headerSettings$.update(settings => ({ ...settings, title }));
   }
 
   back(): void {
