@@ -1,8 +1,10 @@
 <h2 class="title">About me</h2>
-<ng-container *ngIf="about; else editProfile">
-  <p class="about__text">{{ about }}</p>
-</ng-container>
+@if (about) {
 
-<ng-template #editProfile>
-  <epm-contact-edit-profile-link />
-</ng-template>
+<p class="about__text">{{ about }}</p>
+
+} @else {
+
+<epm-contact-edit-profile-link />
+
+}

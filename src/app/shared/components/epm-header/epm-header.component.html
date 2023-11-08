@@ -1,28 +1,26 @@
 <div class="container" [ngClass]="{ colored: headerSettings().colored, shadow: shouldAddShadow }">
   <epm-navigation-icon [iconType]="headerSettings().leftButton" (back)="back()" />
   <h1 class="title">{{ headerSettings().title }}</h1>
-  <ng-container *ngIf="isAuthorized; then authorized; else unauthorized"></ng-container>
+  @if (isAuthorized) { @switch (headerSettings().right) { @case (headerRightBlock.StatusBar) {
 
-  <ng-template #authorized [ngSwitch]="headerSettings().right">
-    <ng-container *ngSwitchCase="headerRightBlock.StatusBar">
-      <div class="statusBar">
-        <div class="message" [ngClass]="{ new: newMessage() }" [routerLink]="chatLink">
-          <svg class="icon">
-            <use [attr.xlink:href]="'/assets/icons/sprite.svg#chat'"></use>
-          </svg>
-        </div>
-        <a class="avatar-wrapper" [routerLink]="myProfileLink">
-          <img width="24" height="24" [ngSrc]="avatar.src" alt="user avatar" />
-        </a>
-      </div>
-    </ng-container>
+  <div class="statusBar">
+    <div class="message" [ngClass]="{ new: newMessage() }" [routerLink]="chatLink">
+      <svg class="icon">
+        <use [attr.xlink:href]="'/assets/icons/sprite.svg#chat'"></use>
+      </svg>
+    </div>
+    <a class="avatar-wrapper" [routerLink]="myProfileLink">
+      <img width="24" height="24" [ngSrc]="avatar.src" alt="user avatar" />
+    </a>
+  </div>
 
-    <ng-container *ngSwitchCase="headerRightBlock.Skip">
-      <epm-button [class]="buttonThemes.Link">Skip</epm-button>
-    </ng-container>
-  </ng-template>
+  } @case (headerRightBlock.Skip) {
 
-  <ng-template #unauthorized>
-    <a class="button-link small" [routerLink]="loginLink">Log in</a>
-  </ng-template>
+  <epm-button [class]="buttonThemes.Link">Skip</epm-button>
+
+  } } } @else {
+
+  <a class="button-link small" [routerLink]="loginLink">Log in</a>
+
+  }
 </div>

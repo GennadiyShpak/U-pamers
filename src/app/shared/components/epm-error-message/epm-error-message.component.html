@@ -1,3 +1,5 @@
-<p class="error" *ngIf="control.invalid && (control.dirty || control.touched)">
+@if (control.invalid && (control.dirty || control.touched)) {
+<p class="error">
   <span class="error__message">{{ errorMessages[errorMessageKey] }}</span>
 </p>
+}

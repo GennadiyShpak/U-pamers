@@ -1,12 +1,16 @@
 <h2 class="title">Interests</h2>
-<ng-container *ngIf="interests.length; else editProfile">
-  <ul class="interests-list">
-    <li *ngFor="let chips of interests">
-      <epm-chips [chips]="chips" [isActive]="true" />
-    </li>
-  </ul>
-</ng-container>
+@if (interests.length) {
 
-<ng-template #editProfile>
-  <epm-contact-edit-profile-link />
-</ng-template>
+<ul class="interests-list">
+  @for (chips of interests; track chips) {
+  <li>
+    <epm-chips [chips]="chips" [isActive]="true" />
+  </li>
+  }
+</ul>
+
+} @else {
+
+<epm-contact-edit-profile-link />
+
+}

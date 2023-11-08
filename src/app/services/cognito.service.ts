@@ -13,8 +13,8 @@ export class CognitoService {
     this.initAmplify();
   }
 
-  signUp({email: userMail, password, familyName, givenName}: UserAuthData): Observable<any> {
-    const userName = this.toUsername(userMail)
+  signUp({ email: userMail, password, familyName, givenName }: UserAuthData): Observable<any> {
+    const userName = this.toUsername(userMail);
     return from(
       Auth.signUp({
         username: userName,
@@ -35,7 +35,6 @@ export class CognitoService {
   signIn({ email, password }: LoginData): Observable<any> {
     return from(Auth.signIn(email, password));
   }
-
 
   forgotPassword(email: string): Observable<any> {
     return from(Auth.forgotPassword(email)).pipe(take(1));

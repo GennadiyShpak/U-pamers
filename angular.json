@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "social_network:build:production"
+              "buildTarget": "social_network:build:production"
             },
             "development": {
-              "browserTarget": "social_network:build:development"
+              "buildTarget": "social_network:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "social_network:build"
+            "buildTarget": "social_network:build"
           }
         },
         "test": {

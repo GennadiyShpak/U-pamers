@@ -1,5 +1,7 @@
 <ul class="chat-list">
-  <li *ngFor="let chat of chats; trackBy: trackByUserId">
+  @for (chat of chats; track chat.userId) {
+  <li>
     <epm-chat-list-item class="chat-list-item" [chat]="chat" (click)="onOpenChat(chat.userId)" />
   </li>
+  }
 </ul>

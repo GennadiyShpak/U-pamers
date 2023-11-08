@@ -16,13 +16,11 @@
       [iconName]="iconName.Filter"
     />
   </div>
-  <div *ngIf="chipsList.length" class="chips" [ngClass]="{ scrolled: isScrolled }">
-    <epm-chips
-      *ngFor="let chips of chipsList"
-      [chips]="chips"
-      [isActive]="true"
-      [isEditable]="true"
-      (editChipsStatus)="editChipsStatus($event)"
-    />
+  @if (chipsList.length) {
+  <div class="chips" [ngClass]="{ scrolled: isScrolled }">
+    @for (chips of chipsList; track chips) {
+    <epm-chips [chips]="chips" [isActive]="true" [isEditable]="true" (editChipsStatus)="editChipsStatus($event)" />
+    }
   </div>
+  }
 </div>

@@ -1,24 +1,26 @@
 <div class="chat__wrapper">
   <ul class="chat__list">
-    <ng-container *ngFor="let msg of messages; index as i; trackBy: trackByMessageId">
-      <li
-        class="chat__list__element"
-        [ngClass]="{ time__hidden: (msg | toggleDisplayMessageTime: messages : i), own: msg.sender !== userId }"
-      >
-        <div class="message__wrapper">
-          <div class="avatar__wrapper">
-            <a class="avatar__link" (click)="onOpenUser(msg.sender)">
-              <img width="24" height="24" [src]="interlocutor.avatarUrl" alt="avatar of the interlocutor" />
-            </a>
-          </div>
-          <epm-chat-message [ngClass]="{ own: msg.sender !== userId }" [message]="msg" />
+    @for (msg of messages; track trackByMessageId(i, msg); let i = $index) {
+
+    <li
+      class="chat__list__element"
+      [ngClass]="{ time__hidden: (msg | toggleDisplayMessageTime: messages : i), own: msg.sender !== userId }"
+    >
+      <div class="message__wrapper">
+        <div class="avatar__wrapper">
+          <a class="avatar__link" (click)="onOpenUser(msg.sender)">
+            <img width="24" height="24" [src]="interlocutor.avatarUrl" alt="avatar of the interlocutor" />
+          </a>
         </div>
-        <span class="time">{{ msg.time | date: 'h:mm' }}</span>
-      </li>
-      <span *ngIf="msg | toggleDisplayChatStartDay: messages : i" class="chat__start-day">
-        {{ msg.time | chatStartDay: 'LLLL d' }}
-      </span>
-    </ng-container>
+        <epm-chat-message [ngClass]="{ own: msg.sender !== userId }" [message]="msg" />
+      </div>
+      <span class="time">{{ msg.time | date: 'h:mm' }}</span>
+    </li>
+    @if (msg | toggleDisplayChatStartDay: messages : i) {
+    <span class="chat__start-day">
+      {{ msg.time | chatStartDay: 'LLLL d' }}
+    </span>
+    } }
   </ul>
 </div>
 <form class="chat__form" [formGroup]="chatForm">
