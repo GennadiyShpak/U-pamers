@@ -1,11 +1,14 @@
-<div class="wrapper" [ngClass]="{ active: isActive }">
+<button
+  class="wrapper"
+  type="button"
+  [ngClass]="{ active: isActive, editable: isEditable }"
+  (click)="onIsEditableClick($event, chips)"
+>
   <div *ngIf="iconName" class="interest-icon">
     <img [ngSrc]="iconName" width="32" height="32" alt="interest icon" />
   </div>
   <p class="description" [ngClass]="{ left: !iconName, right: !isEditable }">
     {{ chips }}
   </p>
-  <button *ngIf="isEditable" class="button" type="button" (click)="onIsEditableClick(chips)">
-    <img [ngSrc]="iconFileName" width="32" height="32" alt="action icon" />
-  </button>
-</div>
+  <img *ngIf="isEditable" class="action-icon" [ngSrc]="iconFileName" width="32" height="32" alt="action icon" />
+</button>

@@ -1,0 +1,10 @@
+<ul class="chips__list">
+  <li *ngFor="let chips of interestChipsNames">
+    <epm-chips
+      [chips]="chips"
+      [isEditable]="true"
+      [isActive]="chips | isPrimitiveInArray: interests"
+      (editChipsStatus)="onStatusChange(chips)"
+    />
+  </li>
+</ul>

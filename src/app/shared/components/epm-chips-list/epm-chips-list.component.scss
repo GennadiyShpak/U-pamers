@@ -1,0 +1,7 @@
+.chips {
+  &__list {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}

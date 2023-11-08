@@ -16,11 +16,16 @@ import { SafeUrl } from '@angular/platform-browser';
 import { catchError, take, tap } from 'rxjs';
 
 import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
-import { APP_ROUTER_NAME, ICON_NAMES, INPUT_TYPES, SOCIAL_ICONS } from '../../../app.config';
+import {
+  APP_ROUTER_NAME,
+  ICON_NAMES,
+  INPUT_TYPES,
+  SOCIAL_ICONS,
+  SOCIAL_PLACEHOLDERS_CONFIG_OPTIONAL
+} from '../../../app.config';
 import { StepperComponent } from '../../components/stepper/stepper.component';
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
 import {
-  SOCIAL_PLACEHOLDERS_CONFIG,
   INITIAL_STEPPER_CONFIG,
   NEXT_STEP_BUTTON_CONFIG,
   STEPPER_STEPS,
@@ -63,7 +68,7 @@ export default class SignUpComponent implements OnInit, OnDestroy {
   readonly userAvatarDraft: Signal<SafeUrl> = this.authService.userAvatarDraft;
   readonly currentStep: Signal<StepperConfig> = this.stepperService.stepperConfig;
   readonly socialIcons: typeof SOCIAL_ICONS = SOCIAL_ICONS;
-  readonly socialPlaceholders: typeof SOCIAL_PLACEHOLDERS_CONFIG = SOCIAL_PLACEHOLDERS_CONFIG;
+  readonly socialPlaceholders: typeof SOCIAL_PLACEHOLDERS_CONFIG_OPTIONAL = SOCIAL_PLACEHOLDERS_CONFIG_OPTIONAL;
 
   constructor(
     private stepperService: StepperService,

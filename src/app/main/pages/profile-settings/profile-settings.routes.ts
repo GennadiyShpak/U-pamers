@@ -25,7 +25,7 @@ export default [
       {
         path: APP_ROUTER_NAME.Info,
         loadComponent: () => import('../info/info.component'),
-        data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.profileInfo],
+        data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.profileDetails],
         title: 'U-PAMERS | Profile Info'
       },
       {

@@ -1,1 +1,71 @@
-<p>info works!</p>
+<div class="container">
+  <a class="back__link" routerLink="../">
+    <img src="/assets/icons/chevron-blue.svg" width="16" height="16" alt="go back to settings" />
+    <span>Settings</span>
+  </a>
+  <form class="details__form">
+    <h1 class="details__title">Profile Details</h1>
+    <section class="details__section">
+      <h2 class="subtitle">General Info</h2>
+
+      <label
+        class="datepicker__wrapper"
+        data-placeholder="Date of birth"
+        [ngClass]="{ filled: !!datepickerInput.value }"
+      >
+        <input #datepickerInput class="datepicker" autocomplete="off" [matDatepicker]="picker" />
+        <button type="button" class="datepicker__icon" (click)="picker.open()">
+          <img src="/assets/icons/calendar.svg" height="24" width="24" alt="open datepicker" />
+        </button>
+        <mat-datepicker #picker startView="multi-year" [startAt]="datePickerStartDate" [disabled]="false" />
+      </label>
+
+      <epm-input class="field" labelPlaceholder="Location" [control]="profileDetailsForm.controls.location" />
+      <label class="textarea__label" data-placeholder="About me" [ngClass]="{ filled: !!textarea.value }">
+        <textarea #textarea class="field textarea" [formControl]="profileDetailsForm.controls.birthDate"></textarea>
+      </label>
+    </section>
+
+    <section class="details__section">
+      <h2 class="subtitle">Social media</h2>
+      <epm-input
+        class="field"
+        [labelPlaceholder]="socialPlaceholders.linkedin"
+        [iconName]="socialIcons.LinkedIn"
+        [control]="socialControls.controls.linkedin"
+      />
+      <epm-input
+        class="field"
+        [labelPlaceholder]="socialPlaceholders.instagram"
+        [iconName]="socialIcons.Instagram"
+        [control]="socialControls.controls.instagram"
+      />
+      <epm-input
+        class="field"
+        [labelPlaceholder]="socialPlaceholders.telegram"
+        [iconName]="socialIcons.Telegram"
+        [control]="socialControls.controls.telegram"
+      />
+      <epm-input
+        class="field"
+        [labelPlaceholder]="socialPlaceholders.facebook"
+        [iconName]="socialIcons.Facebook"
+        [control]="socialControls.controls.facebook"
+      />
+      <epm-input
+        class="field"
+        [labelPlaceholder]="socialPlaceholders.skype"
+        [iconName]="socialIcons.Skype"
+        [control]="socialControls.controls.skype"
+      />
+    </section>
+
+    <section class="details__section interests">
+      <h2 class="subtitle">Interests</h2>
+      <epm-chips-list [interests]="user.interests" (selectedInterests)="onInterestsChange($event)" />
+    </section>
+  </form>
+</div>
+<div class="button__wrapper" [ngClass]="{ button__wrapper__bottom: isBottomReached }">
+  <epm-button [class]="buttonClasses" [additionalStyles]="{ width: '100%' }">Save updates</epm-button>
+</div>
