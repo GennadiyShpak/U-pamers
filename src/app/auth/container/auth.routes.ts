@@ -27,12 +27,6 @@ export default [
         data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.signUp]
       },
       {
-        path: APP_ROUTER_NAME.ConfirmPassword,
-        loadComponent: () => import('../pages/confirm-password/confirm-password.component'),
-        title: 'U-PAMERS | Confirm password',
-        data: HEADER_CONFIG_LIST[HEADER_CONFIG_NAME.confirmPassword]
-      },
-      {
         path: APP_ROUTER_NAME.ResetPassword,
         loadComponent: () => import('../pages/reset-password/reset-password.component'),
         title: 'U-PAMERS | Password reset',
