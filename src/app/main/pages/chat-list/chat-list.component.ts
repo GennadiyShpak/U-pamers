@@ -22,8 +22,4 @@ export class ChatListComponent {
   onOpenChat(userId: string) {
     this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Chat}/${userId}`);
   }
-
-  trackByUserId(_index: number, chat: ChatLastMessage): string {
-    return chat.userId;
-  }
 }

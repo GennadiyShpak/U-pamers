@@ -34,8 +34,4 @@ export class ContactListComponent implements OnInit, OnDestroy {
   onOpenUser(userId: string): void {
     this.router.navigateByUrl(`${APP_ROUTER_NAME.Main}/${APP_ROUTER_NAME.Contact}/${userId}`);
   }
-
-  trackByUserId(_index: number, user: ExpandedUserDetailed): string {
-    return user.userId;
-  }
 }

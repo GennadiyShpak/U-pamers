@@ -1,5 +1,5 @@
 <ul class="contact-list">
-  @for (user of userList(); track trackByUserId($index, user)) {
+  @for (user of userList(); track user.userId) {
   <li class="contact-list__item">
     <epm-contact-list-item [user]="user" (click)="onOpenUser(user.userId)" />
   </li>
