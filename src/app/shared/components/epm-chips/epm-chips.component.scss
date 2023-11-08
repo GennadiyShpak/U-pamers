@@ -1,6 +1,10 @@
 @import 'variables';
 @import 'mixins';
 
+:host {
+  flex-shrink: 0;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -10,18 +14,19 @@
   border: solid 1px $color-grey;
   border-radius: 20px;
   user-select: none;
-  cursor: pointer;
+  cursor: auto;
 
   &.active {
     background-color: $color-lightest-grey;
     border: solid 1px $color-primary-highlight;
   }
 
-  img {
-    pointer-events: none;
+  &.editable {
+    cursor: pointer;
   }
 
   .interest-icon {
+    flex-shrink: 0;
     width: 32px;
     height: 32px;
     margin-left: 4px;
@@ -42,7 +47,7 @@
     }
   }
 
-  .button {
+  .action-icon {
     width: 16px;
     height: 16px;
     margin-right: 12px;

@@ -26,7 +26,8 @@ export class EpmChipsComponent implements OnInit {
   }
 
   onIsEditableClick($event: MouseEvent, chipsName: string): void {
-    $event.preventDefault();
+    if (!this.isEditable) return;
+
     this.isActive = !this.isActive;
     this.getEditIconURL();
     this.editChipsStatus.emit(chipsName);

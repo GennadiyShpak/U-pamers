@@ -43,6 +43,7 @@ export class MainApiService {
     );
   }
 
+  //TODO change to http request when BE will be ready
   getPersonalData(): Observable<UserDetailed> {
     return of(USERS_MOCK.find(user => user.userId === '100')!).pipe(take(1));
   }

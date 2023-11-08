@@ -14,11 +14,10 @@
         [ngClass]="{ filled: !!datepickerInput.value }"
       >
         <input #datepickerInput class="datepicker" autocomplete="off" [matDatepicker]="picker" />
-        <i class="datepicker__icon" (click)="picker.open()">
-          <img src="/assets/icons/calendar.svg" height="24" width="24" alt="open datepicker" (click)="picker.open()" />
-        </i>
-        <mat-datepicker #picker startView="multi-year" [startAt]="datePickerStartDate" [disabled]="false">
-        </mat-datepicker>
+        <button type="button" class="datepicker__icon" (click)="picker.open()">
+          <img src="/assets/icons/calendar.svg" height="24" width="24" alt="open datepicker" />
+        </button>
+        <mat-datepicker #picker startView="multi-year" [startAt]="datePickerStartDate" [disabled]="false" />
       </label>
 
       <epm-input class="field" labelPlaceholder="Location" [control]="profileDetailsForm.controls.location" />
