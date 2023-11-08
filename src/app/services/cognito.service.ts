@@ -13,14 +13,16 @@ export class CognitoService {
     this.initAmplify();
   }
 
-  signUp(user: UserAuthData): Observable<any> {
+  signUp({email: userMail, password, familyName, givenName}: UserAuthData): Observable<any> {
+    const userName = this.toUsername(userMail)
     return from(
       Auth.signUp({
-        username: user.email,
-        password: user.password,
+        username: userName,
+        password: password,
         attributes: {
-          given_name: user.givenName,
-          family_name: user.familyName
+          given_name: givenName,
+          family_name: familyName,
+          email: userMail
         }
       })
     );
@@ -34,6 +36,19 @@ export class CognitoService {
     return from(Auth.signIn(email, password));
   }
 
+
+  forgotPassword(email: string): Observable<any> {
+    return from(Auth.forgotPassword(email)).pipe(take(1));
+  }
+
+  forgotPasswordSubmit(email: string, code: string, newPassword: string): Observable<any> {
+    return from(Auth.forgotPasswordSubmit(email, code, newPassword)).pipe(take(1));
+  }
+
+  logout(): Observable<any> {
+    return from(Auth.signOut());
+  }
+
   private initAmplify(): void {
     setTimeout(() => {
       Amplify.configure({
@@ -43,11 +58,7 @@ export class CognitoService {
     });
   }
 
-  public forgotPassword(email: string): Observable<any> {
-    return from(Auth.forgotPassword(email)).pipe(take(1));
-  }
-
-  public forgotPasswordSubmit(email: string, code: string, newPassword: string): Observable<any> {
-    return from(Auth.forgotPasswordSubmit(email, code, newPassword)).pipe(take(1));
+  private toUsername(email: string) {
+    return email.replace('@', '-at-');
   }
 }

@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
-import { catchError, take, tap } from 'rxjs';
+import { catchError, switchMap, take, tap } from 'rxjs';
 
 import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
 import {
@@ -214,6 +214,7 @@ export default class SignUpComponent implements OnInit, OnDestroy {
   }
 
   private onSecondStepClick(): void {
+    this.onCreateAccountClick();
     this.stepperService.stepperConfig.update((config: StepperConfig) => ({
       ...config,
       activeStep: STEPPER_STEPS.SecondStep,
@@ -234,7 +235,7 @@ export default class SignUpComponent implements OnInit, OnDestroy {
     this.cognitoService
       .signUp(formValue)
       .pipe(
-        tap(() => this.router.navigateByUrl(`/auth/${this.appRoutes.ConfirmPassword}`)),
+        switchMap(() => this.cognitoService.signIn(formValue)),
         take(1),
         catchError(() => this.router.navigateByUrl(`/${APP_ROUTER_NAME.NotFound}`))
       )
