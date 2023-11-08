@@ -9,17 +9,19 @@
     >Edit Profile</epm-button
   >
 
-  <ng-container *ngIf="user.about || user.interests.length; else noDetails">
-    <epm-contact-about class="about" [about]="user.about" />
-    <epm-contact-interests [interests]="user.interests" />
-  </ng-container>
+  @if (user.about || user.interests.length) {
 
-  <ng-template #noDetails>
-    <epm-contact-no-details>
-      <span class="empty__text">
-        <a class="empty__link" [routerLink]="editProfileLink">Edit profile</a>
-        <span> to fill this section.</span>
-      </span>
-    </epm-contact-no-details>
-  </ng-template>
+  <epm-contact-about class="about" [about]="user.about" />
+  <epm-contact-interests [interests]="user.interests" />
+
+  } @else {
+
+  <epm-contact-no-details>
+    <span class="empty__text">
+      <a class="empty__link" [routerLink]="editProfileLink">Edit profile</a>
+      <span> to fill this section.</span>
+    </span>
+  </epm-contact-no-details>
+
+  }
 </epm-contact>

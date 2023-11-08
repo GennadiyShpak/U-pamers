@@ -1,5 +1,6 @@
 <ul class="chips__list">
-  <li *ngFor="let chips of interestChipsNames">
+  @for (chips of interestChipsNames; track chips) {
+  <li>
     <epm-chips
       [chips]="chips"
       [isEditable]="true"
@@ -7,4 +8,5 @@
       (editChipsStatus)="onStatusChange(chips)"
     />
   </li>
+  }
 </ul>

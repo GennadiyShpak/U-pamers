@@ -8,19 +8,22 @@
     <b class="name">
       <span>{{ user.name }}</span>
       <span class="no-space">{{ user.surname }}</span>
-      <span *ngIf="user.birthDate">,</span>
-      <span *ngIf="user.birthDate">{{ user.birthDate | age }}</span>
+      @if (user.birthDate) {
+      <span>,</span>
+      } @if (user.birthDate) {
+      <span>{{ user.birthDate | age }}</span>
+      }
     </b>
     <p class="location">{{ user.location || 'Unknown location' }}</p>
   </div>
   <ul class="social-list">
-    <ng-container *ngFor="let social of user.socials; trackBy: trackByPriority">
-      <li *ngIf="social.link" class="social-list__item">
-        <a (click)="onSocialClick($event, social.link, social.type)">
-          <epm-svg-icon [svgIconName]="social.type" />
-        </a>
-      </li>
-    </ng-container>
+    @for (social of user.socials; track trackByPriority($index, social)) { @if (social.link) {
+    <li class="social-list__item">
+      <a (click)="onSocialClick($event, social.link, social.type)">
+        <epm-svg-icon [svgIconName]="social.type" />
+      </a>
+    </li>
+    } }
   </ul>
 </div>
 <epm-button

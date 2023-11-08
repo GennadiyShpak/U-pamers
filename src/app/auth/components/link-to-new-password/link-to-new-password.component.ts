@@ -8,7 +8,9 @@ import { APP_ROUTER_NAME } from '../../../app.config';
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `<p class="content">
-    <span *ngIf="description">{{ description }}</span>
+    @if (description) {
+    <span>{{ description }}</span>
+    }
     <a class="link" [routerLink]="['/', routerName.Auth, routerName.NewPassword]">{{ linkDescription }}</a>
   </p>`,
   styleUrls: ['./link-to-new-password.component.scss']
