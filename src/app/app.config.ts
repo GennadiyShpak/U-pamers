@@ -191,7 +191,7 @@ export enum INPUT_PLACEHOLDERS {
 export enum ERROR_MESSAGES {
   required = 'This field cannot be empty',
   minlength = 'Short passwords are easy to guess. Try the one with at least 8 characters.',
-  passwordHasUpperCase = 'Make sure to use both upper-case and lower-case letters.',
+  hasUpperAndLowerCases = 'Make sure to use both upper-case and lower-case letters.',
   passwordHasNumeric = 'Make sure to use at least 1 digit for your password.',
   passwordHasNonAlphaNumeric = 'Make sure to use at least 1 special character for your password.',
   samePasswordsValue = 'Passwords don’t match.',
@@ -204,8 +204,7 @@ export enum ERROR_MESSAGES {
 
 export const REGEXP_PATTERNS = {
   passwordAllowedCharacters: /^([A-Za-z0-9!"§$%&/\\(){}[\]=?+*#'^°,;.:<>|@~\-_´`])*$/,
-  hasUpperCase: /[A-Z]+/,
-  hasLowerCase: /[a-z]+/,
+  hasUpperAndLowerCases: /(?=.*[a-z])(?=.*[A-Z])/,
   hasNumeric: /\d+/,
   hasNonAlphaNumeric: /[!"§$%&/\\(){}[\]=?+*#'^°,;.:<>|@~\-_´`]+/,
   hasSpace: /\s/,

@@ -11,8 +11,7 @@ export class CustomValidators {
 
       const validationMismatches: CustomError = {
         passwordAllowedCharacters: !REGEXP_PATTERNS.passwordAllowedCharacters.test(value),
-        passwordHasUpperCase: !REGEXP_PATTERNS.hasUpperCase.test(value),
-        passwordHasLowerCase: !REGEXP_PATTERNS.hasLowerCase.test(value),
+        hasUpperAndLowerCases: !REGEXP_PATTERNS.hasUpperAndLowerCases.test(value),
         passwordHasNumeric: !REGEXP_PATTERNS.hasNumeric.test(value),
         passwordHasNonAlphaNumeric: !REGEXP_PATTERNS.hasNonAlphaNumeric.test(value),
         passwordWithoutSpace: REGEXP_PATTERNS.hasSpace.test(value)
