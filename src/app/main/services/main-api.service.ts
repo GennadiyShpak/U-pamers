@@ -5,6 +5,7 @@ import { DetailedSocialLink, ExpandedUserDetailed, UserDetailed } from '../main.
 import { SOCIAL_ICONS } from '../../app.config';
 import { USERS_MOCK } from '../../../mocks/mock-data';
 import { PRIORITY_ORDER, SOCIAL_PROFILE_LINKS_ROOT } from '../main.config';
+import { ApiService } from '../../services/api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,20 @@ export class MainApiService {
   private userList$: WritableSignal<ExpandedUserDetailed[]> = signal([]);
   userList: Signal<ExpandedUserDetailed[]> = computed(this.userList$);
 
+  constructor(private apiService: ApiService) {}
+
   clearUserList(): void {
     this.userList$.set([]);
+  }
+
+  getUserListFromBE() {
+    return this.apiService.getUserList().pipe(
+      map(newUserList => this.expandSocials(newUserList)),
+      // tap(newUserList => {
+      //   this.userList$.update(userList => [...userList, ...newUserList]);
+      // }),
+      take(1)
+    );
   }
 
   getUsers(): void {
@@ -77,7 +90,7 @@ export class MainApiService {
     return {
       priority: PRIORITY_ORDER[socialName as keyof typeof PRIORITY_ORDER],
       link: SOCIAL_PROFILE_LINKS_ROOT[socialName](userName),
-      type: socialName as SOCIAL_ICONS
+      type: socialName.toLowerCase() as SOCIAL_ICONS
     };
   }
 }

@@ -22,7 +22,7 @@ export class AuthService {
   readonly fileEventDraft: Signal<Event> = this.fileEventDraft$.asReadonly();
   readonly appRoutes: typeof APP_ROUTER_NAME = APP_ROUTER_NAME;
 
-  private draftForm: UserAuthData = structuredClone(DRAFT_FORM_INITIAL_VALUE);
+  private draftAuthForm: UserAuthData = structuredClone(DRAFT_FORM_INITIAL_VALUE);
 
   constructor(private router: Router) {}
 
@@ -44,15 +44,15 @@ export class AuthService {
 
   saveFormValue(formValue: UserAuthFormData): void {
     delete (formValue as Partial<UserAuthFormData>).repeatPassword;
-    this.draftForm = { ...this.draftForm, ...this.filterFormValue(formValue) };
+    this.draftAuthForm = { ...this.draftAuthForm, ...this.filterFormValue(formValue) };
   }
 
   getDraftFormValue(): UserAuthData {
-    return this.draftForm;
+    return this.draftAuthForm;
   }
 
   resetDraftFormValue(): void {
-    this.draftForm = structuredClone(DRAFT_FORM_INITIAL_VALUE);
+    this.draftAuthForm = structuredClone(DRAFT_FORM_INITIAL_VALUE);
   }
 
   private filterFormValue<T extends object>(formValue: T): T {

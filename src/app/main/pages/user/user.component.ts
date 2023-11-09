@@ -7,7 +7,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { APP_ROUTER_NAME, BUTTON_THEMES } from '../../../app.config';
 import { ExpandedUserDetailed } from '../../main.model';
-import { MainApiService } from '../../service/main-api.service';
+import { MainApiService } from '../../services/main-api.service';
 import { ContactComponent } from '../../components/contact/contact.component';
 import { ContactHeadComponent } from '../../components/contact-head/contact-head.component';
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';

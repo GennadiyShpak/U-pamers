@@ -98,11 +98,17 @@ export const PERSONAL_DATA_MOCK: UserDetailed = {
   location: 'Ukraine, Dnipro',
   avatarUrl: '/mocks/img/avatar.png',
   socials: {
-    instagram: 'insta',
-    facebook: 'fb',
-    linkedin: '../company/epam-systems',
-    skype: 'call_me',
-    telegram: 'upamer'
+    Instagram: 'insta',
+    Facebook: 'fb',
+    Linkedin: '../company/epam-systems',
+    Skype: 'call_me',
+    Telegram: 'upamer'
+  },
+  privacy: {
+    description: false,
+    location: false,
+    account: true,
+    age: true
   }
 };
 
@@ -117,11 +123,17 @@ export const USERS_MOCK: UserDetailed[] = [
     location: 'Lviv',
     avatarUrl: '/mocks/img/user_1.jpg',
     socials: {
-      instagram: 'epam_ukraine',
-      linkedin: '../company/epam-systems',
-      facebook: '',
-      skype: '',
-      telegram: ''
+      Instagram: 'epam_ukraine',
+      Linkedin: '../company/epam-systems',
+      Facebook: '',
+      Skype: '',
+      Telegram: ''
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -134,11 +146,17 @@ export const USERS_MOCK: UserDetailed[] = [
     location: 'New York',
     avatarUrl: '/mocks/img/user_2.jpg',
     socials: {
-      instagram: 'epamsystems',
-      facebook: 'EPAM.Ukraine',
-      linkedin: '../company/epam-systems',
-      skype: '',
-      telegram: ''
+      Instagram: 'epamsystems',
+      Facebook: 'EPAM.Ukraine',
+      Linkedin: '../company/epam-systems',
+      Skype: '',
+      Telegram: ''
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -151,11 +169,17 @@ export const USERS_MOCK: UserDetailed[] = [
     location: 'New York',
     avatarUrl: '/mocks/img/user_3.jpg',
     socials: {
-      instagram: 'johndoe_adventures',
-      facebook: 'johndoe123',
-      linkedin: '../company/epam-systems',
-      skype: '',
-      telegram: ''
+      Instagram: 'johndoe_adventures',
+      Facebook: 'johndoe123',
+      Linkedin: '../company/epam-systems',
+      Skype: '',
+      Telegram: ''
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -168,11 +192,17 @@ export const USERS_MOCK: UserDetailed[] = [
     location: 'San Francisco',
     avatarUrl: '/mocks/img/user_4.jpg',
     socials: {
-      instagram: 'sarah_nature_fit',
-      facebook: '',
-      linkedin: '../company/epam-systems',
-      skype: '',
-      telegram: ''
+      Instagram: 'sarah_nature_fit',
+      Facebook: '',
+      Linkedin: '../company/epam-systems',
+      Skype: '',
+      Telegram: ''
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -185,11 +215,17 @@ export const USERS_MOCK: UserDetailed[] = [
     location: 'Seattle',
     avatarUrl: '/mocks/img/user_5.png',
     socials: {
-      instagram: 'sophia_art_coffee',
-      facebook: 'sophia.brown',
-      linkedin: '../company/epam-systems',
-      skype: 'sophia_brown789',
-      telegram: 'sophia_coffee_lover'
+      Instagram: 'sophia_art_coffee',
+      Facebook: 'sophia.brown',
+      Linkedin: '../company/epam-systems',
+      Skype: 'sophia_brown789',
+      Telegram: 'sophia_coffee_lover'
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -202,11 +238,17 @@ export const USERS_MOCK: UserDetailed[] = [
     location: 'Denver',
     avatarUrl: '/mocks/img/user_6.png',
     socials: {
-      instagram: 'daniel_hiker_tech',
-      facebook: 'daniel.martinez',
-      linkedin: '../company/epam-systems',
-      skype: 'daniel_martinez123',
-      telegram: 'daniel_tech_geek'
+      Instagram: 'daniel_hiker_tech',
+      Facebook: 'daniel.martinez',
+      Linkedin: '../company/epam-systems',
+      Skype: 'daniel_martinez123',
+      Telegram: 'daniel_tech_geek'
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -219,11 +261,17 @@ export const USERS_MOCK: UserDetailed[] = [
     location: 'Netherlands, Hoofddorp, Mercuruissplein 1',
     avatarUrl: '/mocks/img/user_7.jpg',
     socials: {
-      instagram: 'olivia_animal_fashion',
-      facebook: 'olivia.anderson',
-      linkedin: '../company/epam-systems',
-      skype: 'olivia_anderson456',
-      telegram: 'olivia_dance_queen'
+      Instagram: 'olivia_animal_fashion',
+      Facebook: 'olivia.anderson',
+      Linkedin: '../company/epam-systems',
+      Skype: 'olivia_anderson456',
+      Telegram: 'olivia_dance_queen'
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -236,11 +284,17 @@ export const USERS_MOCK: UserDetailed[] = [
     location: '',
     avatarUrl: '/mocks/img/user_8.jpg',
     socials: {
-      instagram: 'william_history_star',
-      facebook: 'william.taylor',
-      linkedin: '../company/epam-systems',
-      skype: 'william_taylor789',
-      telegram: 'william_astronomy_lover'
+      Instagram: 'william_history_star',
+      Facebook: 'william.taylor',
+      Linkedin: '../company/epam-systems',
+      Skype: 'william_taylor789',
+      Telegram: 'william_astronomy_lover'
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -253,11 +307,17 @@ export const USERS_MOCK: UserDetailed[] = [
     location: 'Austin',
     avatarUrl: '/mocks/img/user_9.png',
     socials: {
-      instagram: 'ava_gamer_anime',
-      facebook: 'ava.miller',
-      linkedin: '../company/epam-systems',
-      skype: 'ava_miller123',
-      telegram: 'ava_anime_fan'
+      Instagram: 'ava_gamer_anime',
+      Facebook: 'ava.miller',
+      Linkedin: '../company/epam-systems',
+      Skype: 'ava_miller123',
+      Telegram: 'ava_anime_fan'
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -270,11 +330,17 @@ export const USERS_MOCK: UserDetailed[] = [
     location: 'San Diego',
     avatarUrl: '/mocks/img/user_10.jpg',
     socials: {
-      instagram: '',
-      facebook: '',
-      linkedin: '',
-      skype: '',
-      telegram: ''
+      Instagram: '',
+      Facebook: '',
+      Linkedin: '',
+      Skype: '',
+      Telegram: ''
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   PERSONAL_DATA_MOCK
