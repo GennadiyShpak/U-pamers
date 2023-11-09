@@ -29,6 +29,8 @@ export type LoginForm = NestedFormInterface<LoginData, string>;
 export interface NewPasswordData {
   newPassword: string;
   confirmNewPassword: string;
+  code: string;
+  email: string;
 }
 
 export type NewPasswordForm = NestedFormInterface<NewPasswordData, string>;

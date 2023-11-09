@@ -8,7 +8,6 @@ export enum APP_ROUTER_NAME {
   SignUp = 'sign-up',
   ResetPassword = 'reset-password',
   NewPassword = 'new-password',
-  ConfirmPassword = 'confirm-password',
   Contact = 'contact',
   Chat = 'chat',
   MyProfile = 'my-profile',
@@ -86,7 +85,6 @@ export const enum HEADER_CONFIG_NAME {
   signUp = 'signUp',
   resetPassword = 'resetPassword',
   newPassword = 'newPassword',
-  confirmPassword = 'confirmPassword',
   mainRoot = 'mainRoot',
   contacts = 'contacts',
   chats = 'chats',
@@ -165,10 +163,6 @@ export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } =
   avatarEdit: {
     leftButton: HEADER_ICON_TYPE.Arrow,
     title: 'Edit Photo'
-  },
-  [HEADER_CONFIG_NAME.confirmPassword]: {
-    leftButton: HEADER_ICON_TYPE.Arrow,
-    title: 'Confirm Password'
   }
 };
 
@@ -197,9 +191,7 @@ export enum INPUT_PLACEHOLDERS {
 export enum ERROR_MESSAGES {
   required = 'This field cannot be empty',
   minlength = 'Short passwords are easy to guess. Try the one with at least 8 characters.',
-  passwordLength = 'Short passwords are easy to guess. Try the one with at least 8 characters.',
-  passwordHasUpperCase = 'Make sure to use both upper-case and lower-case letters.',
-  passwordHasLowerCase = 'Make sure to use both upper-case and lower-case letters.',
+  hasUpperAndLowerCases = 'Make sure to use both upper-case and lower-case letters.',
   passwordHasNumeric = 'Make sure to use at least 1 digit for your password.',
   passwordHasNonAlphaNumeric = 'Make sure to use at least 1 special character for your password.',
   samePasswordsValue = 'Passwords don’t match.',
@@ -212,8 +204,7 @@ export enum ERROR_MESSAGES {
 
 export const REGEXP_PATTERNS = {
   passwordAllowedCharacters: /^([A-Za-z0-9!"§$%&/\\(){}[\]=?+*#'^°,;.:<>|@~\-_´`])*$/,
-  hasUpperCase: /[A-Z]+/,
-  hasLowerCase: /[a-z]+/,
+  hasUpperAndLowerCases: /(?=.*[a-z])(?=.*[A-Z])/,
   hasNumeric: /\d+/,
   hasNonAlphaNumeric: /[!"§$%&/\\(){}[\]=?+*#'^°,;.:<>|@~\-_´`]+/,
   hasSpace: /\s/,

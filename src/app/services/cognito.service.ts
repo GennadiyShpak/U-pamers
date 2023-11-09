@@ -28,10 +28,6 @@ export class CognitoService {
     );
   }
 
-  confirmAuth(user: { code: string; email: string }): Observable<any> {
-    return from(Auth.confirmSignUp(user.email, user.code));
-  }
-
   signIn({ email, password }: LoginData): Observable<any> {
     return from(Auth.signIn(email, password));
   }
@@ -57,7 +53,7 @@ export class CognitoService {
     });
   }
 
-  private toUsername(email: string) {
+  private toUsername(email: string): string {
     return email.replace('@', '-at-');
   }
 }
