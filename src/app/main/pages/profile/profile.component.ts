@@ -8,7 +8,7 @@ import { ContactComponent } from '../../components/contact/contact.component';
 import { ContactHeadComponent } from '../../components/contact-head/contact-head.component';
 import { APP_ROUTER_NAME, BUTTON_THEMES } from '../../../app.config';
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
-import { MainApiService } from '../../service/main-api.service';
+import { MainApiService } from '../../services/main-api.service';
 import { ContactInterestsComponent } from '../../components/contact-interests/contact-interests.component';
 import { ContactAboutComponent } from '../../components/contact-about/contact-about.component';
 import { ContactNoDetailsComponent } from '../../components/contact-no-details/contact-no-details.component';

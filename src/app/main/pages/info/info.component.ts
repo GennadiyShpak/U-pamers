@@ -10,7 +10,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
 import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
 import { EpmChipsListComponent } from '../../../shared/components/epm-chips-list/epm-chips-list.component';
-import { MainApiService } from '../../service/main-api.service';
+import { MainApiService } from '../../services/main-api.service';
 import { ProfileDetailsForm, SocialMedias, UserDetailed } from '../../main.model';
 import { BUTTON_THEMES, SOCIAL_ICONS, SOCIAL_PLACEHOLDERS_CONFIG } from '../../../app.config';
 

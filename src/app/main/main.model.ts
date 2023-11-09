@@ -18,13 +18,23 @@ export interface UserDetailed extends User {
   about: string;
   interests: string[];
   location: string;
-  socials: {
-    instagram: string;
-    linkedin: string;
-    facebook: string;
-    skype: string;
-    telegram: string;
-  };
+  socials: SocialLink;
+  privacy: UserPrivacy;
+}
+
+export interface SocialLink {
+  Instagram: string;
+  Linkedin: string;
+  Facebook: string;
+  Skype: string;
+  Telegram: string;
+}
+
+export interface UserPrivacy {
+  description: boolean;
+  location: boolean;
+  account: boolean;
+  age: boolean;
 }
 
 export interface DetailedSocialLink {
