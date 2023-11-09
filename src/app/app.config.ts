@@ -1,4 +1,4 @@
-import { HeaderConfig } from './app.model';
+import { HeaderConfig, ModalConfig } from './app.model';
 import { SocialURLsList } from './auth/auth.model';
 
 export enum APP_ROUTER_NAME {
@@ -239,6 +239,27 @@ export const SOCIAL_PLACEHOLDERS_CONFIG: SocialURLsList = {
   facebook: getSocialPlaceholder('Facebook'),
   skype: getSocialPlaceholder('Skype'),
   telegram: getSocialPlaceholder('Telegram')
+};
+
+export const MODAL_LOGIN: ModalConfig = {
+  titleText: 'Sorry, you are not login yet',
+  supportText: 'You need to be logged in to message other users.',
+  primaryButtonText: 'Log in',
+  secondaryButtonText: 'Cancel'
+};
+
+export const MODAL_SIGNUP: ModalConfig = {
+  titleText: 'Leaving already?',
+  supportText: 'You havenʼt finished sign up yet. If you leave now, all the information will be lost.',
+  primaryButtonText: 'Continue to sign up',
+  secondaryButtonText: 'Leave'
+};
+
+export const MODAL_EDIT_INFO: ModalConfig = {
+  titleText: 'Unsaved changes will be lost',
+  supportText: 'If you leave now, all the unsaved information will be lost.',
+  primaryButtonText: 'Continue editing',
+  secondaryButtonText: 'Leave without saving'
 };
 
 export const DEFAULT_AVATAR: string = '/assets/images/default-avatar.svg';

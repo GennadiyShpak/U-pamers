@@ -1,0 +1,55 @@
+@import 'variables';
+@import 'mixins';
+
+.modal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 12px;
+
+  &::backdrop {
+    background-color: $color-shadow-modal;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 327px;
+    padding: 24px 24px 40px;
+    background-color: $color-white;
+  }
+
+  &__close-button {
+    align-self: flex-end;
+    width: 24px;
+    height: 24px;
+    margin-bottom: 12px;
+  }
+
+  &__title-text {
+    @include font-bold;
+    margin-bottom: 4px;
+    font-size: $font-size-h3;
+    line-height: 23px;
+    text-align: center;
+    color: $color-text-darkest;
+  }
+
+  &__support-text {
+    @include font-medium;
+    margin-bottom: 24px;
+    font-size: $font-size-regular;
+    line-height: 24px;
+    text-align: center;
+    color: $color-text-secondary;
+  }
+
+  & epm-button.primary {
+    ::ng-deep {
+      .button {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

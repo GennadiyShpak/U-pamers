@@ -18,3 +18,10 @@ export interface ToasterMessages {
   notLoggedIn: ToasterMessage;
   notFilledProfile: ToasterMessage;
 }
+
+export interface ModalConfig {
+  titleText: string;
+  supportText: string;
+  primaryButtonText: string;
+  secondaryButtonText: string;
+}

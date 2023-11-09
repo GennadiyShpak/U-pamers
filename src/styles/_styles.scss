@@ -36,3 +36,7 @@ svg {
     background-color: $color-button-primary-pressed;
   }
 }
+
+.modal-open {
+  overflow: hidden;
+}
