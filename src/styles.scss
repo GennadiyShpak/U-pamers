@@ -38,3 +38,7 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
