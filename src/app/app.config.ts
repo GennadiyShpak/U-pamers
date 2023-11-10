@@ -241,6 +241,7 @@ export const SOCIAL_PLACEHOLDERS_CONFIG: SocialURLsList = {
   telegram: getSocialPlaceholder('Telegram')
 };
 
+
 export const MODAL_LOGIN: ModalConfig = {
   titleText: 'Sorry, you are not login yet',
   supportText: 'You need to be logged in to message other users.',
