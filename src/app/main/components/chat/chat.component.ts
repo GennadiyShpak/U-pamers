@@ -14,7 +14,7 @@ import { ToggleDisplayMessageTimePipe } from '../../../shared/pipes/toggle-displ
 import { ToggleDisplayChatStartDayPipe } from '../../../shared/pipes/toggle-display-chat-start-day.pipe';
 import { ChatStartDayPipe } from '../../../shared/pipes/chat-start-day.pipe';
 import { CHAT_MOCK, USERS_MOCK } from '../../../../mocks/mock-data';
-import { DefaultAvatarPipe } from '../../../shared/pipes/default-avatar.pipe';
+import { SetUserAvatarPipe } from '../../../shared/pipes/set-user-avatar.pipe';
 
 @Component({
   selector: 'epm-chat',
@@ -29,7 +29,7 @@ import { DefaultAvatarPipe } from '../../../shared/pipes/default-avatar.pipe';
     ToggleDisplayMessageTimePipe,
     ToggleDisplayChatStartDayPipe,
     ChatStartDayPipe,
-    DefaultAvatarPipe
+    SetUserAvatarPipe
   ],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']

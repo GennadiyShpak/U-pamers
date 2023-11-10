@@ -7,7 +7,7 @@ import { APP_ROUTER_NAME, BUTTON_THEMES, HEADER_RIGHT_BLOCK } from '../../../app
 import { HeaderConfig } from '../../../app.model';
 import { HeaderService } from '../../../services/header.service';
 import { EpmNavigationIconComponent } from '../epm-navigation-icon/epm-navigation-icon.component';
-import { DefaultAvatarPipe } from '../../pipes/default-avatar.pipe';
+import { SetUserAvatarPipe } from '../../pipes/set-user-avatar.pipe';
 
 @Component({
   selector: 'epm-header',
@@ -18,7 +18,7 @@ import { DefaultAvatarPipe } from '../../pipes/default-avatar.pipe';
     NgOptimizedImage,
     RouterLink,
     EpmNavigationIconComponent,
-    DefaultAvatarPipe
+    SetUserAvatarPipe
   ],
   templateUrl: './epm-header.component.html',
   styleUrls: ['./epm-header.component.scss']
