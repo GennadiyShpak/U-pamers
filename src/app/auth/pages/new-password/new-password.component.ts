@@ -1,11 +1,10 @@
-import { Component, OnInit, ViewChild, DestroyRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { catchError, take, tap } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
+import { EpmInputComponent, MaskConfig } from '../../../shared/components/epm-input/epm-input.component';
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
 import { APP_ROUTER_NAME, BUTTON_THEMES, INPUT_PLACEHOLDERS, INPUT_TYPES } from '../../../app.config';
 import { CustomValidators } from '../../../shared/validators/custom.validators';
@@ -34,13 +33,14 @@ export default class NewPasswordComponent implements OnInit {
   @ViewChild('codeRef') codeInputRef!: EpmInputComponent;
 
   isCodeSubmitted = false;
-  isNewPasswordSubmited = false;
+  isNewPasswordFormSubmited = false;
   createNewPasswordForm!: FormGroup<NewPasswordForm>;
 
   readonly priorityErrors = ['samePasswordsValue'];
   readonly buttonThemes: typeof BUTTON_THEMES = BUTTON_THEMES;
   readonly inputTypes: typeof INPUT_TYPES = INPUT_TYPES;
   readonly inputPlaceholders: typeof INPUT_PLACEHOLDERS = INPUT_PLACEHOLDERS;
+  readonly codeMaskConfig: MaskConfig = { symbol: '_', quantity: 6, regExp: /\d/ };
 
   get email(): FormControl {
     return this.createNewPasswordForm.controls.email;
@@ -61,13 +61,11 @@ export default class NewPasswordComponent implements OnInit {
   constructor(
     private fb: NonNullableFormBuilder,
     private cognitoService: CognitoService,
-    private router: Router,
-    private destroyRef: DestroyRef
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.initCreateNewPasswordForm();
-    this.initSpyOnCodeValueChanges();
   }
 
   onCodeSubmit(): void {
@@ -80,7 +78,7 @@ export default class NewPasswordComponent implements OnInit {
       .forgotPasswordSubmit(email!, code!, newPassword!)
       .pipe(
         tap(() => {
-          this.isCodeSubmitted = true;
+          this.isNewPasswordFormSubmited = true;
         }),
         take(1),
         catchError(() => this.router.navigateByUrl(`/${APP_ROUTER_NAME.NotFound}`))
@@ -93,7 +91,6 @@ export default class NewPasswordComponent implements OnInit {
       {
         newPassword: ['', [Validators.required, Validators.minLength(8), CustomValidators.password()]],
         confirmNewPassword: ['', [Validators.required]],
-
         code: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]]
       },
@@ -107,30 +104,5 @@ export default class NewPasswordComponent implements OnInit {
         ]
       }
     );
-  }
-
-  private initSpyOnCodeValueChanges(): void {
-    this.code.valueChanges
-      .pipe(
-        tap(value => {
-          const input = this.codeInputRef!.epmInputRef.nativeElement as HTMLInputElement;
-          const cursorPosition = input.selectionStart;
-
-          let maskedNumbersValue = value.replace(/\D/g, '').padEnd(6, '_').slice(0, 6);
-          maskedNumbersValue = maskedNumbersValue === '______' ? '' : maskedNumbersValue;
-
-          const enteredCharacterIsNumeric = /\d/.test(value.charAt(cursorPosition! - 1));
-
-          this.code.setValue(maskedNumbersValue, { emitEvent: false });
-
-          if (enteredCharacterIsNumeric) {
-            input.setSelectionRange(cursorPosition, cursorPosition);
-          } else {
-            input.setSelectionRange(cursorPosition! - 1, cursorPosition! - 1);
-          }
-        }),
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe();
   }
 }

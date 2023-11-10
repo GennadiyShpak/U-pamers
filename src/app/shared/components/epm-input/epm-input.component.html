@@ -7,8 +7,8 @@
     filled: epmInput.value || epmInput.placeholder,
     'label-password': type === inputTypes.Password,
     'chat-input': epmInput.placeholder === inputPlaceholders.Chat,
-    masked: epmInput.placeholder === inputPlaceholders.MaskedCode,
-    masked__filled: epmInput.placeholder === inputPlaceholders.MaskedCode && epmInput.value
+    masked: maskConfig,
+    masked__filled: maskConfig && epmInput.value
   }"
 >
   <input
@@ -17,7 +17,7 @@
     autocomplete="off"
     [type]="type"
     [name]="control"
-    [placeholder]="inputPlaceholder"
+    [placeholder]="inputPlaceholder || maskPlaceholder"
     [formControl]="control"
   />
   @if (type === inputTypes.Password) {
