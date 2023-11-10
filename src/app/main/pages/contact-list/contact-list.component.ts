@@ -24,8 +24,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userList = this.mainApiService.userList;
-    this.mainApiService.getUserListFromBE().subscribe(console.log);
-    this.mainApiService.getUsers();
+    this.mainApiService.getUserListFromBE().subscribe();
   }
 
   ngOnDestroy(): void {
