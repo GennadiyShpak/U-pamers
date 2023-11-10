@@ -1,6 +1,6 @@
 <div class="avatar">
   <div class="avatar__wrapper">
-    <img width="48" height="48" [ngSrc]="user.avatar" alt="user avatar" />
+    <img width="48" height="48" [ngSrc]="user.avatar | setUserAvatar" alt="user avatar" />
   </div>
 </div>
 <div class="info">

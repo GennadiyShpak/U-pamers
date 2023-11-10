@@ -7,11 +7,12 @@ import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-bu
 import { APP_ROUTER_NAME, BUTTON_THEMES, ICON_NAMES, SOCIAL_ICONS } from '../../../app.config';
 import { SvgIconComponent } from '../../../shared/components/svg-icon/svg-icon.component';
 import { AgePipe } from '../../../shared/pipes/age.pipe';
+import { SetUserAvatarPipe } from '../../../shared/pipes/set-user-avatar.pipe';
 
 @Component({
   selector: 'epm-contact-list-item',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, EpmButtonComponent, SvgIconComponent, AgePipe],
+  imports: [CommonModule, NgOptimizedImage, EpmButtonComponent, SvgIconComponent, AgePipe, SetUserAvatarPipe],
   templateUrl: './contact-list-item.component.html',
   styleUrls: ['./contact-list-item.component.scss']
 })
