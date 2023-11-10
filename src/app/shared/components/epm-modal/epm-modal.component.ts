@@ -1,5 +1,15 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Inject,
+  Input,
+  Output,
+  Renderer2,
+  ViewChild
+} from '@angular/core';
+import { CommonModule, DOCUMENT, NgOptimizedImage } from '@angular/common';
 
 import { EpmButtonComponent } from '../epm-button/epm-button.component';
 import { ModalConfig } from '../../../app.model';
@@ -31,13 +41,18 @@ export class EpmModalComponent {
     }
   }
 
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private renderer: Renderer2
+  ) {}
+
   openModal(): void {
-    document.body.classList.add('modal-open');
+    this.renderer.setStyle(this.document.body, 'overflow', 'hidden');
     this.modal.nativeElement.showModal();
   }
 
   closeModal(): void {
-    document.body.classList.remove('modal-open');
+    this.renderer.setStyle(this.document.body, 'overflow', 'auto');
     this.modal.nativeElement.close();
   }
 
