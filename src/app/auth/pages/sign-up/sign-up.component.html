@@ -5,22 +5,22 @@
 
   <h2 class="signup__title">Fill in account details</h2>
   <div class="signup__field">
-    <epm-input [labelPlaceholder]="'Login'" [type]="inputTypes.Email" [control]="email" />
+    <epm-input [labelPlaceholder]="'Login *'" [type]="inputTypes.Email" [control]="email" />
     <epm-error-message [control]="email" />
   </div>
 
   <div class="signup__field">
-    <epm-input [labelPlaceholder]="'First name'" [control]="givenName" />
+    <epm-input [labelPlaceholder]="'First name *'" [control]="givenName" />
     <epm-error-message [control]="givenName" />
   </div>
 
   <div class="signup__field">
-    <epm-input [labelPlaceholder]="'Last name'" [control]="familyName" />
+    <epm-input [labelPlaceholder]="'Last name *'" [control]="familyName" />
     <epm-error-message [control]="familyName" />
   </div>
 
   <div class="signup__field">
-    <epm-input [labelPlaceholder]="'Password'" [type]="inputTypes.Password" [control]="password" />
+    <epm-input [labelPlaceholder]="'Password *'" [type]="inputTypes.Password" [control]="password" />
     <epm-error-message [control]="password" />
     @if (password.pristine || password.valid) {
     <p class="signup__footnote">
@@ -30,7 +30,7 @@
   </div>
 
   <div class="signup__field last-field">
-    <epm-input [labelPlaceholder]="'Confirm password'" [type]="inputTypes.Password" [control]="repeatPassword" />
+    <epm-input [labelPlaceholder]="'Confirm password *'" [type]="inputTypes.Password" [control]="repeatPassword" />
     <epm-error-message [control]="repeatPassword" />
   </div>
 
@@ -80,7 +80,7 @@
   />
 
   <epm-input
-    class="signup__field last-social-field"
+    class="signup__field last-field"
     [labelPlaceholder]="socialPlaceholders.skype"
     [iconName]="socialIcons.Skype"
     [control]="skype"
