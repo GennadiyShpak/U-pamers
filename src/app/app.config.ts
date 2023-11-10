@@ -240,3 +240,5 @@ export const SOCIAL_PLACEHOLDERS_CONFIG: SocialURLsList = {
   skype: getSocialPlaceholder('Skype'),
   telegram: getSocialPlaceholder('Telegram')
 };
+
+export const DEFAULT_AVATAR: string = '/assets/images/default-avatar.svg';

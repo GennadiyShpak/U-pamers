@@ -10,7 +10,7 @@
       </svg>
     </div>
     <a class="avatar-wrapper" [routerLink]="myProfileLink">
-      <img width="24" height="24" [ngSrc]="avatar.src" alt="user avatar" />
+      <img width="24" height="24" [ngSrc]="avatar.src | defaultAvatar" alt="user avatar" />
     </a>
   </div>
 

@@ -5,11 +5,12 @@ import { SvgIconComponent } from '../../../shared/components/svg-icon/svg-icon.c
 import { BUTTON_THEMES, ICON_NAMES, SOCIAL_ICONS } from '../../../app.config';
 import { DetailedSocialLink, ExpandedUserDetailed } from '../../main.model';
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
+import { DefaultAvatarPipe } from '../../../shared/pipes/default-avatar.pipe';
 
 @Component({
   selector: 'epm-contact-head',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, SvgIconComponent, EpmButtonComponent],
+  imports: [CommonModule, NgOptimizedImage, SvgIconComponent, EpmButtonComponent, DefaultAvatarPipe],
   templateUrl: './contact-head.component.html',
   styleUrls: ['./contact-head.component.scss']
 })

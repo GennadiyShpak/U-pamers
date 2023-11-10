@@ -9,7 +9,7 @@
       <div class="message__wrapper">
         <div class="avatar__wrapper">
           <a class="avatar__link" (click)="onOpenUser(msg.sender)">
-            <img width="24" height="24" [src]="interlocutor.avatar" alt="avatar of the interlocutor" />
+            <img width="24" height="24" [src]="interlocutor.avatar | defaultAvatar" alt="avatar of the interlocutor" />
           </a>
         </div>
         <epm-chat-message [ngClass]="{ own: msg.sender !== userId }" [message]="msg" />
