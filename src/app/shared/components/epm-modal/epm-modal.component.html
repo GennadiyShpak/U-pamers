@@ -1,0 +1,11 @@
+<dialog #modal class="modal">
+  <form class="modal__container">
+    <button class="modal__close-button" formmethod="dialog" (click)="closeModal()">
+      <img [ngSrc]="'/assets/icons/close.svg'" width="24" height="24" alt="close icon" />
+    </button>
+    <h3 class="modal__title-text">{{ modalConfig.titleText }}</h3>
+    <p class="modal__support-text">{{ modalConfig.supportText }}</p>
+    <epm-button class="primary" (click)="onPrimaryButtonClick()">{{ modalConfig.primaryButtonText }}</epm-button>
+    <epm-button class="secondary" (click)="onSecondaryButtonClick()">{{ modalConfig.secondaryButtonText }}</epm-button>
+  </form>
+</dialog>
