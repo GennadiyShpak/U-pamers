@@ -112,7 +112,7 @@ export const HEADER_CONFIG_LIST: { [key in HEADER_CONFIG_NAME]: HeaderConfig } =
   },
   newPassword: {
     leftButton: HEADER_ICON_TYPE.Close,
-    title: 'Change password'
+    title: 'Password reset'
   },
   mainRoot: {
     leftButton: HEADER_ICON_TYPE.Logo,
@@ -185,7 +185,8 @@ export enum INPUT_PLACEHOLDERS {
   Facebook = 'http://facebook.com',
   Skype = 'nickname',
   None = '',
-  Chat = 'Start typing...'
+  Chat = 'Start typing...',
+  MaskedCode = '______'
 }
 
 export enum ERROR_MESSAGES {

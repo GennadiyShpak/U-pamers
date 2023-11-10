@@ -6,7 +6,9 @@
     'nested-icon-input': iconName,
     filled: epmInput.value || epmInput.placeholder,
     'label-password': type === inputTypes.Password,
-    'chat-input': epmInput.placeholder === inputPlaceholders.Chat
+    'chat-input': epmInput.placeholder === inputPlaceholders.Chat,
+    masked: epmInput.placeholder === inputPlaceholders.MaskedCode,
+    masked__filled: epmInput.placeholder === inputPlaceholders.MaskedCode && epmInput.value
   }"
 >
   <input
