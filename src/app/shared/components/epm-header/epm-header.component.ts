@@ -7,11 +7,19 @@ import { APP_ROUTER_NAME, BUTTON_THEMES, HEADER_RIGHT_BLOCK } from '../../../app
 import { HeaderConfig } from '../../../app.model';
 import { HeaderService } from '../../../services/header.service';
 import { EpmNavigationIconComponent } from '../epm-navigation-icon/epm-navigation-icon.component';
+import { SetUserAvatarPipe } from '../../pipes/set-user-avatar.pipe';
 
 @Component({
   selector: 'epm-header',
   standalone: true,
-  imports: [CommonModule, EpmButtonComponent, NgOptimizedImage, RouterLink, EpmNavigationIconComponent],
+  imports: [
+    CommonModule,
+    EpmButtonComponent,
+    NgOptimizedImage,
+    RouterLink,
+    EpmNavigationIconComponent,
+    SetUserAvatarPipe
+  ],
   templateUrl: './epm-header.component.html',
   styleUrls: ['./epm-header.component.scss']
 })

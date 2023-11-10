@@ -5,7 +5,7 @@ export const CHATS_MOCK: ChatLastMessage[] = [
     name: 'Lola',
     surname: 'Smith',
     userId: '1',
-    avatarUrl: '/mocks/img/cat.jpg',
+    avatar: '/mocks/img/cat.jpg',
     lastMessageDateTime: '10:00 AM',
     lastMessage: 'Halo! Good Morning, whats up man?'
   },
@@ -13,7 +13,7 @@ export const CHATS_MOCK: ChatLastMessage[] = [
     name: 'Ali',
     surname: 'Connors',
     userId: '2',
-    avatarUrl: '/mocks/img/woman.jpg',
+    avatar: '/mocks/img/woman.jpg',
     lastMessageDateTime: '11:30 AM',
     lastMessage: 'So yes, the alcohol (ethanol) in hand sanitizers can be absorbed through the skin, but no, it would '
   },
@@ -21,7 +21,7 @@ export const CHATS_MOCK: ChatLastMessage[] = [
     name: 'John',
     surname: 'Doe',
     userId: '3',
-    avatarUrl: '/mocks/img/user_3.jpg',
+    avatar: '/mocks/img/user_3.jpg',
     lastMessageDateTime: '11:30 AM',
     lastMessage: 'The study was repeated with three brands of hand sanitizers containing 55%, 85%, and 95% ethanol. Th'
   },
@@ -29,7 +29,7 @@ export const CHATS_MOCK: ChatLastMessage[] = [
     name: 'Sarah',
     surname: 'Johnson',
     userId: '4',
-    avatarUrl: '/mocks/img/user_4.jpg',
+    avatar: '/mocks/img/user_4.jpg',
     lastMessageDateTime: '11:30 AM',
     lastMessage: 'Twenty 30-second applications within half an hour is well in excess of almost anyone’s use of a sani'
   },
@@ -37,7 +37,7 @@ export const CHATS_MOCK: ChatLastMessage[] = [
     name: 'Sophia',
     surname: 'Brown',
     userId: '5',
-    avatarUrl: '/mocks/img/user_5.png',
+    avatar: '/mocks/img/user_5.png',
     lastMessageDateTime: '11:30 AM',
     lastMessage:
       'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.'
@@ -47,7 +47,7 @@ export const CHATS_MOCK: ChatLastMessage[] = [
     surname: 'Martinez',
     userId: '6',
 
-    avatarUrl: '/mocks/img/user_6.png',
+    avatar: '/mocks/img/user_6.png',
     lastMessageDateTime: '11:30 AM',
     lastMessage: "Hey, how's it going?"
   },
@@ -56,7 +56,7 @@ export const CHATS_MOCK: ChatLastMessage[] = [
     surname: 'LongSurname',
     userId: '7',
 
-    avatarUrl: '/mocks/img/user_7.jpg',
+    avatar: '/mocks/img/user_7.jpg',
     lastMessageDateTime: '11:30 AM',
     lastMessage: 'That sounds amazing! What was the best part of your hike?'
   },
@@ -65,7 +65,7 @@ export const CHATS_MOCK: ChatLastMessage[] = [
     surname: 'Taylor',
     userId: '8',
 
-    avatarUrl: '/mocks/img/user_8.jpg',
+    avatar: '/mocks/img/user_8.jpg',
     lastMessageDateTime: '11:30 AM',
     lastMessage: 'Rainy days can be cozy if you have a good book and some hot tea. How do you like to spend them?'
   },
@@ -74,7 +74,7 @@ export const CHATS_MOCK: ChatLastMessage[] = [
     surname: 'Miller',
     userId: '9',
 
-    avatarUrl: '/mocks/img/user_9.png',
+    avatar: '/mocks/img/user_9.png',
     lastMessageDateTime: '11:30 AM',
     lastMessage: "I'm planning a road trip for the summer. Any must-visit destinations?"
   },
@@ -82,7 +82,7 @@ export const CHATS_MOCK: ChatLastMessage[] = [
     name: 'James',
     surname: 'Harris',
     userId: '10',
-    avatarUrl: '/mocks/img/user_10.jpg',
+    avatar: '/mocks/img/user_10.jpg',
     lastMessageDateTime: '11:30 AM',
     lastMessage: 'I just got a promotion at work!'
   }
@@ -96,13 +96,19 @@ export const PERSONAL_DATA_MOCK: UserDetailed = {
   about: 'Angular lover',
   interests: ['Travel', 'Family'],
   location: 'Ukraine, Dnipro',
-  avatarUrl: '/mocks/img/avatar.png',
-  socials: {
-    instagram: 'insta',
-    facebook: 'fb',
-    linkedin: '../company/epam-systems',
-    skype: 'call_me',
-    telegram: 'upamer'
+  avatar: '/mocks/img/avatar.png',
+  socialMedia: {
+    Instagram: 'insta',
+    Facebook: 'fb',
+    Linkedin: '../company/epam-systems',
+    Skype: 'call_me',
+    Telegram: 'upamer'
+  },
+  privacy: {
+    description: false,
+    location: false,
+    account: true,
+    age: true
   }
 };
 
@@ -115,13 +121,19 @@ export const USERS_MOCK: UserDetailed[] = [
     about: '',
     interests: ['Health', 'Travel'],
     location: 'Lviv',
-    avatarUrl: '/mocks/img/user_1.jpg',
-    socials: {
-      instagram: 'epam_ukraine',
-      linkedin: '../company/epam-systems',
-      facebook: '',
-      skype: '',
-      telegram: ''
+    avatar: '/mocks/img/user_1.jpg',
+    socialMedia: {
+      Instagram: 'epam_ukraine',
+      Linkedin: '../company/epam-systems',
+      Facebook: '',
+      Skype: '',
+      Telegram: ''
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -132,13 +144,19 @@ export const USERS_MOCK: UserDetailed[] = [
     about: 'Lorem ipsum dolor sit',
     interests: ['Health', 'Travel'],
     location: 'New York',
-    avatarUrl: '/mocks/img/user_2.jpg',
-    socials: {
-      instagram: 'epamsystems',
-      facebook: 'EPAM.Ukraine',
-      linkedin: '../company/epam-systems',
-      skype: '',
-      telegram: ''
+    avatar: '/mocks/img/user_2.jpg',
+    socialMedia: {
+      Instagram: 'epamsystems',
+      Facebook: 'EPAM.Ukraine',
+      Linkedin: '../company/epam-systems',
+      Skype: '',
+      Telegram: ''
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -149,13 +167,19 @@ export const USERS_MOCK: UserDetailed[] = [
     about: 'Tech enthusiast and travel lover',
     interests: ['Attractions', 'Travel', 'Sports'],
     location: 'New York',
-    avatarUrl: '/mocks/img/user_3.jpg',
-    socials: {
-      instagram: 'johndoe_adventures',
-      facebook: 'johndoe123',
-      linkedin: '../company/epam-systems',
-      skype: '',
-      telegram: ''
+    avatar: '/mocks/img/user_3.jpg',
+    socialMedia: {
+      Instagram: 'johndoe_adventures',
+      Facebook: 'johndoe123',
+      Linkedin: '../company/epam-systems',
+      Skype: '',
+      Telegram: ''
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -166,13 +190,19 @@ export const USERS_MOCK: UserDetailed[] = [
     about: 'Nature lover, fitness enthusiast, and bookworm',
     interests: ['Dining', 'Sports', 'Family', 'Travel', 'Education'],
     location: 'San Francisco',
-    avatarUrl: '/mocks/img/user_4.jpg',
-    socials: {
-      instagram: 'sarah_nature_fit',
-      facebook: '',
-      linkedin: '../company/epam-systems',
-      skype: '',
-      telegram: ''
+    avatar: '/mocks/img/user_4.jpg',
+    socialMedia: {
+      Instagram: 'sarah_nature_fit',
+      Facebook: '',
+      Linkedin: '../company/epam-systems',
+      Skype: '',
+      Telegram: ''
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -183,13 +213,19 @@ export const USERS_MOCK: UserDetailed[] = [
     about: 'Art lover and coffee addict',
     interests: ['Travel', 'Family', 'Health', 'Promotions', 'Sports', 'Education', 'Dining', 'Office'],
     location: 'Seattle',
-    avatarUrl: '/mocks/img/user_5.png',
-    socials: {
-      instagram: 'sophia_art_coffee',
-      facebook: 'sophia.brown',
-      linkedin: '../company/epam-systems',
-      skype: 'sophia_brown789',
-      telegram: 'sophia_coffee_lover'
+    avatar: '/mocks/img/user_5.png',
+    socialMedia: {
+      Instagram: 'sophia_art_coffee',
+      Facebook: 'sophia.brown',
+      Linkedin: '../company/epam-systems',
+      Skype: 'sophia_brown789',
+      Telegram: 'sophia_coffee_lover'
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -200,13 +236,19 @@ export const USERS_MOCK: UserDetailed[] = [
     about: 'Hiking enthusiast and tech geek',
     interests: ['Travel', 'Family', 'Sports', 'Education', 'Dining', 'Office'],
     location: 'Denver',
-    avatarUrl: '/mocks/img/user_6.png',
-    socials: {
-      instagram: 'daniel_hiker_tech',
-      facebook: 'daniel.martinez',
-      linkedin: '../company/epam-systems',
-      skype: 'daniel_martinez123',
-      telegram: 'daniel_tech_geek'
+    avatar: '/mocks/img/user_6.png',
+    socialMedia: {
+      Instagram: 'daniel_hiker_tech',
+      Facebook: 'daniel.martinez',
+      Linkedin: '../company/epam-systems',
+      Skype: 'daniel_martinez123',
+      Telegram: 'daniel_tech_geek'
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -217,13 +259,19 @@ export const USERS_MOCK: UserDetailed[] = [
     about: '',
     interests: ['Travel'],
     location: 'Netherlands, Hoofddorp, Mercuruissplein 1',
-    avatarUrl: '/mocks/img/user_7.jpg',
-    socials: {
-      instagram: 'olivia_animal_fashion',
-      facebook: 'olivia.anderson',
-      linkedin: '../company/epam-systems',
-      skype: 'olivia_anderson456',
-      telegram: 'olivia_dance_queen'
+    avatar: '/mocks/img/user_7.jpg',
+    socialMedia: {
+      Instagram: 'olivia_animal_fashion',
+      Facebook: 'olivia.anderson',
+      Linkedin: '../company/epam-systems',
+      Skype: 'olivia_anderson456',
+      Telegram: 'olivia_dance_queen'
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -234,13 +282,19 @@ export const USERS_MOCK: UserDetailed[] = [
     about: 'History buff and astronomy enthusiast',
     interests: [],
     location: '',
-    avatarUrl: '/mocks/img/user_8.jpg',
-    socials: {
-      instagram: 'william_history_star',
-      facebook: 'william.taylor',
-      linkedin: '../company/epam-systems',
-      skype: 'william_taylor789',
-      telegram: 'william_astronomy_lover'
+    avatar: '/mocks/img/user_8.jpg',
+    socialMedia: {
+      Instagram: 'william_history_star',
+      Facebook: 'william.taylor',
+      Linkedin: '../company/epam-systems',
+      Skype: 'william_taylor789',
+      Telegram: 'william_astronomy_lover'
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -251,13 +305,19 @@ export const USERS_MOCK: UserDetailed[] = [
     about: 'Gaming enthusiast and anime lover',
     interests: [],
     location: 'Austin',
-    avatarUrl: '/mocks/img/user_9.png',
-    socials: {
-      instagram: 'ava_gamer_anime',
-      facebook: 'ava.miller',
-      linkedin: '../company/epam-systems',
-      skype: 'ava_miller123',
-      telegram: 'ava_anime_fan'
+    avatar: '/mocks/img/user_9.png',
+    socialMedia: {
+      Instagram: 'ava_gamer_anime',
+      Facebook: 'ava.miller',
+      Linkedin: '../company/epam-systems',
+      Skype: 'ava_miller123',
+      Telegram: 'ava_anime_fan'
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   {
@@ -268,13 +328,19 @@ export const USERS_MOCK: UserDetailed[] = [
     about: '',
     interests: [],
     location: 'San Diego',
-    avatarUrl: '/mocks/img/user_10.jpg',
-    socials: {
-      instagram: '',
-      facebook: '',
-      linkedin: '',
-      skype: '',
-      telegram: ''
+    avatar: '/mocks/img/user_10.jpg',
+    socialMedia: {
+      Instagram: '',
+      Facebook: '',
+      Linkedin: '',
+      Skype: '',
+      Telegram: ''
+    },
+    privacy: {
+      description: false,
+      location: false,
+      account: true,
+      age: true
     }
   },
   PERSONAL_DATA_MOCK

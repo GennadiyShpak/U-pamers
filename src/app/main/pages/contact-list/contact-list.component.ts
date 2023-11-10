@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { APP_ROUTER_NAME } from '../../../app.config';
 import { ContactListItemComponent } from '../../components/contact-list-item/contact-list-item.component';
 import { ExpandedUserDetailed } from '../../main.model';
-import { MainApiService } from '../../service/main-api.service';
+import { MainApiService } from '../../services/main-api.service';
 
 @Component({
   selector: 'epm-contact-list',
@@ -24,7 +24,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userList = this.mainApiService.userList;
-    this.mainApiService.getUsers();
+    this.mainApiService.getUserListFromBE().subscribe();
   }
 
   ngOnDestroy(): void {

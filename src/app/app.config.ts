@@ -241,6 +241,7 @@ export const SOCIAL_PLACEHOLDERS_CONFIG: SocialURLsList = {
   telegram: getSocialPlaceholder('Telegram')
 };
 
+
 export const MODAL_LOGIN: ModalConfig = {
   titleText: 'Sorry, you are not login yet',
   supportText: 'You need to be logged in to message other users.',
@@ -261,3 +262,5 @@ export const MODAL_EDIT_INFO: ModalConfig = {
   primaryButtonText: 'Continue editing',
   secondaryButtonText: 'Leave without saving'
 };
+
+export const DEFAULT_AVATAR: string = '/assets/images/default-avatar.svg';
