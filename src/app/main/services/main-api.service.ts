@@ -23,29 +23,17 @@ export class MainApiService {
   getUserListFromBE() {
     return this.apiService.getUserList().pipe(
       map(newUserList => this.expandSocials(newUserList)),
-      // tap(newUserList => {
-      //   this.userList$.update(userList => [...userList, ...newUserList]);
-      // }),
+      tap(newUserList => {
+        this.userList$.update(userList => [...userList, ...newUserList]);
+      }),
       take(1)
     );
-  }
-
-  getUsers(): void {
-    of(USERS_MOCK)
-      .pipe(
-        map(newUserList => this.expandSocials(newUserList)),
-        tap(newUserList => {
-          this.userList$.update(userList => [...userList, ...newUserList]);
-        }),
-        take(1)
-      )
-      .subscribe();
   }
 
   getUserData(id: string): Observable<ExpandedUserDetailed> {
     return of(USERS_MOCK.find(user => user.userId === id)!).pipe(
       map(user => {
-        const userSocials = Object.entries(user.socials);
+        const userSocials = Object.entries(user.socialMedia);
         const socials: DetailedSocialLink[] = userSocials
           .map(this.getDetailedSocials)
           .sort((a, b) => a.priority - b.priority);
@@ -64,7 +52,7 @@ export class MainApiService {
   getExpandedPersonalData(): Observable<ExpandedUserDetailed> {
     return this.getPersonalData().pipe(
       map(user => {
-        const userSocials = Object.entries(user.socials);
+        const userSocials = Object.entries(user.socialMedia);
         const socials: DetailedSocialLink[] = userSocials
           .map(this.getDetailedSocials)
           .sort((a, b) => a.priority - b.priority);
@@ -77,7 +65,7 @@ export class MainApiService {
 
   private expandSocials(users: UserDetailed[]): ExpandedUserDetailed[] {
     return users.map((user: UserDetailed) => {
-      const userSocials = Object.entries(user.socials);
+      const userSocials = Object.entries(user.socialMedia);
       const socials: DetailedSocialLink[] = userSocials
         .map(this.getDetailedSocials)
         .sort((a, b) => a.priority - b.priority);
@@ -87,9 +75,11 @@ export class MainApiService {
   }
 
   private getDetailedSocials([socialName, userName]: [string, string]): DetailedSocialLink {
+    const normalizedSocialName = socialName.toLowerCase();
+
     return {
-      priority: PRIORITY_ORDER[socialName as keyof typeof PRIORITY_ORDER],
-      link: SOCIAL_PROFILE_LINKS_ROOT[socialName](userName),
+      priority: PRIORITY_ORDER[normalizedSocialName as keyof typeof PRIORITY_ORDER],
+      link: SOCIAL_PROFILE_LINKS_ROOT[normalizedSocialName](userName),
       type: socialName.toLowerCase() as SOCIAL_ICONS
     };
   }

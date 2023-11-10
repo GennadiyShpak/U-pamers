@@ -5,7 +5,7 @@ export interface User {
   name: string;
   surname: string;
   userId: string;
-  avatarUrl: string;
+  avatar: string;
 }
 
 export interface ChatLastMessage extends User {
@@ -18,7 +18,7 @@ export interface UserDetailed extends User {
   about: string;
   interests: string[];
   location: string;
-  socials: SocialLink;
+  socialMedia: SocialLink;
   privacy: UserPrivacy;
 }
 
@@ -43,7 +43,7 @@ export interface DetailedSocialLink {
   type: SOCIAL_ICONS;
 }
 
-export interface ExpandedUserDetailed extends Omit<UserDetailed, 'socials'> {
+export interface ExpandedUserDetailed extends Omit<UserDetailed, 'socialMedia'> {
   socials: DetailedSocialLink[];
 }
 
