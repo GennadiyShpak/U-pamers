@@ -70,27 +70,15 @@ export class EpmInputComponent implements OnInit, AfterViewInit {
   }
 
   private setMask(): void {
-    const element = this.epmInputRef.nativeElement;
-    const { symbol, quantity, regExp } = this.maskConfig!;
+    const input = this.epmInputRef.nativeElement  as HTMLInputElement;
 
     this.control.valueChanges
       .pipe(
         tap(value => {
-          const input = element as HTMLInputElement;
-          const cursorPosition = input.selectionStart;
-
-          let maskedNumbersValue = this.replaceNonMatching(value, regExp).padEnd(quantity, symbol).slice(0, quantity);
-          maskedNumbersValue = maskedNumbersValue === this.maskPlaceholder ? '' : maskedNumbersValue;
-
-          const enteredCharacterIsNumeric = new RegExp(`^${regExp.source}$`).test(value.charAt(cursorPosition! - 1));
-
-          this.control.setValue(maskedNumbersValue, { emitEvent: false });
-
-          if (enteredCharacterIsNumeric) {
-            input.setSelectionRange(cursorPosition, cursorPosition);
-          } else {
-            input.setSelectionRange(cursorPosition! - 1, cursorPosition! - 1);
-          }
+          const startCursorPosition = input.selectionStart!;
+          this.setInputValue(value);
+          const cursorPosition = this.setCursorPosition(startCursorPosition, value)
+          input.setSelectionRange(cursorPosition, cursorPosition);
         }),
         takeUntilDestroyed(this.destroyRef)
       )
@@ -99,5 +87,19 @@ export class EpmInputComponent implements OnInit, AfterViewInit {
 
   private replaceNonMatching(value: string, regExp: RegExp) {
     return value.replace(new RegExp(`[^${regExp.source}]`, 'g'), '');
+  }
+
+  private setInputValue(value: string) {
+    const { symbol, quantity, regExp } = this.maskConfig!;
+    let maskedNumbersValue = this.replaceNonMatching(value, regExp).padEnd(quantity, symbol).slice(0, quantity);
+    maskedNumbersValue = maskedNumbersValue === this.maskPlaceholder ? '' : maskedNumbersValue;
+
+    this.control.setValue(maskedNumbersValue, { emitEvent: false });
+  }
+
+  private setCursorPosition(startCursorPosition: number, value: string): number {
+    const enteredCharacterIsNumeric = new RegExp(`^${this.maskConfig?.regExp.source}$`).test(value.charAt(startCursorPosition - 1));
+
+    return enteredCharacterIsNumeric ? startCursorPosition : startCursorPosition - 1;
   }
 }
