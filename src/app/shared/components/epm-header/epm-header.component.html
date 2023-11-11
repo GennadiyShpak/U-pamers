@@ -1,6 +1,6 @@
 <div class="container" [ngClass]="{ colored: headerSettings().colored, shadow: shouldAddShadow }">
   <epm-navigation-icon [iconType]="headerSettings().leftButton" (back)="back()" />
-  <h1 class="title">{{ headerSettings().title }}</h1>
+  <h2 class="title">{{ headerSettings().title }}</h2>
   @if (isAuthorized) { @switch (headerSettings().right) { @case (headerRightBlock.StatusBar) {
 
   <div class="statusBar">

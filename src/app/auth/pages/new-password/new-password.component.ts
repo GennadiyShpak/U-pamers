@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { catchError, take, tap } from 'rxjs';
 
-import { EpmInputComponent } from '../../../shared/components/epm-input/epm-input.component';
+import { EpmInputComponent, MaskConfig } from '../../../shared/components/epm-input/epm-input.component';
 import { EpmButtonComponent } from '../../../shared/components/epm-button/epm-button.component';
-import { APP_ROUTER_NAME, BUTTON_THEMES, INPUT_TYPES } from '../../../app.config';
+import { APP_ROUTER_NAME, BUTTON_THEMES, INPUT_PLACEHOLDERS, INPUT_TYPES } from '../../../app.config';
 import { CustomValidators } from '../../../shared/validators/custom.validators';
 import { NewPasswordForm } from '../../auth.model';
 import { EpmErrorMessageComponent } from '../../../shared/components/epm-error-message/epm-error-message.component';
 import { PASSWORDS_TO_COMPARE } from '../../auth.config';
 import { CognitoService } from 'src/app/services/cognito.service';
+import { PasswordSavedComponent } from '../../components/password-saved/password-saved.component';
 
 @Component({
   selector: 'epm-new-password',
@@ -22,19 +23,24 @@ import { CognitoService } from 'src/app/services/cognito.service';
     EpmButtonComponent,
     RouterLink,
     ReactiveFormsModule,
-    EpmErrorMessageComponent
+    EpmErrorMessageComponent,
+    PasswordSavedComponent
   ],
   templateUrl: './new-password.component.html',
   styleUrls: ['./new-password.component.scss']
 })
 export default class NewPasswordComponent implements OnInit {
-  isNewPasswordFormSubmitted = false;
+  @ViewChild('codeRef') codeInputRef!: EpmInputComponent;
+
+  isCodeSubmitted = false;
+  isNewPasswordFormSubmited = false;
   createNewPasswordForm!: FormGroup<NewPasswordForm>;
 
   readonly priorityErrors = ['samePasswordsValue'];
   readonly buttonThemes: typeof BUTTON_THEMES = BUTTON_THEMES;
-  readonly loginLink: string = `/${APP_ROUTER_NAME.Auth}/${APP_ROUTER_NAME.LogIn}`;
   readonly inputTypes: typeof INPUT_TYPES = INPUT_TYPES;
+  readonly inputPlaceholders: typeof INPUT_PLACEHOLDERS = INPUT_PLACEHOLDERS;
+  readonly codeMaskConfig: MaskConfig = { symbol: '_', quantity: 6, regExp: /\d/ };
 
   get email(): FormControl {
     return this.createNewPasswordForm.controls.email;
@@ -62,13 +68,17 @@ export default class NewPasswordComponent implements OnInit {
     this.initCreateNewPasswordForm();
   }
 
-  onSubmit(): void {
+  onCodeSubmit(): void {
+    this.isCodeSubmitted = true;
+  }
+
+  onNewPasswordSubmit(): void {
     const { email, code, newPassword } = this.createNewPasswordForm.value;
     this.cognitoService
       .forgotPasswordSubmit(email!, code!, newPassword!)
       .pipe(
         tap(() => {
-          this.isNewPasswordFormSubmitted = true;
+          this.isNewPasswordFormSubmited = true;
         }),
         take(1),
         catchError(() => this.router.navigateByUrl(`/${APP_ROUTER_NAME.NotFound}`))
@@ -79,20 +89,10 @@ export default class NewPasswordComponent implements OnInit {
   private initCreateNewPasswordForm(): void {
     this.createNewPasswordForm = this.fb.group(
       {
-        newPassword: [
-          '',
-          {
-            validators: [Validators.required, Validators.minLength(8), CustomValidators.password()]
-          }
-        ],
-        confirmNewPassword: [
-          '',
-          {
-            validators: [Validators.required]
-          }
-        ],
-        code: ['', Validators.required],
-        email: ['', Validators.required]
+        newPassword: ['', [Validators.required, Validators.minLength(8), CustomValidators.password()]],
+        confirmNewPassword: ['', [Validators.required]],
+        code: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]]
       },
       {
         validators: [

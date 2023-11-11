@@ -6,7 +6,9 @@
     'nested-icon-input': iconName,
     filled: epmInput.value || epmInput.placeholder,
     'label-password': type === inputTypes.Password,
-    'chat-input': epmInput.placeholder === inputPlaceholders.Chat
+    'chat-input': epmInput.placeholder === inputPlaceholders.Chat,
+    masked: maskConfig,
+    masked__filled: maskConfig && epmInput.value
   }"
 >
   <input
@@ -15,7 +17,7 @@
     autocomplete="off"
     [type]="type"
     [name]="control"
-    [placeholder]="inputPlaceholder"
+    [placeholder]="inputPlaceholder || maskPlaceholder"
     [formControl]="control"
   />
   @if (type === inputTypes.Password) {

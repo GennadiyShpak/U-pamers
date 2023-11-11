@@ -94,6 +94,51 @@
         height: 40px;
       }
     }
+
+    &.masked {
+      &::after {
+        top: 16px;
+        font-size: $font-size-regular;
+        line-height: 20px;
+      }
+
+      &:focus-within {
+        & > .epm-input {
+          &::placeholder {
+            opacity: 1;
+          }
+        }
+
+        &::after {
+          top: 8px;
+          font-size: $font-size-label;
+          line-height: 12px;
+        }
+      }
+
+      & > .epm-input {
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 2px;
+        font-family: monospace;
+
+        &::placeholder {
+          opacity: 0;
+          position: relative;
+          font-family: monospace;
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: 400;
+          line-height: 1.25;
+        }
+      }
+
+      &__filled::after,
+      &__filled:focus-within::after {
+        top: 8px;
+        font-size: $font-size-label;
+        line-height: 12px;
+      }
+    }
   }
 
   &__toggle-visibility {
